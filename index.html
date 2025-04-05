@@ -3,58 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stonebooks Studio｜2025 春夏課程總覽</title>
+  <title>Stonebooks Studio｜首頁總覽</title>
   <style>
     body {
-      font-family: "Helvetica Neue", sans-serif;
-      background-color: #fefefe;
       margin: 0;
-      padding: 2rem;
-      line-height: 1.6;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #fffdfa;
       color: #333;
     }
-    h1 {
-      color: #c94f4f;
-      font-size: 2rem;
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      background-color: #ffffff;
     }
-    h2 {
-      margin-top: 2rem;
+    header img {
+      max-width: 200px;
+      margin-bottom: 1rem;
+    }
+    header h1 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+      color: #c94f4f;
+    }
+    header p {
+      font-size: 1.1rem;
       color: #555;
     }
-    ul {
-      list-style-type: none;
-      padding-left: 0;
+    .menu-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2rem 1rem;
     }
-    li {
-      margin: 0.5rem 0;
+    .menu-card {
+      background: #fff0f0;
+      border: 2px solid #c94f4f;
+      border-radius: 16px;
+      padding: 2rem;
+      width: 280px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    a {
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .menu-card a {
       text-decoration: none;
-      color: #2a7ae2;
+      color: #c94f4f;
+      font-size: 1.2rem;
+      font-weight: bold;
     }
-    a:hover {
-      text-decoration: underline;
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #999;
+    }
+    @media (max-width: 600px) {
+      .menu-card {
+        width: 90%;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Stonebooks Studio｜2025 春夏課程總覽</h1>
+  <header>
+    <img src="485050341_1082448523899683_2258285413955089949_n.png" alt="Stone Studio Logo">
+    <h1>Stonebooks Studio｜2025 春夏課程</h1>
+    <p>點亮孩子的語言與探索力</p>
+  </header>
 
-  <h2>📅 4 月活動</h2>
-  <ul>
-    <li>📘 <a href="20250412_trial_class.html" target="_blank">4/12 外師英文體驗課（Nahomi）</a></li>
-    <li>🔥 <a href="佛腳班.html" target="_blank">4/13 國小段考總複習（Team）</a></li>
-    <li>🧪 <a href="國一數理先修.html" target="_blank">國一數理先修體驗課（4/20）</a></li>
-    <li>🧪 <a href="GEPT.html" target="_blank">GEPT全民英檢一次過!15堂</a></li>
-    <!-- <li>🧪 <a href="私中英文.html" target="_blank">私中/六年級先修英文</a></li> -->
-    <!-- <li>📝 <a href="#" target="_blank">4/22 國一先修英語閱讀班（Joanne）</a></li>
-    <li>📚 <a href="#" target="_blank">4/22 Laisha 外師閱讀課</a></li> -->
-  </ul>
+  <section class="menu-section">
+    <div class="menu-card">
+      <a href="April.html">📅 4 月活動專區</a>
+    </div>
+    <div class="menu-card">
+      <a href="course/normal_class.html">📘常態課程</a>
+    </div>
+    <div class="menu-card">
+      <a href="summer_camp/index.html">☀️ 夏日營隊總覽</a>
+    </div>
+  </section>
 
-  <h2>☀️ 暑期課程推薦</h2>
-  <ul>
-    <li>✍️ <a href="私中英文.html" target="_blank">私中/六年級先修英文</a></li>
-    <li>🎉 <a href="summer_camp/index.html" target="_blank">夏日營隊熱烈報名中！</a></li>
-  </ul>
+  <footer>
+    Stonebooks Studio © 2025 ｜ Designed with ♥
+  </footer>
 </body>
 </html>
