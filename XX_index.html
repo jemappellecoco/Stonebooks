@@ -3,70 +3,175 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stonebooks Studio｜常態課程介紹</title>
+  <title>Stonebooks Studio｜首頁</title>
   <style>
     body {
-      font-family: "Helvetica Neue", sans-serif;
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
       background-color: #fffdfa;
-      padding: 2rem;
       color: #333;
-      line-height: 1.8;
-      max-width: 900px;
-      margin: auto;
     }
-    h1 {
-      text-align: center;
-      color: #c94f4f;
-      margin-bottom: 2rem;
+    header {
+      background-color: #c94f4f;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    h2 {
-      color: #444;
-      border-left: 4px solid #c94f4f;
-      padding-left: 0.5rem;
-      margin-top: 2.5rem;
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
     }
-    ul {
-      padding-left: 1.5rem;
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      position: relative;
     }
-    li {
-      margin-bottom: 1rem;
+    .nav-item {
+      position: relative;
     }
-    a {
-      color: #2a7ae2;
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem;
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 2rem;
+      left: 0;
+      background-color: white;
+      color: #333;
+      min-width: 180px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .dropdown a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: #333;
       text-decoration: none;
     }
-    a:hover {
-      text-decoration: underline;
+    .dropdown a:hover {
+      background-color: #fff0f0;
     }
-    .back {
+    .nav-item:hover .dropdown {
+      display: block;
+    }
+    .hero {
       text-align: center;
-      margin-top: 3rem;
+      padding: 3rem 1rem 2rem;
+    }
+    .hero h1 {
+      color: #c94f4f;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    .menu-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2rem 1rem;
+    }
+    .menu-card {
+      background: #fff0f0;
+      border: 2px solid #c94f4f;
+      border-radius: 16px;
+      padding: 2rem;
+      width: 280px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .menu-card a {
+      text-decoration: none;
+      color: #c94f4f;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #999;
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .menu-card {
+        width: 90%;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>📘 Stonebooks Studio｜暑期常態課程總覽</h1>
+  <header>
+    <div class="logo">Stonebooks</div>
+    <nav>
+      <div class="nav-item">
+        <a class="nav-link" href="#">課程</a>
+        <div class="dropdown">
+          <a href="course/normal_class.html">常態課程</a>
+          <a href="course/私中英文.html">私中先修</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="#">營隊</a>
+        <div class="dropdown">
+          <a href="summer_camp/kpop_camp.html">Kpop 營</a>
+          <a href="summer_camp/sky.html">穿越星空營</a>
+          <a href="summer_camp/Davanci.html">小小達文西營</a>
+        </div>
+      </div>
+      <a class="nav-link" href="vision.html">關於我們</a>
+      <a class="nav-link" href="teachers.html">師資</a>
+      <a class="nav-link" href="contact.html">聯絡</a>
+    </nav>
+  </header>
 
-  <h2>🎒 國小課程</h2>
-  <ul>
-    <li>🔤 <a href="私中英文.html" target="_blank">私中／升六文法加強班</a></li>
-    <li>🎧 <a href="GEPT.html" target="_blank">全民英檢初級聽讀密集班（五年級以上）</a></li>
-  </ul>
+  <section class="hero">
+    <h1>Stonebooks Studio｜讓孩子愛上學習的起點</h1>
+    <p>語言 × 探索 × 成長｜每個孩子都有無限可能</p>
+  </section>
 
-  <h2>🔬 國中課程</h2>
-  <ul>
-    <li>🧪 <a href="國一數理先修.html" target="_blank">國一數理先修班</a></li>
-    <li>🎯 <a href="GEPT.html" target="_blank">GEPT 初級密集班（適合國中生打底）</a></li>
-  </ul>
+  <section class="menu-section">
+    <div class="menu-card">
+      <a href="April.html">📅 四月活動總覽</a>
+    </div>
+    <div class="menu-card">
+      <a href="course/normal_class.html">📘 常態課程</a>
+    </div>
+    <div class="menu-card">
+      <a href="summer_camp/index.html">☀️ 夏令營隊專區</a>
+    </div>
+    <div class="menu-card">
+      <a href="teachers.html">🧑‍🏫 師資介紹</a>
+    </div>
+    <div class="menu-card">
+      <a href="vision.html">💡 教學理念</a>
+    </div>
+    <div class="menu-card">
+      <a href="contact.html">📮 聯絡我們</a>
+    </div>
+  </section>
 
-  <h2>🎓 高中課程</h2>
-  <ul>
-    <li>📖 高中英文閱讀與寫作加強班（開課中，詳洽老師）</li>
-    <li>📝 托福／雅思預備班（依程度安排，請來信諮詢）</li>
-  </ul>
-
-  <div class="back">
-    <a href="../index.html">← 返回首頁</a>
-  </div>
+  <footer>
+    Stonebooks Studio © 2025 ｜ Designed by Coco
+  </footer>
 </body>
 </html>

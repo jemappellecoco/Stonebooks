@@ -3,29 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stonebooks Studio｜首頁總覽</title>
+  <title>Stonebooks Studio｜首頁</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
       background-color: #fffdfa;
       color: #333;
     }
     header {
+      background-color: #000000;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      position: relative;
+    }
+    .nav-item {
+      position: relative;
+    }
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem;
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 2rem;
+      left: 0;
+      background-color: white;
+      color: #333;
+      min-width: 180px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    .dropdown a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: #333;
+      text-decoration: none;
+    }
+    .dropdown a:hover {
+      background-color: #fff0f0;
+    }
+    .nav-item:hover .dropdown {
+      display: block;
+    }
+    .hero {
       text-align: center;
       padding: 3rem 1rem 2rem;
-      background-color: #ffffff;
     }
-    header img {
-      max-width: 200px;
-      margin-bottom: 1rem;
-    }
-    header h1 {
-      font-size: 1.75rem;
-      margin-bottom: 0.5rem;
+    .hero h1 {
       color: #c94f4f;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
-    header p {
+    .hero p {
       font-size: 1.1rem;
       color: #555;
     }
@@ -62,6 +109,10 @@
       color: #999;
     }
     @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
       .menu-card {
         width: 90%;
       }
@@ -70,25 +121,57 @@
 </head>
 <body>
   <header>
-    <img src="./image/LOGO.png" alt="Stone Studio Logo">
-    <h1>Stonebooks Studio｜2025 春夏課程</h1>
-    <p>點亮孩子的語言與探索力</p>
+    <div class="logo">Stonebooks</div>
+    <nav>
+      <div class="nav-item">
+        <a class="nav-link" href="#">課程</a>
+        <div class="dropdown">
+          <a href="course/normal_class.html">常態課程</a>
+          <a href="course/私中英文.html">私中先修</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="#">營隊</a>
+        <div class="dropdown">
+          <a href="summer_camp/kpop_camp.html">Kpop 營</a>
+          <a href="summer_camp/sky.html">穿越星空營</a>
+          <a href="summer_camp/Davanci.html">小小達文西營</a>
+        </div>
+      </div>
+      <a class="nav-link" href="vision.html">關於我們</a>
+      <a class="nav-link" href="teachers.html">師資</a>
+      <a class="nav-link" href="contact.html">聯絡</a>
+    </nav>
   </header>
+
+  <section class="hero">
+    <h1>Stonebooks Studio｜讓孩子愛上學習的起點</h1>
+    <p>語言 × 探索 × 成長｜每個孩子都有無限可能</p>
+  </section>
 
   <section class="menu-section">
     <div class="menu-card">
-      <a href="April.html">📅 4 月活動專區</a>
+      <a href="April.html">📅 四月活動總覽</a>
     </div>
     <div class="menu-card">
-      <a href="course/normal_class.html">📘常態課程</a>
+      <a href="course/normal_class.html">📘 常態課程</a>
     </div>
     <div class="menu-card">
-      <a href="summer_camp/index.html">☀️ 夏日營隊總覽</a>
+      <a href="summer_camp/index.html">☀️ 夏令營隊專區</a>
+    </div>
+    <div class="menu-card">
+      <a href="teachers.html">🧑‍🏫 師資介紹</a>
+    </div>
+    <div class="menu-card">
+      <a href="vision.html">💡 教學理念</a>
+    </div>
+    <div class="menu-card">
+      <a href="contact.html">📮 聯絡我們</a>
     </div>
   </section>
 
   <footer>
-    Stonebooks Studio © 2025 ｜ Designed By Coco
+    Stonebooks Studio © 2025 ｜ Designed by Coco
   </footer>
 </body>
 </html>
