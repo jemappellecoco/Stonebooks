@@ -29,7 +29,6 @@
     nav {
       display: flex;
       gap: 1.5rem;
-      position: relative;
     }
     .nav-item {
       position: relative;
@@ -62,6 +61,50 @@
     }
     .nav-item:hover .dropdown {
       display: block;
+    }
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #fff;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .mobile-menu a,
+    .mobile-dropdown-toggle {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+      color: #c94f4f;
+      text-decoration: none;
+      font-weight: bold;
+      background-color: white;
+      cursor: pointer;
+    }
+    .mobile-submenu {
+      display: none;
+      flex-direction: column;
+      background-color: #fffafa;
+    }
+    .mobile-submenu a {
+      padding: 0.75rem 1.5rem;
+      font-weight: normal;
+    }
+    .mobile-submenu a:hover {
+      background-color: #fff0f0;
+    }
+    .mobile-menu a:hover,
+    .mobile-dropdown-toggle:hover {
+      background-color: #fff0f0;
+    }
+    .show {
+      display: flex !important;
     }
     .hero {
       text-align: center;
@@ -108,13 +151,15 @@
       font-size: 0.9rem;
       color: #999;
     }
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       nav {
-        flex-direction: column;
-        align-items: flex-start;
+        display: none;
       }
-      .menu-card {
-        width: 90%;
+      .hamburger {
+        display: block;
+      }
+      .mobile-menu {
+        display: flex;
       }
     }
   </style>
@@ -142,7 +187,25 @@
       <a class="nav-link" href="teachers.html">師資</a>
       <a class="nav-link" href="contact.html">聯絡</a>
     </nav>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
   </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-dropdown-toggle" onclick="toggleSubmenu('courseSubmenu')">📘 課程 ▼</div>
+    <div class="mobile-submenu" id="courseSubmenu">
+      <a href="course/normal_class.html">常態課程</a>
+      <a href="course/私中英文.html">私中先修</a>
+    </div>
+    <div class="mobile-dropdown-toggle" onclick="toggleSubmenu('campSubmenu')">☀️ 營隊 ▼</div>
+    <div class="mobile-submenu" id="campSubmenu">
+      <a href="summer_camp/kpop_camp.html">Kpop 營</a>
+      <a href="summer_camp/sky.html">穿越星空營</a>
+      <a href="summer_camp/Davanci.html">小小達文西營</a>
+    </div>
+    <a href="vision.html">關於我們</a>
+    <a href="teachers.html">師資</a>
+    <a href="contact.html">聯絡</a>
+  </div>
 
   <section class="hero">
     <h1>Stonebooks Studio｜讓孩子愛上學習的起點</h1>
@@ -173,5 +236,16 @@
   <footer>
     Stonebooks Studio © 2025 ｜ Designed by Coco
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+    function toggleSubmenu(id) {
+      const submenu = document.getElementById(id);
+      submenu.classList.toggle("show");
+    }
+  </script>
 </body>
 </html>
