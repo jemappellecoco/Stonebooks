@@ -4,10 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KDANCE COMPETITION CAMP IN SEOUL 2025｜Stonebooks Studio</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     body {
       font-family: "Helvetica Neue", sans-serif;
-      background-color: #fffdfa;
+      background: radial-gradient(#fffdfa, #ffecec);
+      background-size: 200% 200%;
+      animation: gradientShift 12s ease infinite;
       padding: 2rem;
       color: #333;
       line-height: 1.8;
@@ -37,6 +40,7 @@
     iframe {
       margin-top: 1rem;
       border: 1px solid #ddd;
+      animation: floatIn 1.2s ease-out;
     }
     .register-button {
       display: inline-block;
@@ -50,18 +54,120 @@
       text-align: center;
       text-decoration: none;
       transition: background-color 0.3s, transform 0.2s;
+      animation: pulse 2.5s infinite;
     }
     .register-button:hover {
       background-color: #a83838;
       transform: translateY(-2px);
     }
+    .hero-highlight {
+      background-color: #ffecec;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      margin-bottom: 3rem;
+    }
+    .hero-highlight h2 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #c94f4f;
+      margin-bottom: 1rem;
+    }
+    .hero-highlight h3 {
+      font-size: 1.25rem;
+      color: #a33a3a;
+      margin-top: 1.5rem;
+    }
+    .hero-highlight ul {
+      padding-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    .hero-highlight li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+    .hero-highlight p {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+    .hero-highlight .star {
+      color: #c94f4f;
+      font-weight: bold;
+      animation: sparkle 1.5s infinite;
+    }
+    .hero-highlight .closing {
+      font-size: 1.15rem;
+      margin-top: 1.5rem;
+      line-height: 1.8;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    @keyframes sparkle {
+      0%, 100% { color: #c94f4f; text-shadow: 0 0 2px #ffbaba; }
+      50% { color: #ff7676; text-shadow: 0 0 8px #ffd6d6; }
+    }
+    @keyframes floatIn {
+      0% { opacity: 0; transform: translateY(50px) rotate(-3deg); }
+      100% { opacity: 1; transform: translateY(0) rotate(0); }
+    }
   </style>
 </head>
+    
+
 <body>
+  <div class="hero-highlight" data-aos="zoom-in">
+    <h2>💥 韓國舞壇頂尖師資，只在今年暑假首爾現身授課！</h2>
+    <p>本次營隊特邀來自 <strong class="star">1MILLION、Prepix、MOTF</strong> 等韓國頂尖舞團的專業導師，<br/>
+    包含與多位韓星合作的<strong class="star">御用編舞師、MV 舞蹈總監與表演訓練教練</strong>，親自帶領孩子進入舞台核心！</p>
+  
+    <h3>🌟 師資陣容亮點：</h3>
+    <ul>
+      <li>🎬 曾為 <strong class="star">少女時代太妍（TaeYeon）、ZICO、Jay Park</strong> 編舞的御用導師</li>
+      <li>🎥 拍攝韓國最大舞團紀錄片的專業攝影導演</li>
+      <li>🕺 活躍於 <strong class="star">YouTube 百萬點閱舞蹈影片</strong>、KPOP 偶像排練現場</li>
+      <li>👑 擅長 <strong class="star">Waacking、Jazz Funk、Urban、Hip-hop</strong> 等多元舞風</li>
+      <li>🏆 曾指導 <strong class="star">BEAST、PIXY、TWS、Ariana Grande</strong> 的舞台演出與音樂錄影帶</li>
+    </ul>
+  
+    <p class="closing">
+      🎯 這不只是一場跳舞課程，更是一次難得的 <strong class="star">國際級舞蹈訓練體驗</strong><br/>
+      📍 2025 暑假限定營隊，名額有限，<strong class="star">現在報名，把握與韓星御用編舞師面對面學習的機會！</strong>
+    </p>
+  </div>
+  <section class="why-join-camp" data-aos="fade-up">
+    <h2>💡 為什麼我們推薦孩子參加這場國際舞蹈營？</h2>
+    <p>在學舞的過程中，孩子不只是學會跳一支舞，更學會：</p>
+    <ul>
+      <li>✔️ <strong>勇敢站上舞台，自信展現自己</strong></li>
+      <li>✔️ <strong>與來自不同文化的導師交流，拓展國際視野</strong></li>
+      <li>✔️ <strong>體驗韓國舞壇專業的訓練模式與舞蹈精神</strong></li>
+      <li>✔️ <strong>從明星御用編舞師身上學習專業態度與精準肢體控制</strong></li>
+    </ul>
+    <p>這是一場孩子與世界對話的機會，<br/>
+    也是一次能讓他們眼睛發亮、心裡充滿熱情的旅程。</p>
+  
+    <p><strong>📍 專業師資親授 + 完整行前行後輔導 </strong><br/>
+    我們不只帶孩子學跳舞，更帶他們成長與蛻變。</p>
+  </section>
+  
+  
+  <div class="section" data-aos="fade-up">
+    <h2>📄 活動說明手冊預覽</h2>
+    <iframe src="https://drive.google.com/file/d/1WOFpmkQp0PDLfFGAbl75I2aY51znapOi/preview" width="100%" height="600px" allow="autoplay"></iframe>
+  </div>
   <h1># KDANCE COMPETITION CAMP IN SEOUL 2025</h1>
   <p><strong>來韓國，展現你的舞蹈實力，挑戰最高舞台</strong></p>
 
-  <div class="section">
+  <div class="section" data-aos="fade-up">
     <h2>📅 營隊資訊</h2>
     <ul>
       <li><strong>時間：</strong>2025 年 7 月 19 日－7 月 24 日</li>
@@ -70,8 +176,8 @@
     </ul>
     <p>全英語環境，讓 KPOP 成為我們的共同語言！</p>
   </div>
-
-  <div class="section">
+   
+  <div class="section" data-aos="fade-up">
     <h2>🌟 活動亮點一覽</h2>
     <ul>
       <li>團體／獨舞比賽，總獎金高達 500 萬韓元</li>
@@ -81,7 +187,7 @@
       <li>住宿、三餐、機場接送一應俱全，安心參與</li>
     </ul>
   </div>
-  <div class="section">
+  <div class="section" data-aos="fade-up">
     <h2>🕺 行前舞蹈訓練加值回饋</h2>
     <ul>
       <li>凡完成報名，即可參加 <strong>Stonebooks Studio 特別舉辦的行前舞蹈訓練課</strong></li>
@@ -90,7 +196,7 @@
     </ul>
   </div>
   
-  <div class="section">
+  <div class="section" data-aos="fade-up">
     <h2>💰 費用說明</h2>
     <ul>
       <li><strong>參加費用：</strong>新台幣 58,800 元</li>
@@ -99,7 +205,7 @@
       <li><strong>團報優惠：</strong>五人即可成團，一起跳更嗨，價格更可愛！揪團報名享折扣！</li>
     </ul>
   </div>
-  <div class="section">
+  <div class="section" data-aos="fade-up">
     <h2>👨‍👩‍👧 家長方案 家長可同行</h2>
     <ul>
       <li><strong>家長費用：</strong>新台幣 35,000 元</li>
@@ -109,7 +215,7 @@
     </ul>
   </div>
   
-  <div class="section">
+  <div class="section"data-aos="fade-up" >
     <h2>🧳 活動與住宿概覽</h2>
     <ul>
       <li><strong>住宿：</strong>雙人房附私人衛浴（可指定同房）</li>
@@ -119,7 +225,7 @@
     </ul>
   </div>
 
-  <div class="section">
+  <div class="section" data-aos="fade-up">
     <h2>🚐 接送服務</h2>
     <ul>
       <li>仁川機場：7/19 10:00-11:00 第1航廈 1F「D」區10號門</li>
@@ -130,7 +236,7 @@
   
 
 
-  <div class="section">
+  <div class="section" data-aos="fade-up">
     <h2>📋 比賽與規範</h2>
     <ul>
       <li>獨舞：歌詞＋副歌部分表演</li>
@@ -141,12 +247,9 @@
     <p><strong>規定：</strong>禁止喧嘩、飲酒、賭博／禁止自行烹飪／吸煙限區域／請自備水壺</p>
   </div>
 
-  <div class="section">
-    <h2>📄 活動說明手冊預覽</h2>
-    <iframe src="https://drive.google.com/file/d/1WOFpmkQp0PDLfFGAbl75I2aY51znapOi/preview" width="100%" height="600px" allow="autoplay"></iframe>
-  </div>
+ 
 
-  <div class="highlight">
+  <div class="highlight" data-aos="fade-up">
     <p>🎉 <strong>6 天 5 夜的全方位舞蹈之旅，讓你用舞蹈跨越語言，用 KPOP 連結世界！</strong></p>
     <p>📢 名額有限，立即報名，與來自各地的舞者一起舞動首爾！</p>
     <a href="https://forms.gle/aGij8tJxSeDDd4d6A" target="_blank" class="register-button">📩 立即報名</a>
@@ -154,5 +257,9 @@
   
 
   <p><a href="index.html">← 返回營隊總覽</a></p>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
