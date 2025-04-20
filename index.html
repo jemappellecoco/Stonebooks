@@ -168,45 +168,73 @@
   <header>
     <div class="logo">Stonebooks</div>
     <nav>
+      <a class="nav-link" href="index.html">首頁</a>
       <div class="nav-item">
-        <a class="nav-link" href="#">課程</a>
+        <a class="nav-link" href="#">關於我們</a>
         <div class="dropdown">
-          <a href="course/normal_class.html">常態課程</a>
-          <a href="course/私中英文.html">私中先修</a>
+          <a href="vision.html">教學理念</a>
+          <a href="teachers.html">師資介紹</a>
+          <a href="environment.html">教室環境</a>
         </div>
       </div>
       <div class="nav-item">
-        <a class="nav-link" href="#">暑期營隊</a>
+        <a class="nav-link" href="#">課程與營隊</a>
         <div class="dropdown">
-          <a href="summer_camp/kpop_camp.html">Kpop 營</a>
-          <a href="summer_camp/sky.html">穿越星空營</a>
-          <a href="summer_camp/Davanci.html">小小達文西營</a>
-          <a href="trip/hualien_trip.html">花蓮三天兩夜</a>
+          <a href="summer_camp/index.html">營隊專區</a>
+          <a href="trip/domestic.html">國內自旅行營</a>
+          <a href="trip/oversea.html">海外遊學團</a>
+          <a href="course/normal_class.html">平日課程</a>
+          <a href="course/1to1.html">一對一 / 小班制</a>
+          <a href="course/workshop.html">主題工作坊</a>
         </div>
       </div>
-      <a class="nav-link" href="vision.html">關於我們</a>
-      <a class="nav-link" href="teachers.html">師資</a>
-      <a class="nav-link" href="contact.html">聯絡我們</a>
+      <div class="nav-item">
+        <a class="nav-link" href="#">活動成果</a>
+        <div class="dropdown">
+          <a href="gallery.html">活動總覽</a>
+          <a href="gallery/media.html">照片 / 影片記錄</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link" href="#">家長專區</a>
+        <div class="dropdown">
+          <a href="faq.html">常見問題 Q&A</a>
+          <a href="payment.html">匯款 / 報名資訊</a>
+          <a href="https://lin.ee/LSkFblL">聯絡方式</a>
+        </div>
+      </div>
     </nav>
     <div class="hamburger" onclick="toggleMenu()">☰</div>
   </header>
 
   <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-dropdown-toggle" onclick="toggleSubmenu('courseSubmenu')">📘 課程 ▼</div>
+    <a href="index.html">🏠 首頁</a>
+    <div class="mobile-dropdown-toggle" onclick="toggleSubmenu('aboutSubmenu')">📖 關於我們 ▼</div>
+    <div class="mobile-submenu" id="aboutSubmenu">
+      <a href="vision.html">教學理念</a>
+      <a href="teachers.html">師資介紹</a>
+      <a href="environment.html">教室環境</a>
+    </div>
+    <div class="mobile-dropdown-toggle" onclick="toggleSubmenu('courseSubmenu')">📘 課程與營隊 ▼</div>
     <div class="mobile-submenu" id="courseSubmenu">
-      <a href="course/normal_class.html">常態課程</a>
-      <a href="course/私中英文.html">私中先修</a>
+      <a href="summer_camp/index.html">營隊專區</a>
+      <a href="trip/domestic.html">國內自旅行營</a>
+      <a href="trip/oversea.html">海外遊學團</a>
+      <a href="course/normal_class.html">平日課程</a>
+      <a href="course/1to1.html">一對一 / 小班制</a>
+      <a href="course/workshop.html">主題工作坊</a>
     </div>
-    <div class="mobile-dropdown-toggle" onclick="toggleSubmenu('campSubmenu')">☀️ 營隊 ▼</div>
-    <div class="mobile-submenu" id="campSubmenu">
-      <a href="summer_camp/kpop_camp.html">Kpop 營</a>
-      <a href="summer_camp/sky.html">穿越星空營</a>
-      <a href="summer_camp/Davanci.html">小小達文西營</a>
-      <a href="trip/hualien_trip.html">花蓮三天兩夜</a>
+    <div class="mobile-dropdown-toggle" onclick="toggleSubmenu('gallerySubmenu')">📷 活動成果 ▼</div>
+    <div class="mobile-submenu" id="gallerySubmenu">
+      <a href="gallery.html">活動總覽</a>
+      <a href="gallery/media.html">照片 / 影片記錄</a>
     </div>
-    <a href="vision.html">關於我們</a>
-    <a href="teachers.html">師資</a>
-    <a href="https://lin.ee/LSkFblL">聯絡我們</a>
+    <div class="mobile-dropdown-toggle" onclick="toggleSubmenu('parentSubmenu')">👨‍👩‍👧‍👦 家長專區 ▼</div>
+    <div class="mobile-submenu" id="parentSubmenu">
+      <a href="/policy/FQA.html">常見問題 Q&A</a>
+      <a href="payment.html">匯款 / 報名資訊</a>
+      <a href="https://lin.ee/LSkFblL">聯絡方式</a>
+    </div>
   </div>
 
   <section class="hero">
@@ -219,16 +247,16 @@
       <a href="April.html">📅 四月活動總覽</a>
     </div>
     <div class="menu-card">
-      <a href="course/normal_class.html">📘 常態課程</a>
+      <a href="vision.html">📖 關於我們</a>
     </div>
     <div class="menu-card">
-      <a href="summer_camp/index.html">☀️ 夏令營隊專區</a>
+      <a href="summer_camp/index.html">📘 課程與營隊</a>
     </div>
     <div class="menu-card">
-      <a href="teachers.html">🧑‍🏫 師資介紹</a>
+      <a href="gallery.html">📷 活動成果</a>
     </div>
     <div class="menu-card">
-      <a href="vision.html">💡 教學理念</a>
+      <a href="faq.html">👨‍👩‍👧‍👦 家長專區</a>
     </div>
     <div class="menu-card">
       <a href="https://lin.ee/LSkFblL">📮 聯絡我們</a>
