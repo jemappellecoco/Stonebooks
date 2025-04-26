@@ -8,7 +8,9 @@
   .section h2, h2, h3 {
     color: #c94f4f;
   }
-  
+  header {
+    background: none; /* 👈 加這個！只拿掉粉色背景 */
+  }
   .hero-highlight {
     background-color: #ffecec;
     padding: 2rem;

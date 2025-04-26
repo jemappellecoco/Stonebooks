@@ -4,7 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>📘 平日課程｜點石教育</title>
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/page.css">
+
+  <style>
+    /* 只針對這頁 header 做背景跟字色調整 */
+    header {
+      background: none;
+      color: black;
+      text-align: center; /* 讓標題置中，感覺更整齊 */
+      padding: 2rem 1rem; /* 上下留一點空間，看起來更舒服 */
+    }
+    header h1 {
+      margin-bottom: 0.5rem; /* h1和p之間留一點間距 */
+    }
+    header p {
+      color: #666; /* 副標用淺灰色，看起來更有層次感 */
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+
 <body>
   <header>
     <h1>📘 點石教育｜平日客製化課程服務</h1>
@@ -46,6 +67,7 @@
   </div>
 
   <div include-html="../components/footer.html"></div>
+
   <script>
     function includeHTML() {
       var z, i, elmnt, file, xhttp;
@@ -70,8 +92,6 @@
       }
     }
     includeHTML();
-    </script>
-
-  </div>
+  </script>
 </body>
 </html>
