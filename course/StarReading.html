@@ -2,9 +2,13 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
+  <!-- <link rel="stylesheet" href="../css/style.css" /> -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/page.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>STAR Reading 閱讀測驗介紹｜Stonebooks Studio</title>
-  <style>
+  <!-- <style>
     body {
       font-family: "Helvetica Neue", sans-serif;
       background-color: #fffdfa;
@@ -63,7 +67,7 @@
         text-align: center;
       }
     }
-  </style>
+  </style> -->
 </head>
 <body>
   <h1>🌟 STAR Reading 測驗介紹</h1>
@@ -148,12 +152,36 @@
   </section>
 
   <div class="highlight">
-    <p>📍我們提供 STAR 試測機會，歡迎聯繫官方 LINE：</p>
-    <a href="https://lin.ee/LSkFblL" class="cta-button" target="_blank">📖 立即加入好友</a>
+    <p>📍我們提供 STAR 試測機會，歡迎聯繫官方 LINE  </p>
+
   </div>
 
-  <p style="text-align:center; margin-top: 3rem;">
-    <a href="../index.html">← 返回首頁</a>
-  </p>
+  <div include-html="../components/footer.html"></div>
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+              if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+              if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          return;
+        }
+      }
+    }
+    includeHTML();
+    </script>
+
 </body>
 </html>

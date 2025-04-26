@@ -3,60 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/page.css">
   <title>2025 夏日營隊總覽｜Stonebooks Studio</title>
-  <style>
-    body {
-      font-family: "Helvetica Neue", sans-serif;
-      background-color: #fffefa;
-      padding: 2rem;
-      color: #333;
-      line-height: 1.8;
-    }
-    h1 {
-      color: #c94f4f;
-      font-size: 1.8rem;
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
-    li {
-      margin: 0.5rem 0;
-    }
-    .highlight {
-      background-color: #fff0f0;
-      padding: 1rem;
-      border-left: 4px solid #c94f4f;
-      margin-top: 2rem;
-    }
-    a {
-      color: #2a7ae2;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  
 </head>
-<body>
-  <h1>☀️ 2025 夏日營隊總覽｜Stonebooks Studio</h1>
-  <p>從語言到科學、舞蹈到國際探索，我們為孩子設計最有趣、最有收穫的暑假課程！</p>
+<h1>☀️ 2025 夏日營隊總覽｜Stonebooks Studio</h1>
+<p>從語言到科學、舞蹈到國際探索，我們為孩子設計最有趣、最有收穫的暑假課程！</p>
 
-  <h2>🔥 精選營隊介紹</h2>
-  <ul>
-    <li>🎤 <a href="kpop_camp.html">KPOP 夏日營隊</a> — 放膽表達、發光自信</li>
-    <li>☁️ <a href="sky.html">穿越星空｜希臘神話科學雙語營</a> — 神話探險家</li>
-    <li>🔎 <a href="Davanci.html">小小達文西｜文藝復興STEAM雙語營</a> — 用 STEAM 設計思維啟動孩子的創造力</li>
-    <li>🔎 <a href="../trip/hualien_trip.html">花蓮三天兩夜</a> — 用實地走訪加深書本知識</li>
-    <!-- 後續可新增更多營隊，如： -->
-    <!-- <li>📖 <a href="reading_camp.html">閱讀素養營</a> — 提升語感與邏輯推理</li> -->
-    <!-- <li>🌍 <a href="nz_camp.html">紐西蘭國際營</a> — 真實體驗海外學習生活</li> -->
-  </ul>
+<h2>🔥 精選營隊介紹</h2>
+<div class="card-grid">
 
-  <div class="highlight">
-    🎁 <strong>早鳥優惠</strong>：即日起至 5/31，報名任一營隊皆享 <strong>最高 1000 元折扣</strong>！<br/>
-    每班限額報名，先搶先贏！
+  <div class="camp-card">
+    <h3>☁️ <a href="./sky.html">穿越星空｜希臘神話科學雙語營</a></h3>
+    <p>神話探險家：結合科學與希臘神話，啟發孩子的想像力。</p>
+    <p>📅 日期｜2025/7/7 - 7/11</p>
+    <p>💰 費用｜NT$ 8750</p>
+  </div>
+  
+  <div class="camp-card">
+    <h3>🔎 <a href="./Davanci.html">小小達文西｜文藝復興STEAM雙語營</a></h3>
+    <p>用 STEAM 設計思維，啟動孩子的創造力與邏輯力。</p>
+    <p>📅 日期｜2025/7/14 - 7/18</p>
+    <p>💰 費用｜NT$ 8750</p>
   </div>
 
-  <p><a href="../index.html">← 返回主頁</a></p>
+  <!-- 你可以在這裡新增更多營隊卡片 -->
+  <!--
+  <div class="camp-card">
+    <h3>📖 <a href="reading_camp.html">閱讀素養營</a></h3>
+    <p>提升語感與邏輯推理，建立閱讀素養基礎。</p>
+  </div>
+  -->
+
+</div>
+
+<div class="highlight">
+  🎁 <strong>介紹好友一起玩</strong>：介紹朋友成功報名，可享 <strong>500 元折扣</strong>！<br/>
+  🎁 <strong>限時閃購加碼</strong>：4/15 - 4/30 報名，再享神秘折扣！<br/>
+  🎁 <strong>雙重快樂加倍送</strong>：報名兩個以上營隊，再拿 <strong>專屬優惠</strong>！<br/>
+   名額有限，手刀搶位！
+</div>
+<div class="highlight" data-aos="fade-up">
+    <a href="https://forms.gle/Sh2tM27q4B2R2PM1A" target="_blank" class="register-button">📩 立即報名</a>
+</div>
+<div include-html="../components/footer.html"></div>
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+              if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+              if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          return;
+        }
+      }
+    }
+    includeHTML();
+    </script>
+
 </body>
 </html>

@@ -4,50 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>4/12 外師英文體驗課｜Stonebooks Studio</title>
-  <style>
-    body {
-      font-family: "Helvetica Neue", sans-serif;
-      background-color: #fffdfa;
-      padding: 2rem;
-      color: #333;
-      line-height: 1.8;
-    }
-    h1 {
-      color: #c94f4f;
-    }
-    h2 {
-      margin-top: 2rem;
-      color: #555;
-    }
-    .section {
-      margin-bottom: 2rem;
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
-    .highlight {
-      background-color: #fff0f0;
-      padding: 1rem;
-      border-left: 4px solid #c94f4f;
-      margin: 1rem 0;
-    }
-    a {
-      color: #2a7ae2;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-   
-    .image-box {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 1rem auto;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-  </style>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 
@@ -97,7 +54,32 @@
   
 
   <p><a href="../index.html">← 返回首頁</a></p>
-
+  <div include-html="../components/footer.html"></div>
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+              if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+              if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          return;
+        }
+      }
+    }
+    includeHTML();
+    </script>
 </body>
 </html>
 

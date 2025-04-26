@@ -3,40 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/page.css">
   <title>Stonebooks Studio｜常見問題 Q&A</title>
-  <style>
-    body {
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #fffdfa;
-      color: #333;
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.8;
-    }
-    h1 {
-      color: #c94f4f;
-      text-align: center;
-    }
-    details {
-      margin-bottom: 1rem;
-      background-color: #fff0f0;
-      border-left: 5px solid #c94f4f;
-      padding: 1rem;
-      border-radius: 8px;
-    }
-    summary {
-      font-weight: bold;
-      cursor: pointer;
-    }
-    a {
-      color: #2a7ae2;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  
 </head>
 <body>
   <h1>👨‍👩‍👧‍👦 Stonebooks 家長專區｜常見問題 Q&A</h1>
@@ -76,9 +47,31 @@
     <summary>🌈 營隊可以單天參加嗎？</summary>
     <p>營隊設計為連續主題式，建議完整參加。如有特殊狀況請與我們聯繫。</p>
   </details>
-  <p><a href="../index.html">← 返回主頁</a></p>
-  <footer style="text-align:center;margin-top:3rem;color:#999;font-size:0.9rem">
-    Stonebooks Studio ｜ 如有其他問題歡迎加入 <a href="https://lin.ee/LSkFblL">官方LINE</a> 詢問
-  </footer>
+  <div include-html="../components/footer.html"></div>
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+              if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+              if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          return;
+        }
+      }
+    }
+    includeHTML();
+    </script>
 </body>
 </html>

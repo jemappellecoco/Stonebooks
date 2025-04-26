@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/page.css">
   <title>課程與營隊總覽｜Stonebooks Studio</title>
-  <style>
+  <!-- <style>
     body {
       font-family: 'Helvetica Neue', sans-serif;
       background-color: #fffdfa;
@@ -75,14 +78,14 @@
         margin: 0.5rem auto;
       }
     }
-  </style>
+  </style> -->
 </head>
 <body>
   <h1>📘 課程與營隊總覽</h1>
 
   <div class="grid">
     <div class="card">
-      <a href="summer_camp/index.html">☀️ 營隊專區</a>
+      <a href="../summer_camp/index.html">☀️ 營隊專區</a>
       <p>主題式夏令營，結合語言、藝術與探索，限時招生。</p>
     </div>
     <div class="card">
@@ -94,7 +97,7 @@
       <p>與世界連結，踏出舒適圈，開啟國際視野第一步！</p>
     </div>
     <div class="card">
-      <a href="course/normal_class.html">📚 平日課程</a>
+      <a href="../course/normal_class.html">📚 平日課程</a>
       <p>從國小到高中，分齡設計英文與數理常態課程。</p>
     </div>
     <div class="card">
@@ -107,13 +110,31 @@
     </div>
   </div>
 
-  <div class="footer-links">
-    <a href="../index.html">🏠 回首頁</a>
-    <a href="https://lin.ee/LSkFblL" target="_blank">💬 加入官方 LINE</a>
-  </div>
-
-  <footer style="text-align:center;margin-top:2rem;font-size:0.9rem;color:#999">
-    Stonebooks Studio © 2025 ｜ 若需課程建議歡迎加入 LINE 詢問
-  </footer>
+  <div include-html="../components/footer.html"></div>
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+              if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+              if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          return;
+        }
+      }
+    }
+    includeHTML();
+    </script>
 </body>
 </html>

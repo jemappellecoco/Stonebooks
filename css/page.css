@@ -1,0 +1,87 @@
+.section, section {
+    max-width: 960px;
+    margin: auto;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .section h2, h2, h3 {
+    color: #c94f4f;
+  }
+  
+  .hero-highlight {
+    background-color: #ffecec;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    margin-bottom: 3rem;
+  }
+  .hero-highlight h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #c94f4f;
+    margin-bottom: 1rem;
+  }
+  .hero-highlight h3 {
+    font-size: 1.25rem;
+    color: #a33a3a;
+    margin-top: 1.5rem;
+  }
+  .hero-highlight ul {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  .hero-highlight li {
+    font-size: 1rem;
+    line-height: 2;
+    margin-bottom: 1.2rem;
+    word-break: break-word;
+  }
+  .hero-highlight p {
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+  .hero-highlight .closing {
+    font-size: 1.15rem;
+    margin-top: 1.5rem;
+    line-height: 1.8;
+  }
+  .card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  
+  .camp-card {
+    background-color: #fff0f0;
+    border: 2px solid #c94f4f;
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .camp-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+  }
+  
+  .camp-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .camp-card a {
+    text-decoration: none;
+    color: #c94f4f;
+  }
+  
+  .camp-card p {
+    margin: 0;
+    color: #555;
+    font-size: 0.95rem;
+  }
+  

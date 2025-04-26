@@ -1,0 +1,323 @@
+/* ========= Header ========= */
+header {
+    background: linear-gradient(135deg, #f67280, #c94f4f);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* ========= Card / Grid ========= */
+  .cards, .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  .card, .trip-card {
+    background: #fff0f0;
+    border: 2px solid #c94f4f;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-sizing: border-box;
+  }
+  
+  .card {
+    flex: 1 1 calc(50% - 0.75rem);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .card-full {
+    flex: 1 1 100%;
+  }
+  
+  .card h3 {
+    color: #c94f4f;
+    margin-top: 0;
+    font-size: 1.2rem;
+  }
+  .card p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+  .card a {
+    text-decoration: none;
+    color: #c94f4f;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* ========= Trip Card ========= */
+  .trip-card h3 {
+    margin-top: 0;
+  }
+  .trip-card a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #2a7ae2;
+    text-decoration: none;
+  }
+  .trip-card a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ========= Button Links ========= */
+  .back-link, .line-link {
+    display: inline-block;
+    margin: 1rem 1rem 0 0;
+    padding: 0.75rem 1.25rem;
+    background-color: #c94f4f;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+  .back-link:hover, .line-link:hover {
+    background-color: #a33c3c;
+  }
+  
+  /* ========= Back Section ========= */
+  .back {
+    text-align: center;
+    margin: 3rem 0 2rem;
+  }
+  .back a {
+    color: #c94f4f;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .back a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ========= Footer Links ========= */
+  .footer-links {
+    margin-top: 3rem;
+    text-align: center;
+  }
+  .footer-links a {
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background-color: #c94f4f;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  .footer-links a:hover {
+    background-color: #a33c3c;
+  }
+  
+  /* ========= Common Tags ========= */
+  ul {
+    padding-left: 1.5rem;
+  }
+  li {
+    margin: 0.5rem 0;
+  }
+  a {
+    color: #2a7ae2;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  iframe {
+    margin-top: 1rem;
+    border: 1px solid #ddd;
+    animation: floatIn 1.2s ease-out;
+    width: 100%;
+    max-width: 100%;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+  /* ========= Register / CTA Buttons ========= */
+  .register-button, .cta-button {
+    display: inline-block;
+    background-color: #c94f4f;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+    animation: pulse 2.5s infinite;
+  }
+  .register-button:hover, .cta-button:hover {
+    background-color: #a83838;
+    transform: translateY(-2px);
+  }
+  
+  /* ========= Emphasis / Star Text ========= */
+  .hero-highlight .star {
+    color: #c94f4f;
+    font-weight: bold;
+    animation: sparkle 1.5s infinite;
+  }
+  
+  /* ========= Responsive ========= */
+  @media screen and (max-width: 768px) {
+    .card, .card-full {
+      flex: 1 1 100%;
+    }
+  
+    .footer-links a,
+    .back-link, .line-link {
+      display: block;
+      margin: 0.5rem auto;
+      text-align: center;
+    }
+  
+    .cards, .grid {
+      flex-direction: column;
+    }
+  }
+  .page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* 手機版要換行 */
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+    background-color: #f8f8f8;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .footer-left a,
+  .footer-right a {
+    margin-right: 1rem;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  .footer-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* 手機版時能自動換行 */
+  }
+  
+  .footer-right a:last-child {
+    margin-right: 0;
+  }
+  
+  /* 手機版 (寬度小於 600px 時) 自動上下排 */
+  @media (max-width: 600px) {
+    .page-footer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .footer-right {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 1rem;
+    }
+    
+    .footer-right a {
+      margin: 0.25rem 0;
+    }
+  }
+  .back-to-home {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #c94f4f;
+    color: white;
+    padding: 0.8rem 1rem;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .back-to-home:hover {
+    background-color: #a83e3e;
+    transform: translateY(-5px);
+  }
+  
+  /* 手機版（螢幕寬度小於600px）按鈕變小 */
+  @media (max-width: 600px) {
+    .back-to-home {
+      padding: 0.5rem 0.7rem;
+      font-size: 1.2rem;
+      bottom: 15px;
+      right: 15px;
+    }
+  }
+/* 共通浮動按鈕樣式 */
+.back-to-home, .back-to-line {
+  position: fixed;
+  right: 20px;
+  border-radius: 50%;
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.8rem 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* 回首頁（紅色半透明） */
+.back-to-home {
+  bottom: 90px; /* 比LINE那顆高一點 */
+  background-color: rgba(201, 79, 79, 0.8);
+}
+
+/* 加LINE（LINE綠半透明） */
+.back-to-line {
+  bottom: 20px;
+  background-color: rgba(0, 195, 0, 0.8);
+}
+
+/* 滑鼠滑過去時微微浮起 */
+.back-to-home:hover, .back-to-line:hover {
+  transform: translateY(-5px);
+}
+
+/* hover時背景加深 */
+.back-to-home:hover {
+  background-color: rgba(168, 62, 62, 0.9);
+}
+
+.back-to-line:hover {
+  background-color: rgba(0, 155, 0, 0.9);
+}
+
+/* 手機版調整：按鈕變小一點，間距也縮短 */
+@media (max-width: 600px) {
+  .back-to-home, .back-to-line {
+    font-size: 1.2rem;
+    padding: 0.5rem 0.7rem;
+    right: 15px;
+  }
+  .back-to-home {
+    bottom: 80px;
+  }
+  .back-to-line {
+    bottom: 15px;
+  }
+}
+ 

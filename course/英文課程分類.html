@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/page.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📖 閱讀與檢定｜點石教育</title>
+ </head>
+<body>
+  <header>
+    <h1>📖 英文閱讀與檢定專區</h1>
+    <p>養成語感 × 累積詞彙 × 面對檢定無壓力</p>
+  </header>
+
+  <div class="section">
+    <h2>📝 英文檢定課程</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>📘 GEPT 全民英檢初級班</h3>
+        <p>針對 GEPT 初級設計的密集課程，涵蓋聽力與閱讀練習，適合國小高年級至國中生。</p>
+        <p><a href="../2025_april/GEPT.html" target="_blank">👉 查看課程介紹</a></p>
+      </div>
+      <div class="card">
+        <h3>💬 托福 / 雅思 預備課程</h3>
+        <p>依學生程度客製安排，奠定出國留學的語言基礎，培養正式英文表達力。</p>
+        <p>📩 諮詢報名</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 課外閱讀班</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>🔍 閱讀素養與理解力班</h3>
+        <p>搭配 myON 電子書庫與 AR 小測驗，提升學生英文閱讀深度與廣度。</p>
+        <p><a href="../course/StarReading.html" target="_blank">📝 查看詳情</a></p>
+      </div>
+      <div class="card">
+        <h3>📗 文法閱讀加強班</h3>
+        <p>以閱讀主題切入文法概念，提升語法理解與寫作句構能力。</p>
+        <p><a href="../course/私中英文.html" target="_blank">🔗 查看 5 升 6 文法加強班</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div include-html="../components/footer.html"></div>
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+              if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+              if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          return;
+        }
+      }
+    }
+    includeHTML();
+    </script>
+</body>
+</html>

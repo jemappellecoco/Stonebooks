@@ -4,49 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stonebooks Studio｜4 月活動課程</title>
-  <style>
-    body {
-      font-family: "Helvetica Neue", sans-serif;
-      background-color: #fffdfa;
-      color: #333;
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.8;
-    }
-    h1 {
-      color: #c94f4f;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    h2 {
-      font-size: 1.25rem;
-      color: #444;
-      margin-bottom: 1rem;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      margin: 1rem 0;
-      font-size: 1.1rem;
-    }
-    a {
-      text-decoration: none;
-      color: #2a7ae2;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .emoji {
-      margin-right: 0.5rem;
-    }
-    .back {
-      margin-top: 2rem;
-      text-align: center;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/page.css">
 </head>
 <body>
   <h1>📅 Stonebooks Studio｜2025 年 4 月活動課程</h1>
@@ -59,8 +19,31 @@
     <li>🪴 <a href="2025_april/GEPT.html" target="_blank">GEPT 全民英檢初級密集班（15 堂）</a></li>
   </ul>
 
-  <div class="back">
-    <a href="index.html">← 返回首頁</a>
-  </div>
+  <div include-html="../components/footer.html"></div>
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+              if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+              if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          return;
+        }
+      }
+    }
+    includeHTML();
+    </script>
 </body>
 </html>

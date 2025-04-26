@@ -4,42 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>4/13 佛腳班總複習日｜Stonebooks Studio</title>
-  <style>
-    body {
-      font-family: "Helvetica Neue", sans-serif;
-      background-color: #fffdfa;
-      padding: 2rem;
-      color: #333;
-      line-height: 1.8;
-    }
-    h1 {
-      color: #c94f4f;
-      font-size: 1.8rem;
-    }
-    h2 {
-      margin-top: 2rem;
-      color: #444;
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
-    .highlight {
-      background-color: #fff0f0;
-      padding: 1rem;
-      border-left: 4px solid #c94f4f;
-      margin: 1rem 0;
-    }
-    .grade-block {
-      margin-bottom: 1.5rem;
-    }
-    a {
-      color: #2a7ae2;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
   <h1>📢 4/13（日）佛腳班總複習日來囉！</h1>
@@ -96,6 +61,31 @@
     🌟 高效複習、重點整理，不容錯過！現在就幫孩子報名吧！
   </div>
 
-  <p><a href="../index.html">← 返回首頁</a></p>
+  <div include-html="../components/footer.html"></div>
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+              if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+              if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          return;
+        }
+      }
+    }
+    includeHTML();
+    </script>
 </body>
 </html>

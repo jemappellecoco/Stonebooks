@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KDANCE COMPETITION CAMP IN SEOUL 2025｜Stonebooks Studio</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <style>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/page.css">  
+  <!-- <style>
     body {
       font-family: "Helvetica Neue", sans-serif;
       background: radial-gradient(#fffdfa, #ffecec);
@@ -150,7 +153,7 @@
       }
     }
         
-  </style>
+  </style> -->
 </head>
     
 
@@ -287,11 +290,35 @@
     <a href="https://forms.gle/aGij8tJxSeDDd4d6A" target="_blank" class="register-button">📩 立即報名</a>
   </div>
   
-
-  <p><a href="index.html">← 返回營隊總覽</a></p>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
+  <div include-html="../components/footer.html"></div>
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+              if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+              if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          return;
+        }
+      }
+    }
+    includeHTML();
+    </script>
 </body>
 </html>

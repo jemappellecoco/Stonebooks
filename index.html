@@ -4,165 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stonebooks Studio｜首頁</title>
-  <style>
-    body {
-      font-family: 'Helvetica Neue', sans-serif;
-      margin: 0;
-      background-color: #fffdfa;
-      color: #333;
-    }
-    header {
-      background-color: #000000;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-    nav {
-      display: flex;
-      gap: 1.5rem;
-    }
-    .nav-item {
-      position: relative;
-    }
-    .nav-link {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 0.5rem;
-    }
-    .dropdown {
-      display: none;
-      position: absolute;
-      top: 2rem;
-      left: 0;
-      background-color: white;
-      color: #333;
-      min-width: 180px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
-    .dropdown a {
-      display: block;
-      padding: 0.75rem 1rem;
-      color: #333;
-      text-decoration: none;
-    }
-    .dropdown a:hover {
-      background-color: #fff0f0;
-    }
-    .nav-item:hover .dropdown {
-      display: block;
-    }
-    .hamburger {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      background-color: #fff;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .mobile-menu a,
-    .mobile-dropdown-toggle {
-      padding: 1rem;
-      border-bottom: 1px solid #eee;
-      color: #c94f4f;
-      text-decoration: none;
-      font-weight: bold;
-      background-color: white;
-      cursor: pointer;
-    }
-    .mobile-submenu {
-      display: none;
-      flex-direction: column;
-      background-color: #fffafa;
-    }
-    .mobile-submenu a {
-      padding: 0.75rem 1.5rem;
-      font-weight: normal;
-    }
-    .mobile-submenu a:hover {
-      background-color: #fff0f0;
-    }
-    .mobile-menu a:hover,
-    .mobile-dropdown-toggle:hover {
-      background-color: #fff0f0;
-    }
-    .show {
-      display: flex !important;
-    }
-    .hero {
-      text-align: center;
-      padding: 3rem 1rem 2rem;
-    }
-    .hero h1 {
-      color: #c94f4f;
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      color: #555;
-    }
-    .menu-section {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      padding: 2rem 1rem;
-    }
-    .menu-card {
-      background: #fff0f0;
-      border: 2px solid #c94f4f;
-      border-radius: 16px;
-      padding: 2rem;
-      width: 280px;
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .menu-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-    .menu-card a {
-      text-decoration: none;
-      color: #c94f4f;
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #999;
-    }
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-      }
-      .hamburger {
-        display: block;
-      }
-      .mobile-menu {
-        display: none;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
   <header>
@@ -181,15 +23,14 @@
         <a class="nav-link" href="#">課程與營隊</a>
         <div class="dropdown">
           <a href="./course/courses.html"><strong>📘 課程總覽</strong></a>
-          <hr style="margin: 0.5rem 1rem; border: 0; border-top: 1px solid #eee;" />
-          <a href="summer_camp/index.html"> 營隊專區</a>
+          <hr />
+          <a href="summer_camp/index.html">營隊專區</a>
           <a href="trip/domestic.html">國內自旅行營</a>
           <a href="trip/oversea.html">✈️ 海外遊學團</a>
           <a href="course/normal_class.html">平日課程</a>
           <a href="course/1to1.html">一對一 / 小團班</a>
           <a href="course/workshop.html">🎨主題工作坊</a>
         </div>
-      </div>
       </div>
       <div class="nav-item">
         <a class="nav-link" href="#">活動成果</a>
@@ -201,7 +42,7 @@
       <div class="nav-item">
         <a class="nav-link" href="#">家長專區</a>
         <div class="dropdown">
-          <a href="../Stonebooks/policy/FQA.html">常見問題 Q&A</a>
+          <a href="./policy/FQA.html">常見問題 Q&A</a>
           <a href="payment.html">匯款 / 報名資訊</a>
           <a href="https://lin.ee/LSkFblL">聯絡方式</a>
         </div>

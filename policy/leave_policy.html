@@ -4,33 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>請假規章總覽｜Stonebooks Studio</title>
-  <style>
-    body {
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #fffdfa;
-      color: #333;
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
-      line-height: 1.8;
-    }
-    h1 {
-      text-align: center;
-      color: #c94f4f;
-      margin-bottom: 2rem;
-    }
-    h2 {
-      font-size: 1.25rem;
-      margin-top: 2rem;
-      color: #c94f4f;
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
-    .icon {
-      margin-right: 0.5rem;
-    }
-  </style>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/page.css">
 </head>
 <body>
   <h1>📌 請假規章總覽</h1>
@@ -67,10 +43,31 @@
     <li>22:30 後請假或當日未到課：直接視為曠課。</li>
     <li>請假每滿 4 次，另扣 1 堂課。</li>
   </ul>
-
-  <p><a href="../index.html">← 返回主頁</a></p>
-  <footer style="text-align:center;margin-top:3rem;font-size:0.9rem;color:#999">
-    Stonebooks Studio © 2025 
-  </footer>
+  <div include-html="../components/footer.html"></div>
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+              if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+              if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          return;
+        }
+      }
+    }
+    includeHTML();
+    </script>
 </body>
 </html>

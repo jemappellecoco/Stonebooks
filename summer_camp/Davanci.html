@@ -4,53 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>小小達文西｜文藝復興STEAM雙語營</title>
-  <style>
-    body {
-      font-family: "Helvetica Neue", sans-serif;
-      background-color: #fffdfa;
-      padding: 2rem;
-      color: #333;
-      line-height: 1.8;
-      max-width: 960px;
-      margin: auto;
-    }
-    h1, h2, h3 {
-      color: #c94f4f;
-    }
-    .section {
-      margin-bottom: 2rem;
-    }
-    img {
-      width: 100%;
-      max-width: 800px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      margin: 1rem auto;
-      display: block;
-    }
-    a {
-      color: #2a7ae2;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    @media screen and (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      h1 {
-        font-size: 1.5rem;
-      }
-      h2 {
-        font-size: 1.25rem;
-      }
-      h3 {
-        font-size: 1.125rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/page.css">
 </head>
 <body>
   <h2>☀️ 2025夏日限定！點石工作室雙語主題營</h2>
@@ -105,8 +61,35 @@
   <div class="section">
     <img src="../image/Da4.png" alt="詳細介紹" />
   </div>
-
-  <p><a href="index.html">← 返回營隊總覽</a></p>
+  <div class="highlight" data-aos="fade-up" style="text-align: center;">
+    <a href="https://forms.gle/Sh2tM27q4B2R2PM1A" target="_blank" class="register-button">📩 立即報名</a>
+  </div>
+  <div include-html="../components/footer.html"></div>
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+              if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+              if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          return;
+        }
+      }
+    }
+    includeHTML();
+    </script>
   
 </body>
 </html>
