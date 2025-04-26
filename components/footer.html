@@ -1,9 +1,96 @@
 <footer class="page-footer">
-  <div class="footer-copy">
-    © 2025 Stonebooks Studio ｜Designed by Coco
+  <div class="footer-container">
+   <strong>  2025 Stonebooks Studio ©｜Designed by Coco</strong>
   </div>
 </footer>
 
-<!-- 浮動按鈕（漂浮的小圈圈） -->
-<a href="../index.html" class="back-to-home" title="回首頁">🏠</a>
-<a href="https://lin.ee/LSkFblL" target="_blank" class="back-to-line" title="加入官方LINE">💬</a>
+<!-- 浮動按鈕 -->
+<a href="../index.html" class="floating-btn home-btn" title="回首頁">🏠</a>
+<a href="https://lin.ee/LSkFblL" target="_blank" class="floating-btn line-btn" title="加入官方LINE">💬</a>
+<a href="javascript:history.back()" class="floating-btn prev-btn" title="上一頁">🔙</a>
+
+<style>
+  /* 整個footer區域 */
+  .page-footer {
+    background-color: #eeeeee; /* 淺灰色背景 */
+    padding: 1.5rem 0;
+  }
+  
+  /* 內容居中，寬度限制 */
+  .footer-container {
+    max-width: 960px; /* 跟首頁一樣寬度 */
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #585555d6;
+  }
+  
+  /* 浮動按鈕基本樣式 */
+  .floating-btn {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f06292;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 26px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+  
+  /* 滑過時放大+透明 */
+  .floating-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  
+  /* 各個按鈕的位置與顏色 */
+  .home-btn {
+    bottom: 4vh;
+    right: 4vw;
+    background-color: #e57373ca; /* 淺紅 */
+  }
+  
+  .line-btn {
+    bottom: 14vh;
+    right: 4vw;
+    background-color: #4caf4fc3; /* 綠色 */
+  }
+  
+  .prev-btn {
+    bottom: 4vh;
+    left: 4vw;
+    background-color: #bad1e496; /* 淺藍 */
+  }
+  
+  /* 手機版調整 */
+  @media (max-width: 768px) {
+    .footer-container {
+      padding: 0 1rem; /* 手機版左右留白 */
+      font-size: 0.8rem; /* 手機上字小一點 */
+    }
+    .floating-btn {
+      width: 45px;
+      height: 45px;
+      line-height: 45px;
+      font-size: 22px;
+    }
+    .home-btn {
+      bottom: 3vh;
+      right: 3vw;
+    }
+    .line-btn {
+      bottom: 12vh;
+      right: 3vw;
+    }
+    .prev-btn {
+      bottom: 3vh;
+      left: 3vw;
+    }
+  }
+  </style>
+  
