@@ -7,125 +7,98 @@
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/page.css">
-  <!-- <style>
-    body {
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #fffdfa;
-      color: #333;
-      max-width: 960px;
-      margin: auto;
-      padding: 2rem;
-      line-height: 1.8;
-    }
-    h1, h2, h3 {
-      color: #c94f4f;
-    }
-    .trip-card {
-      border: 2px solid #c94f4f;
-      background: #fff0f0;
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .trip-card h3 {
-      margin-top: 0;
-    }
-    .trip-card a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: #2a7ae2;
-      text-decoration: none;
-    }
-    .trip-card a:hover {
-      text-decoration: underline;
-    }
-    .back-link, .line-link {
-      display: inline-block;
-      margin: 1rem 1rem 0 0;
-      padding: 0.75rem 1.25rem;
-      background-color: #c94f4f;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-    .back-link:hover, .line-link:hover {
-      background-color: #a33c3c;
-    }
-    @media screen and (max-width: 600px) {
-      .back-link, .line-link {
-        display: block;
-        margin: 1rem auto;
-        text-align: center;
-      }
-    }
-  </style> -->
 </head>
+
 <body>
-  <h1>🏞️ 國內小小旅人營</h1>
-  <p>從城市小旅行到自然探索，Stonebooks 小小旅人系列營隊，帶孩子走入真實世界、學習與生活的連結。</p>
 
-  <h2>📅 近期活動一覽</h2>
+<h1>🏞️ 國內小小旅人營</h1>
+<p>從城市小旅行到自然探索，Stonebooks 小小旅人系列營隊，帶孩子走入真實世界、學習與生活的連結。</p>
 
-  <div class="trip-card">
-    <h3>🌲 花蓮三天兩夜｜小旅人營</h3>
-    <p>結合自然、文化與海洋主題，帶孩子從中壢出發探索花蓮！行程包含立川魚場摸蜆體驗、七星潭濱海活動、遠雄海洋公園表演、夜市小吃，以及鐵道文化手作與DIY體驗。</p>
-    <p>📍 集合地點：中壢火車站｜住宿：花蓮市包棟民宿</p>
-    <p>✅ 成團人數： 8人成團 </p>
-    <p>📅 開放場次：</p>
-    <ul>
-      <li>場次一：2025/6/27（五）～6/29（日）</li>
-      <li>場次二：2025/7/14（一）～7/16（三）</li>
-    </ul>
-    <a href="../trip/hualien_trip.html">🔗 查看詳細行程內容</a>
-  </div>
+<h2>📅 近期活動一覽</h2>
 
-  <div class="trip-card">
-    <h3>🌿 探索大自然一日遊｜台中植物園</h3>
-    <p>走進台中植物園與自然科學博物館，一日沉浸式體驗自然、生命與科學的奇妙世界。適合初探戶外知識與生物環境的學生。</p>
-    <p>📍 集合地點：中壢火車站｜參訪地點：台中科博館＆植物園</p>
-    <p>✅ 適合年級：不限｜老師 1~2 位帶隊｜人數限制：10～15 位</p>
-    <p>📌 主題目標：以植物、生命與環境為核心的學習探索</p>
-    <p>📢 報名截止日：2025/5/31</p>
-    <p> 活動日期：2025/5/25（日）</p>
-    <a href="../trip/taichung_trip.html">🔗 查看詳細行程內容</a>
-    
-  </div>
-  <div class="trip-card">
-    
-      <h3>🔋 綠能創客一日遊｜電幻1號館</h3>
-      <p>從綠能腳踏車到手創科技，孩子將在電幻1號館與國立科教館進行沉浸式能源與創客體驗。</p>
-      <p>📍 集合地點：中壢火車站｜參訪地點：電幻1號館 & 國立科教館</p>
-      <p>✅ 適合年級：不限｜老師 1~2 位帶隊｜人數限制：10～15 位</p>
-      <p>📌 主題目標：綠能體驗、科技互動、手作創意</p>
-      <p>📢 報名截止日：2025/5/31</p>
-      <p>🗓 活動日期：2025/6/21（六）</p>
-      <a href="../trip/green_trip.html">🔗 查看詳細行程內容</a>
-  </div>
-  <div include-html="../components/footer.html"></div>
-  <script>
-    function includeHTML() {
-      var z, i, elmnt, file, xhttp;
-      z = document.getElementsByTagName("*");
-      for (i = 0; i < z.length; i++) {
-        elmnt = z[i];
-        file = elmnt.getAttribute("include-html");
-        if (file) {
-          xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function() {
-            if (this.readyState == 4) {
-              if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-              if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-              elmnt.removeAttribute("include-html");
-              includeHTML();
-            }
-          }
-          xhttp.open("GET", file, true);
-          xhttp.send();
-          return;
+<!-- 花蓮三天兩夜 -->
+<div class="trip-card">
+  <h3>🌲 花蓮三天兩夜｜小旅人營</h3>
+  <p>結合自然、文化與海洋主題，帶孩子從中壢出發探索花蓮！行程包含立川魚場摸蜆體驗、七星潭濱海活動、遠雄海洋公園表演、夜市小吃，以及鐵道文化手作與DIY體驗。</p>
+  <p>📍 集合地點：中壢火車站｜住宿：花蓮市包棟民宿</p>
+  <p>✅ 成團人數：8人成團</p>
+  <p>📅 開放場次：</p>
+  <ul>
+    <li>場次一：2025/6/27（五）～6/29（日）</li>
+    <li>場次二：2025/7/8（二）～7/10（四）</li>
+  </ul>
+  <a href="../trip/hualien_trip.html">🔗 查看詳細行程內容</a>
+</div>
+
+<!-- 樂水部落一日遊 -->
+<div class="trip-card">
+  <h3>🏹 樂水部落生活 ONE DAY TOUR</h3>
+  <p>走進宜蘭南澳樂水部落，由獵人與長老親自帶領，深入體驗台灣原住民族文化與森林生活，一日沉浸式學習與探索。</p>
+  <p>📍 集合地點：桃園高鐵站｜參訪地點：宜蘭南澳樂水部落</p>
+  <p>✅ 適合年級：不限｜老師 2 位帶隊｜人數限制：6人以上成行</p>
+  <p>📌 主題目標：認識原鄉自然生態與泰雅文化</p>
+  <p>📢 報名截止日：2025/5/31</p>
+  <p>🗓️ 活動日期：</p>
+  <ul>
+    <li>2025/08/03（日）</li>
+    <li>2025/08/23（六）</li>
+    <li>2025/08/30（六）</li>
+  </ul>
+  <a href="../trip/le_shui_gaga.html">🔗 查看詳細行程內容</a>
+</div>
+
+<!-- 台中植物園一日遊 -->
+<div class="trip-card">
+  <h3>🌿 探索大自然一日遊｜台中植物園</h3>
+  <p>走進台中植物園與自然科學博物館，一日沉浸式體驗自然、生命與科學的奇妙世界。適合初探戶外知識與生物環境的學生。</p>
+  <p>📍 集合地點：中壢火車站｜參訪地點：台中科博館＆植物園</p>
+  <p>✅ 適合年級：不限｜老師 1～2 位帶隊｜人數限制：10～15 位</p>
+  <p>📌 主題目標：以植物、生命與環境為核心的學習探索</p>
+  <p>📢 報名截止日：2025/5/31</p>
+  <p>🗓️ 活動日期：2025/5/25（日）</p>
+  <a href="../trip/taichung_trip.html">🔗 查看詳細行程內容</a>
+</div>
+
+<!-- 綠能創客一日遊 -->
+<div class="trip-card">
+  <h3>🔋 綠能創客一日遊｜電幻1號館</h3>
+  <p>從綠能腳踏車到手創科技，孩子將在電幻1號館與國立科教館進行沉浸式能源與創客體驗。</p>
+  <p>📍 集合地點：中壢火車站｜參訪地點：電幻1號館 & 國立科教館</p>
+  <p>✅ 適合年級：不限｜老師 1～2 位帶隊｜人數限制：10～15 位</p>
+  <p>📌 主題目標：綠能體驗、科技互動、手作創意</p>
+  <p>📢 報名截止日：2025/5/31</p>
+  <p>🗓️ 活動日期：2025/6/21（六）</p>
+  <a href="../trip/green_trip.html">🔗 查看詳細行程內容</a>
+</div>
+
+<!-- Footer -->
+<div include-html="../components/footer.html"></div>
+
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    file = elmnt.getAttribute("include-html");
+    if (file) {
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          elmnt.removeAttribute("include-html");
+          includeHTML();
         }
       }
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      return;
     }
-    includeHTML();
-    </script>
+  }
+}
+includeHTML();
+</script>
+
 </body>
 </html>

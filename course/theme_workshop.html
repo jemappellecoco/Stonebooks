@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎨 主題工作坊｜Stonebooks Studio</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/page.css">
+</head>
+<body>
+  <header>
+    <h1>🎨 主題工作坊</h1>
+    <p>節慶 × 創意 × 雙語學習</p>
+  </header>
+
+  <section class="section">
+    <h2>關於主題工作坊</h2>
+    <p>
+      在 Stonebooks Studio，我們定期舉辦【主題工作坊】，
+      結合<strong>不同節慶</strong>與<strong>創意體驗</strong>，
+      帶給大家既有趣又豐富的學習時光！
+    </p>
+    <ul>
+      <li>中英文活動課程（Language + Fun）</li>
+      <li>創意手作體驗（DIY Crafts）</li>
+      <li>節慶文化介紹（Cultural Highlights）</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>我們做過的活動</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>🎄 聖誕花圈工作坊</h3>
+        <p>親手製作獨一無二的聖誕花圈，並認識聖誕節的中英文故事。</p>
+      </div>
+      <div class="card">
+        <h3>🏮 土耳其燈手作體驗</h3>
+        <p>用馬賽克玻璃拼出繽紛的土耳其吊燈，感受異國魅力。</p>
+      </div>
+      <div class="card">
+        <h3>🖋️ 3D列印筆創意工作坊</h3>
+        <p>用3D列印筆「畫」出立體藝術作品，啟動無限想像力！</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>一起來體驗！</h2>
+    <p>
+      未來，我們將持續推出更多好玩又有意義的主題，
+      邀請你一起來創造屬於自己的節慶回憶💖！
+    </p>
+  </section>
+
+
+  <div include-html="../components/footer.html"></div>
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+              if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+              if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          return;
+        }
+      }
+    }
+    includeHTML();
+    </script>
+
+</body>
+</html>
