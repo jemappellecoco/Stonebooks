@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>樂水部落生活 ONE DAY TOUR｜Stonebooks Studio</title>
+  <link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/page.css">
+<link rel="stylesheet" href="../css/components.css">
+</head>
+
+<body>
+
+<h1>🏹 樂水部落生活 ONE DAY TOUR</h1>
+
+<section class="section">
+  <h2>深入台灣原鄉的在地體驗</h2>
+  <p>今年夏假，讓我們走出課本，走進部落！由在地部落長老與獵人親自帶領，探索森林與原民文化，感受台灣原鄉深層內涵。</p>
+</section>
+
+<section class="section">
+    <img src="../image/樂水.png" alt="poster" style="width:100%; max-width:600px; border-radius:12px; margin-bottom:1.5rem;" />
+    
+  </section>
+  
+<section class="section">
+  <h2>行程亮點</h2>
+  <ul>
+    <li>🏡 適合家庭親子、小孩一同參與</li>
+    <li>🌿 部落長老與獵人帶隊，深入探索原鄉森林生活</li>
+    <li>🎯 體驗部落手作、文化DIY活動與泰雅族弓箭射擊</li>
+    <li>🍽️ 品嚐部落傳統特色點心與便當</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>出發資訊</h2>
+  <ul>
+    <li>🚉 桃園高鐵站出發，台北車站也可包車前往宜蘭</li>
+    <li>🧑‍🏫 全程有兩位老師陪同帶隊</li>
+    <li>👨‍👩‍👧‍👦 六人成行，歡迎家長陪同參加</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>費用與優惠</h2>
+  <p>💰 ONE DAY TOUR 精緻價：新台幣 3800元/人</p>
+  <p>👥 三人團報，每人再減 200元；兩人團報，一人立減 300元！</p>
+</section>
+
+<section class="section">
+  <h2>行程包含</h2>
+  <ul>
+    <li>交通接駁（高鐵或台北出發）</li>
+    <li>部落導覽、DIY體驗課程</li>
+    <li>部落特色午餐（獵人便當）</li>
+    <li>部落點心</li>
+    <li>全程老師陪同、保險</li>
+  </ul>
+</section>
+
+<div class="highlight" data-aos="fade-up" style="text-align: center;">
+    <a href="https://forms.gle/DSqpXxGPtSnMYFCz8" target="_blank" class="register-button">📩 立即報名</a>
+</div>
+  
+<div include-html="../components/footer.html"></div>
+
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    file = elmnt.getAttribute("include-html");
+    if (file) {
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          elmnt.removeAttribute("include-html");
+          includeHTML();
+        }
+      }
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      return;
+    }
+  }
+}
+includeHTML();
+</script>
+
+</body>
+</html>

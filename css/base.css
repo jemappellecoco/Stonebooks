@@ -3,6 +3,7 @@ body {
     background: radial-gradient(#fffdfa, #ffecec);
     background-size: 200% 200%;
     animation: gradientShift 12s ease infinite;
+    /* background-color: #ffffff; 純白色 */
     color: #333;
     margin: 0;
     padding: 1rem;
