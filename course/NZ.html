@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>紐西蘭插班微遊學體驗｜Stonebooks Studio</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/page.css">
+</head>
+
+<body>
+
+<h1>紐西蘭插班微遊學體驗</h1>
+
+<section class="section">
+  <h2>插班微遊學是什麼？</h2>
+  <p>讓孩子走進紐西蘭真實課堂，體驗「插班微遊學」的獨特魅力！打破傳統旅遊框架，真正與當地學生一起上課，感受國際化教育氛圍，提升英語能力，拓展國際視野。短期插班，長期收穫！</p>
+</section>
+
+<section class="section">
+  <h2>開課資訊</h2>
+  <p>📅 開課日期：2025/7/19 - 8/11</p>
+  <p>📚 適合年齡：</p>
+  <ul>
+    <li>小學插班（7-13歲）</li>
+    <li>中學插班（11-13歲）</li>
+    <li>高中插班（14歲以上）</li>
+  </ul>
+</section>
+<img src="/image/NZ01.jpg" alt="紐西蘭插班照片" class="full-width-image">
+<img src="/image/NZ02.jpg" alt="紐西蘭插班照片" class="full-width-image">
+<section class="section">
+  <h2>住宿與費用</h2>
+  <p>🏡 小學插班：父母陪同寄宿家庭或Townhouse，約 $13,500 紐幣。</p>
+  <p>🏡 中學插班：插班寄宿家庭，約 $11,000 紐幣。</p>
+  <p>🏡 高中插班：寄宿家庭，約 $11,000 紐幣。</p>
+</section>
+
+<section class="section">
+  <h2>特色亮點</h2>
+  <ul>
+    <li>✔️ 真正走進紐西蘭中小學校園，與當地學生一起上課</li>
+    <li>✔️ 全英文沉浸環境，快速提升語言能力</li>
+    <li>✔️ 小而精緻的微遊學設計，適合短期體驗</li>
+    <li>✔️ 週末安排文化探索活動，融合自然與教育體驗</li>
+    <li>✔️ 點石教育JOANNE老師親自帶隊，安心專業</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>費用包含</h2>
+  <ul>
+    <li>接送機服務</li>
+    <li>學費、行政費</li>
+    <li>寄宿家庭費用（含三餐）</li>
+    <li>導覽費、景點門票、週末活動費</li>
+    <li>保險費用、校內活動費</li>
+  </ul>
+  <p>❗ 費用不含國際機票。</p>
+</section>
+
+<section class="section">
+  <h2>立即報名，開啟世界視野！</h2>
+  <p>讓孩子的暑假與眾不同，從紐西蘭「插班微遊學」開始！</p>
+  <p>📩 私訊官方LINE了解詳情，還可領取獨家優惠！</p>
+</section>
+
+<!-- 之後你可以這樣插圖片 -->
+
+<div class="footer-links">
+  <a href="../trip/overseas_trip.html">🔙 返回海外營隊總覽</a>
+  <a href="../index.html">🏠 回首頁</a>
+</div>
+
+<div include-html="../components/footer.html"></div>
+
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    file = elmnt.getAttribute("include-html");
+    if (file) {
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          elmnt.removeAttribute("include-html");
+          includeHTML();
+        }
+      }
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      return;
+    }
+  }
+}
+includeHTML();
+</script>
+
+</body>
+</html>

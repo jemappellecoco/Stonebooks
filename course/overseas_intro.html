@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>海外遊學 / 營隊專區｜Stonebooks Studio</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/page.css">
+</head>
+<body>
+
+<header>
+  <h1>✈️ 海外遊學 / 營隊專區</h1>
+  <p class="slogan">與世界連結，踏出舒適圈，開啟國際視野第一步！</p>
+
+  <div class="intro-text">
+    <p>Stonebooks 提供專業的海外留學與遊學代辦服務，協助學生量身規劃學習與生活計畫，順利銜接國際教育體系。</p>
+    <p>我們也不定期舉辦各式主題海外營隊，如紐西蘭探索營、韓國KPOP舞蹈營等，讓學生短期內提升語言能力、拓展國際視野，並由專業師資親自帶領與輔導。</p>
+    <p>無論是長期留遊學或短期體驗營隊，都能透過 Stonebooks 踏上世界舞台的第一步！</p>
+  </div>
+</header>
+
+<section class="announcement-banner">
+  <p>🔥 <strong>最新消息：</strong> 2025 其他遊學營 即將開放報名！敬請期待！</p>
+</section>
+
+<section class="program-list">
+
+  <!-- 紐西蘭遊學團 -->
+  <div class="program-card">
+    <div class="program-title">紐西蘭遊學團</div>
+    <div class="program-description">
+      自然探索 × 英語沉浸體驗，體驗世界級教育，感受紐西蘭純淨文化。
+    </div>
+    <p class="program-info">📢 報名截止日：2025/5/31</p>
+    <p class="program-info">📅 活動日期：2025/07/19</p>
+    <a class="detail-link" href="../course/NZ.html">🔗 查看詳細行程內容</a>
+  </div>
+
+  <!-- 韓國KPOP舞蹈營 -->
+  <div class="program-card">
+    <div class="program-title">韓國KPOP舞蹈營</div>
+    <div class="program-description">
+      體驗首爾最強舞蹈訓練，專業師資指導，從舞台走向國際視野！
+    </div>
+    <p class="program-info">📢 報名截止日：2025/5/31</p>
+    <p class="program-info">📅 活動日期：2025/07/19 - 2025/07/25</p>
+    <a class="detail-link" href="../summer_camp/kpop_camp.html">🔗 查看詳細行程內容</a>
+  </div>
+
+</section>
+
+<div class="slogan">
+  更多海外遊學與主題營隊即將開放，敬請持續關注 Stonebooks！
+</div>
+
+<div include-html="../components/footer.html"></div>
+
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    file = elmnt.getAttribute("include-html");
+    if (file) {
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          elmnt.removeAttribute("include-html");
+          includeHTML();
+        }
+      }
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      return;
+    }
+  }
+}
+includeHTML();
+</script> 
+
+</body>
+</html>

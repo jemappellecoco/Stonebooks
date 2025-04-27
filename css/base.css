@@ -26,7 +26,25 @@ h3,h2 {
     align-items: center;
     gap: 0.5rem;
   }
-  
+  /* base.css 新增 */
+
+.slogan {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: #555;
+  text-align: center; /* 文字置中 */
+  width: 100%; /* 讓div寬度撐滿 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro-text {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.8;
+}
+
   /* 動畫 keyframes */
   @keyframes gradientShift {
     0% { background-position: 0% 50%; }
