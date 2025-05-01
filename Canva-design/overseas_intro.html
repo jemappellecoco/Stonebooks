@@ -1,0 +1,704 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>海外遊學 / 營隊專區｜Stonebooks Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: #f8fafc;
+      color: #334155;
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .program-card {
+      transition: all 0.3s ease;
+    }
+    
+    .program-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .detail-link {
+      transition: all 0.3s ease;
+    }
+    
+    .detail-link:hover {
+      transform: translateX(5px);
+    }
+    
+    .announcement-banner {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% {
+        background-color: rgba(59, 130, 246, 0.1);
+      }
+      50% {
+        background-color: rgba(59, 130, 246, 0.2);
+      }
+      100% {
+        background-color: rgba(59, 130, 246, 0.1);
+      }
+    }
+    
+    .feature-icon {
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover .feature-icon {
+      transform: scale(1.2);
+    }
+    
+    .tab-button {
+      transition: all 0.3s ease;
+    }
+    
+    .tab-button.active {
+      border-bottom: 3px solid #3b82f6;
+      color: #3b82f6;
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero-section text-white py-20 px-4 md:px-8">
+    <div class="container mx-auto max-w-6xl">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="inline-block bg-blue-600 rounded-full p-3 mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+          </svg>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">✈️ 海外遊學 / 營隊專區</h1>
+        <p class="text-xl md:text-2xl mb-8">與世界連結，踏出舒適圈，開啟國際視野第一步！</p>
+        <div class="bg-white bg-opacity-10 backdrop-blur-sm p-6 rounded-lg">
+          <p class="mb-4">Stonebooks 提供專業的海外留學與遊學代辦服務，協助學生量身規劃學習與生活計畫，順利銜接國際教育體系。</p>
+          <p class="mb-4">我們也不定期舉辦各式主題海外營隊，如紐西蘭探索營、韓國KPOP舞蹈營等，讓學生短期內提升語言能力、拓展國際視野，並由專業師資親自帶領與輔導。</p>
+          <p>無論是長期留遊學或短期體驗營隊，都能透過 Stonebooks 踏上世界舞台的第一步！</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Announcement Banner -->
+  <section class="announcement-banner bg-blue-50 py-4 px-4 md:px-8">
+    <div class="container mx-auto max-w-6xl">
+      <div class="flex items-center justify-center">
+        <div class="bg-blue-100 rounded-full p-2 mr-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+          </svg>
+        </div>
+        <p class="font-medium text-blue-800">🔥 <strong>最新消息：</strong> 2025 其他遊學營 即將開放報名！敬請期待！</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation Tabs -->
+  <section class="py-8 px-4 md:px-8 bg-white">
+    <div class="container mx-auto max-w-6xl">
+      <div class="flex flex-wrap justify-center border-b border-gray-200">
+        <button class="tab-button active px-6 py-3 text-lg font-medium" onclick="openTab(event, 'all')">
+          全部項目
+        </button>
+        <button class="tab-button px-6 py-3 text-lg font-medium" onclick="openTab(event, 'study')">
+          遊學團
+        </button>
+        <button class="tab-button px-6 py-3 text-lg font-medium" onclick="openTab(event, 'camp')">
+          主題營隊
+        </button>
+        <button class="tab-button px-6 py-3 text-lg font-medium" onclick="openTab(event, 'upcoming')">
+          即將推出
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section class="py-12 px-4 md:px-8">
+    <div class="container mx-auto max-w-6xl">
+      
+      <!-- All Programs Tab -->
+      <div id="all" class="tab-content active">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- 紐西蘭遊學團 -->
+          <div class="program-card bg-white rounded-xl overflow-hidden shadow-lg">
+            <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-600 relative">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div class="absolute top-4 left-4 bg-white bg-opacity-90 rounded-lg px-3 py-1 text-blue-600 font-medium">
+                遊學團
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-3">紐西蘭遊學團</h3>
+              <p class="text-gray-600 mb-4">自然探索 × 英語沉浸體驗，體驗世界級教育，感受紐西蘭純淨文化。</p>
+              <div class="space-y-2 mb-6">
+                <div class="flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <p>📅 活動日期：2025/07/19</p>
+                </div>
+                <div class="flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <p>📢 報名截止日：2025/5/31</p>
+                </div>
+              </div>
+              <a href="../course/NZ.html" class="detail-link flex items-center text-blue-600 font-medium hover:text-blue-800">
+                🔗 查看詳細行程內容
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <!-- 韓國KPOP舞蹈營 -->
+          <div class="program-card bg-white rounded-xl overflow-hidden shadow-lg">
+            <div class="h-48 bg-gradient-to-r from-purple-400 to-purple-600 relative">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div class="absolute top-4 left-4 bg-white bg-opacity-90 rounded-lg px-3 py-1 text-purple-600 font-medium">
+                主題營隊
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-3">韓國KPOP舞蹈營</h3>
+              <p class="text-gray-600 mb-4">體驗首爾最強舞蹈訓練，專業師資指導，從舞台走向國際視野！</p>
+              <div class="space-y-2 mb-6">
+                <div class="flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <p>📅 活動日期：2025/07/19 - 2025/07/25</p>
+                </div>
+                <div class="flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <p>📢 報名截止日：2025/5/31</p>
+                </div>
+              </div>
+              <a href="../summer_camp/kpop_camp.html" class="detail-link flex items-center text-purple-600 font-medium hover:text-purple-800">
+                🔗 查看詳細行程內容
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <!-- 即將推出 - 美國矽谷科技營 -->
+          <div class="program-card bg-white rounded-xl overflow-hidden shadow-lg relative">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10">
+              <div class="bg-yellow-400 text-yellow-900 font-bold py-2 px-6 rounded-full transform rotate-12">
+                即將推出
+              </div>
+            </div>
+            <div class="h-48 bg-gradient-to-r from-green-400 to-green-600 relative">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div class="absolute top-4 left-4 bg-white bg-opacity-90 rounded-lg px-3 py-1 text-green-600 font-medium">
+                主題營隊
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-3">美國矽谷科技營</h3>
+              <p class="text-gray-600 mb-4">探索科技創新中心，參訪頂尖企業，體驗創客文化，啟發無限可能！</p>
+              <div class="space-y-2 mb-6">
+                <div class="flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <p>📅 活動日期：敬請期待</p>
+                </div>
+                <div class="flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <p>📢 報名截止日：敬請期待</p>
+                </div>
+              </div>
+              <button class="detail-link flex items-center text-green-600 font-medium cursor-not-allowed opacity-50">
+                🔗 敬請期待詳細資訊
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Study Abroad Tab -->
+      <div id="study" class="tab-content">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- 紐西蘭遊學團 -->
+          <div class="program-card bg-white rounded-xl overflow-hidden shadow-lg">
+            <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-600 relative">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div class="absolute top-4 left-4 bg-white bg-opacity-90 rounded-lg px-3 py-1 text-blue-600 font-medium">
+                遊學團
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-3">紐西蘭遊學團</h3>
+              <p class="text-gray-600 mb-4">自然探索 × 英語沉浸體驗，體驗世界級教育，感受紐西蘭純淨文化。</p>
+              <div class="space-y-2 mb-6">
+                <div class="flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <p>📅 活動日期：2025/07/19</p>
+                </div>
+                <div class="flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <p>📢 報名截止日：2025/5/31</p>
+                </div>
+              </div>
+              <a href="../course/NZ.html" class="detail-link flex items-center text-blue-600 font-medium hover:text-blue-800">
+                🔗 查看詳細行程內容
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Camp Tab -->
+      <div id="camp" class="tab-content">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- 韓國KPOP舞蹈營 -->
+          <div class="program-card bg-white rounded-xl overflow-hidden shadow-lg">
+            <div class="h-48 bg-gradient-to-r from-purple-400 to-purple-600 relative">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div class="absolute top-4 left-4 bg-white bg-opacity-90 rounded-lg px-3 py-1 text-purple-600 font-medium">
+                主題營隊
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-3">韓國KPOP舞蹈營</h3>
+              <p class="text-gray-600 mb-4">體驗首爾最強舞蹈訓練，專業師資指導，從舞台走向國際視野！</p>
+              <div class="space-y-2 mb-6">
+                <div class="flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <p>📅 活動日期：2025/07/19 - 2025/07/25</p>
+                </div>
+                <div class="flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <p>📢 報名截止日：2025/5/31</p>
+                </div>
+              </div>
+              <a href="../summer_camp/kpop_camp.html" class="detail-link flex items-center text-purple-600 font-medium hover:text-purple-800">
+                🔗 查看詳細行程內容
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Upcoming Tab -->
+      <div id="upcoming" class="tab-content">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- 即將推出 - 美國矽谷科技營 -->
+          <div class="program-card bg-white rounded-xl overflow-hidden shadow-lg relative">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10">
+              <div class="bg-yellow-400 text-yellow-900 font-bold py-2 px-6 rounded-full transform rotate-12">
+                即將推出
+              </div>
+            </div>
+            <div class="h-48 bg-gradient-to-r from-green-400 to-green-600 relative">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div class="absolute top-4 left-4 bg-white bg-opacity-90 rounded-lg px-3 py-1 text-green-600 font-medium">
+                主題營隊
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-3">美國矽谷科技營</h3>
+              <p class="text-gray-600 mb-4">探索科技創新中心，參訪頂尖企業，體驗創客文化，啟發無限可能！</p>
+              <div class="space-y-2 mb-6">
+                <div class="flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <p>📅 活動日期：敬請期待</p>
+                </div>
+                <div class="flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <p>📢 報名截止日：敬請期待</p>
+                </div>
+              </div>
+              <button class="detail-link flex items-center text-green-600 font-medium cursor-not-allowed opacity-50">
+                🔗 敬請期待詳細資訊
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+          <!-- 即將推出 - 英國牛津學術營 -->
+          <div class="program-card bg-white rounded-xl overflow-hidden shadow-lg relative">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10">
+              <div class="bg-yellow-400 text-yellow-900 font-bold py-2 px-6 rounded-full transform rotate-12">
+                即將推出
+              </div>
+            </div>
+            <div class="h-48 bg-gradient-to-r from-red-400 to-red-600 relative">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              <div class="absolute top-4 left-4 bg-white bg-opacity-90 rounded-lg px-3 py-1 text-red-600 font-medium">
+                遊學團
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-3">英國牛津學術營</h3>
+              <p class="text-gray-600 mb-4">走進世界頂尖學府，體驗英式教育，培養批判思考與學術寫作能力！</p>
+              <div class="space-y-2 mb-6">
+                <div class="flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <p>📅 活動日期：敬請期待</p>
+                </div>
+                <div class="flex items-center text-gray-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <p>📢 報名截止日：敬請期待</p>
+                </div>
+              </div>
+              <button class="detail-link flex items-center text-red-600 font-medium cursor-not-allowed opacity-50">
+                🔗 敬請期待詳細資訊
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 px-4 md:px-8 bg-blue-50">
+    <div class="container mx-auto max-w-6xl">
+      <h2 class="text-3xl font-bold mb-12 text-center">我們的優勢</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="feature-card bg-white rounded-xl p-6 shadow-md text-center">
+          <div class="flex justify-center mb-4">
+            <div class="feature-icon bg-blue-100 rounded-full p-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold mb-2">專業安全</h3>
+          <p class="text-gray-600">專業團隊全程陪同，嚴選合作夥伴，確保學習與生活安全無虞。</p>
+        </div>
+        
+        <div class="feature-card bg-white rounded-xl p-6 shadow-md text-center">
+          <div class="flex justify-center mb-4">
+            <div class="feature-icon bg-blue-100 rounded-full p-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold mb-2">精選住宿</h3>
+          <p class="text-gray-600">嚴選寄宿家庭與住宿環境，提供舒適安全的生活體驗。</p>
+        </div>
+        
+        <div class="feature-card bg-white rounded-xl p-6 shadow-md text-center">
+          <div class="flex justify-center mb-4">
+            <div class="feature-icon bg-blue-100 rounded-full p-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold mb-2">優質課程</h3>
+          <p class="text-gray-600">精心設計的課程內容，結合語言學習與文化體驗，提升國際視野。</p>
+        </div>
+        
+        <div class="feature-card bg-white rounded-xl p-6 shadow-md text-center">
+          <div class="flex justify-center mb-4">
+            <div class="feature-icon bg-blue-100 rounded-full p-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold mb-2">專業師資</h3>
+          <p class="text-gray-600">由經驗豐富的教師帶隊，提供專業指導與全程陪伴。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="py-16 px-4 md:px-8 bg-white">
+    <div class="container mx-auto max-w-6xl">
+      <div class="bg-gradient-to-r from-blue-500 to-blue-700 rounded-2xl overflow-hidden shadow-xl">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/2 p-8 md:p-12">
+            <h2 class="text-3xl font-bold text-white mb-4">訂閱最新消息</h2>
+            <p class="text-blue-100 mb-6">隨時掌握最新遊學資訊、優惠方案與營隊活動，讓您的國際教育之旅不漏接任何機會！</p>
+            <div class="flex flex-col sm:flex-row">
+              <input type="email" placeholder="請輸入您的電子郵件" class="px-4 py-3 rounded-l-lg w-full sm:w-2/3 focus:outline-none" />
+              <button class="bg-yellow-500 hover:bg-yellow-600 text-yellow-900 font-bold px-6 py-3 rounded-r-lg mt-2 sm:mt-0 transition-colors">
+                訂閱
+              </button>
+            </div>
+          </div>
+          <div class="md:w-1/2 bg-blue-600 flex items-center justify-center p-8 md:p-12">
+            <div class="text-center">
+              <div class="bg-white rounded-full p-4 inline-block mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <p class="text-white text-lg">已有 <span class="font-bold text-yellow-300">500+</span> 位家長訂閱</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 px-4 md:px-8 bg-gray-50">
+    <div class="container mx-auto max-w-6xl">
+      <h2 class="text-3xl font-bold mb-12 text-center">常見問題</h2>
+      
+      <div class="space-y-6 max-w-3xl mx-auto">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <button class="faq-toggle w-full text-left px-6 py-4 font-medium flex justify-between items-center" onclick="toggleFAQ(this)">
+            <span>遊學團與一般旅遊有什麼不同？</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content px-6 py-4 border-t border-gray-100 hidden">
+            <p class="text-gray-600">遊學團結合了語言學習與文化體驗，不同於一般旅遊，我們安排學生進入當地學校或語言中心學習，並與當地學生互動，深入體驗當地文化與教育環境，同時提供專業師資全程陪同與輔導。</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <button class="faq-toggle w-full text-left px-6 py-4 font-medium flex justify-between items-center" onclick="toggleFAQ(this)">
+            <span>需要具備什麼語言能力才能參加？</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content px-6 py-4 border-t border-gray-100 hidden">
+            <p class="text-gray-600">我們的遊學團與營隊適合不同語言程度的學生參加，從初學者到進階程度都有適合的課程。出發前會進行語言能力評估，以便安排適合的課程內容。專業師資會全程協助溝通，不必過於擔心語言障礙。</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <button class="faq-toggle w-full text-left px-6 py-4 font-medium flex justify-between items-center" onclick="toggleFAQ(this)">
+            <span>住宿安排是怎樣的？安全嗎？</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content px-6 py-4 border-t border-gray-100 hidden">
+            <p class="text-gray-600">我們提供多種住宿選擇，包括寄宿家庭、學生宿舍或飯店住宿。所有住宿點都經過嚴格篩選與實地考察，確保環境安全舒適。寄宿家庭更經過背景調查與面試，並有豐富接待國際學生的經驗。我們的帶隊老師也會全程關注學生的住宿情況。</p>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <button class="faq-toggle w-full text-left px-6 py-4 font-medium flex justify-between items-center" onclick="toggleFAQ(this)">
+            <span>費用包含哪些項目？</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content px-6 py-4 border-t border-gray-100 hidden">
+            <p class="text-gray-600">費用通常包含課程學費、住宿費用、餐食(依方案而定)、機場接送、當地交通、文化活動與參訪、保險費用等。國際機票通常需要另行購買，詳細費用項目請參考各遊學團與營隊的詳細說明。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slogan -->
+  <section class="py-16 px-4 md:px-8 bg-blue-600 text-white text-center">
+    <div class="container mx-auto max-w-6xl">
+      <h2 class="text-3xl font-bold mb-6">更多海外遊學與主題營隊即將開放</h2>
+      <p class="text-xl">敬請持續關注 Stonebooks！</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8 px-4">
+    <div class="container mx-auto max-w-6xl">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <h3 class="text-xl font-bold mb-2">Stonebooks Studio</h3>
+          <p>海外遊學與營隊專家</p>
+        </div>
+        
+        <div class="flex space-x-4">
+          <a href="#" class="hover:text-blue-300 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+            </svg>
+          </a>
+          <a href="#" class="hover:text-blue-300 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="#" class="hover:text-blue-300 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="mt-8 pt-8 border-t border-gray-700 text-center text-sm text-gray-400">
+        <p>&copy; 2024 Stonebooks Studio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        elmnt = z[i];
+        file = elmnt.getAttribute("include-html");
+        if (file) {
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+              if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+              if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          return;
+        }
+      }
+    }
+    
+    function openTab(evt, tabName) {
+      // Hide all tab content
+      var tabContents = document.getElementsByClassName("tab-content");
+      for (var i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove("active");
+      }
+      
+      // Remove active class from all tab buttons
+      var tabButtons = document.getElementsByClassName("tab-button");
+      for (var i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].classList.remove("active");
+      }
+      
+      // Show the selected tab content and mark button as active
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+    
+    function toggleFAQ(element) {
+      const content = element.nextElementSibling;
+      const icon = element.querySelector("svg");
+      
+      if (content.classList.contains("hidden")) {
+        content.classList.remove("hidden");
+        icon.classList.add("rotate-180");
+      } else {
+        content.classList.add("hidden");
+        icon.classList.remove("rotate-180");
+      }
+    }
+    
+    includeHTML();
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'937f7678325a3317',t:'MTc0NTkzNjY2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>👥 一對一 / 小班課程｜點石教育</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #c94f4f;
+      --primary-light: #f67280;
+      --primary-lighter: #fff0f0;
+      --secondary: #3a6ea5;
+      --dark: #333333;
+      --light: #fffdfa;
+    }
+    
+    body {
+      font-family: 'Noto Sans TC', 'Helvetica Neue', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.8;
+    }
+    
+    .header-bg {
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    
+    .section-title {
+      position: relative;
+      color: var(--primary);
+      font-weight: 700;
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background-color: #fbb;
+      border-radius: 3px;
+    }
+    
+    .card {
+      background-color: var(--primary-lighter);
+      border: 2px solid var(--primary);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(201, 79, 79, 0.2);
+    }
+    
+    .feature-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background-color: var(--primary-lighter);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: #a33333;
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .testimonial {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+    
+    .testimonial::before {
+      content: '"';
+      position: absolute;
+      top: -15px;
+      left: 20px;
+      font-size: 60px;
+      color: var(--primary);
+      opacity: 0.2;
+      font-family: serif;
+    }
+    
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      font-size: 0.875rem;
+    }
+    
+    .breadcrumb a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    .breadcrumb a:hover {
+      color: white;
+    }
+    
+    .breadcrumb-separator {
+      margin: 0 0.5rem;
+      color: rgba(255,255,255,0.6);
+    }
+    
+    .footer {
+      background-color: var(--dark);
+      color: white;
+    }
+    
+    .footer-link {
+      color: rgba(255,255,255,0.7);
+      transition: color 0.2s ease;
+    }
+    
+    .footer-link:hover {
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      .feature-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="bg-white shadow-md py-4 px-6 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <a href="../index.html" class="text-2xl font-bold text-primary">點石教育</a>
+      <nav class="hidden md:flex space-x-6">
+        <a href="../index.html" class="hover:text-primary transition-colors">首頁</a>
+        <a href="../vision.html" class="hover:text-primary transition-colors">關於我們</a>
+        <a href="../course/courses.html" class="text-primary font-medium">課程與營隊</a>
+        <a href="../gallery.html" class="hover:text-primary transition-colors">活動成果</a>
+        <a href="../policy/FQA.html" class="hover:text-primary transition-colors">家長專區</a>
+      </nav>
+      <div class="md:hidden">
+        <button class="text-2xl">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="header-bg py-16 px-6 text-white text-center">
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="breadcrumb mb-4 flex justify-center">
+        <a href="../index.html">首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../course/courses.html">課程與營隊</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>一對一 / 小班課程</span>
+      </div>
+      
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">👥 一對一 / 小班客製化教學</h1>
+      <p class="text-xl md:text-2xl max-w-3xl mx-auto opacity-90">專屬規劃 × 深度陪伴 × 彈性進度｜打造孩子專屬的學習節奏</p>
+      
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="#teaching-model" class="bg-white text-primary px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition">教學模式</a>
+        <a href="#advantages" class="border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:bg-opacity-10 transition">點石優勢</a>
+        <a href="https://lin.ee/LSkFblL" class="bg-secondary text-white px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition">立即諮詢</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <section class="mb-16">
+        <h2 class="section-title text-2xl md:text-3xl">📌 適用對象</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="feature-card p-6">
+            <div class="feature-icon">
+              <span>🌟</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-primary">強化單一學科</h3>
+            <p>想要針對英文、數學等特定科目進行加強，需要專業老師引導的學生。</p>
+          </div>
+          
+          <div class="feature-card p-6">
+            <div class="feature-icon">
+              <span>🌱</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-primary">特定學習目標</h3>
+            <p>有明確目標如段考準備、檢定考試、面試準備等，需要集中訓練的學生。</p>
+          </div>
+          
+          <div class="feature-card p-6">
+            <div class="feature-icon">
+              <span>🧩</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-primary">跨年級學習需求</h3>
+            <p>需要補救學習或希望超前進度，學習節奏與一般課堂不同的學生。</p>
+          </div>
+        </div>
+      </section>
+      
+      <section id="teaching-model" class="mb-16">
+        <h2 class="section-title text-2xl md:text-3xl">🧑‍🏫 教學模式</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="card p-8">
+            <div class="text-4xl mb-4">👤</div>
+            <h3 class="text-2xl font-bold mb-4 text-primary">一對一課程</h3>
+            <p class="mb-4">針對個人狀況調整教材與進度，適合需要專注補強的學生。</p>
+            <ul class="space-y-2 mt-6">
+              <li class="flex items-start">
+                <span class="text-primary mr-2">✓</span>
+                <span>完全客製化的學習內容</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-primary mr-2">✓</span>
+                <span>老師全程專注指導</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-primary mr-2">✓</span>
+                <span>即時調整教學節奏</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-primary mr-2">✓</span>
+                <span>適合害羞或需要特別關注的學生</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="card p-8">
+            <div class="text-4xl mb-4">👥</div>
+            <h3 class="text-2xl font-bold mb-4 text-primary">小班制教學（2～4人）</h3>
+            <p class="mb-4">程度接近分組，促進同儕互動與學習動力，亦可個別追蹤。</p>
+            <ul class="space-y-2 mt-6">
+              <li class="flex items-start">
+                <span class="text-primary mr-2">✓</span>
+                <span>同儕互動增加學習樂趣</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-primary mr-2">✓</span>
+                <span>良性競爭提升學習動機</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-primary mr-2">✓</span>
+                <span>分組活動強化理解與應用</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-primary mr-2">✓</span>
+                <span>經濟實惠的個人化教學選擇</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      
+      <section class="mb-16">
+        <h2 class="section-title text-2xl md:text-3xl">🧭 課程安排</h2>
+        <div class="bg-white rounded-xl p-8 shadow-md">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-xl font-bold mb-4 text-primary">時間與地點</h3>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <span class="text-primary mr-3 text-xl">⏱️</span>
+                  <div>
+                    <p class="font-medium">課程時長</p>
+                    <p>每堂課 60～90 分鐘</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-primary mr-3 text-xl">📅</span>
+                  <div>
+                    <p class="font-medium">可選時段</p>
+                    <p>週一至週六 9:00-22:00 之間或週末彈性時間</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-primary mr-3 text-xl">📍</span>
+                  <div>
+                    <p class="font-medium">上課地點</p>
+                    <p>中壢 SOGO 附近實體教室 / 可選線上授課</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-bold mb-4 text-primary">課程主題</h3>
+              <div class="grid grid-cols-2 gap-3">
+                <div class="bg-primary-lighter p-3 rounded-lg text-center">
+                  <p class="font-medium">英文會話</p>
+                </div>
+                <div class="bg-primary-lighter p-3 rounded-lg text-center">
+                  <p class="font-medium">英文寫作</p>
+                </div>
+                <div class="bg-primary-lighter p-3 rounded-lg text-center">
+                  <p class="font-medium">數學思維</p>
+                </div>
+                <div class="bg-primary-lighter p-3 rounded-lg text-center">
+                  <p class="font-medium">自然科學</p>
+                </div>
+                <div class="bg-primary-lighter p-3 rounded-lg text-center">
+                  <p class="font-medium">檢定考試</p>
+                </div>
+                <div class="bg-primary-lighter p-3 rounded-lg text-center">
+                  <p class="font-medium">升學準備</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm text-gray-600">*可依學生需求客製其他主題</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="advantages" class="mb-16">
+        <h2 class="section-title text-2xl md:text-3xl">🎯 點石的優勢</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="feature-card p-6">
+            <div class="feature-icon">
+              <span>📈</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-primary">學習目標客製化設定</h3>
+            <p>根據學生的程度、需求和學習風格，量身打造專屬學習計畫，確保每一分鐘都有效率。</p>
+          </div>
+          
+          <div class="feature-card p-6">
+            <div class="feature-icon">
+              <span>📝</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-primary">每月回饋報告 + 家長聯繫</h3>
+            <p>定期提供詳細的學習進度報告，與家長保持密切溝通，共同關注孩子的成長。</p>
+          </div>
+          
+          <div class="feature-card p-6">
+            <div class="feature-icon">
+              <span>🌐</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-primary">彈性線上/實體授課</h3>
+            <p>因應不同需求，提供實體或線上課程選擇，確保學習不中斷，隨時隨地都能學習。</p>
+          </div>
+        </div>
+      </section>
+      
+      <section class="mb-16">
+        <h2 class="section-title text-2xl md:text-3xl">💬 學生與家長回饋</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="testimonial p-6">
+            <p class="mb-4">「點石的一對一課程幫助我在短時間內提升英文成績，老師會針對我的弱點設計教材，讓我能夠快速進步。」</p>
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-primary-light rounded-full flex items-center justify-center text-white font-bold mr-3">
+                J
+              </div>
+              <div>
+                <p class="font-bold">Jason</p>
+                <p class="text-sm text-gray-600">國中二年級學生</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial p-6">
+            <p class="mb-4">「小班制的互動學習非常適合我的孩子，不僅有同儕學習的樂趣，老師也能兼顧每個孩子的學習狀況，非常推薦！」</p>
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-primary-light rounded-full flex items-center justify-center text-white font-bold mr-3">
+                L
+              </div>
+              <div>
+                <p class="font-bold">林媽媽</p>
+                <p class="text-sm text-gray-600">小五學生家長</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="bg-primary-lighter rounded-xl p-8">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="mb-6 md:mb-0">
+            <h3 class="text-2xl font-bold mb-2 text-primary">想了解更多課程資訊？</h3>
+            <p class="text-lg">立即聯繫我們，為孩子打造專屬學習計畫！</p>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <a href="https://lin.ee/LSkFblL" class="btn-primary px-8 py-3 rounded-full font-medium">預約諮詢</a>
+            <a href="../policy/FQA.html" class="btn-outline px-8 py-3 rounded-full font-medium">常見問題</a>
+          </div>
+        </div>
+      </section>
+      
+      <section class="mt-16">
+        <h2 class="section-title text-2xl md:text-3xl">📋 課程費用參考</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="bg-primary text-white">
+                <th class="p-4 text-left rounded-tl-lg">課程類型</th>
+                <th class="p-4 text-left">時長</th>
+                <th class="p-4 text-left">單堂費用</th>
+                <th class="p-4 text-left rounded-tr-lg">套裝優惠</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-200 bg-white">
+                <td class="p-4 font-medium">一對一課程</td>
+                <td class="p-4">60分鐘</td>
+                <td class="p-4">NT$ 800</td>
+                <td class="p-4">10堂課 NT$ 7,500</td>
+              </tr>
+              <tr class="border-b border-gray-200 bg-white">
+                <td class="p-4 font-medium">一對一課程</td>
+                <td class="p-4">90分鐘</td>
+                <td class="p-4">NT$ 1,200</td>
+                <td class="p-4">10堂課 NT$ 11,000</td>
+              </tr>
+              <tr class="border-b border-gray-200 bg-white">
+                <td class="p-4 font-medium">小班制 (2人)</td>
+                <td class="p-4">90分鐘</td>
+                <td class="p-4">NT$ 600/人</td>
+                <td class="p-4">10堂課 NT$ 5,500/人</td>
+              </tr>
+              <tr class="bg-white">
+                <td class="p-4 font-medium rounded-bl-lg">小班制 (3-4人)</td>
+                <td class="p-4">90分鐘</td>
+                <td class="p-4">NT$ 500/人</td>
+                <td class="p-4 rounded-br-lg">10堂課 NT$ 4,500/人</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-4 text-sm text-gray-600">*實際費用可能因課程內容、教師專長等因素調整，詳情請洽客服</p>
+      </section>
+    </div>
+  </main>
+
+  <section class="bg-primary text-white py-12 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">開始孩子的專屬學習旅程</h2>
+      <p class="text-xl mb-8 opacity-90">點石教育，為每個孩子量身打造最適合的學習方式</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://lin.ee/LSkFblL" class="bg-white text-primary px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition">立即諮詢</a>
+        <a href="../course/courses.html" class="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:bg-opacity-10 transition">查看其他課程</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer py-12 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">點石教育</h3>
+          <p class="text-gray-400">讓孩子愛上學習的起點</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">關於我們</h3>
+          <ul class="space-y-2">
+            <li><a href="../vision.html" class="footer-link">教學理念</a></li>
+            <li><a href="../teachers.html" class="footer-link">師資介紹</a></li>
+            <li><a href="../environment.html" class="footer-link">教室環境</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">課程與營隊</h3>
+          <ul class="space-y-2">
+            <li><a href="../course/courses.html" class="footer-link">課程總覽</a></li>
+            <li><a href="../summer_camp/index.html" class="footer-link">營隊專區</a></li>
+            <li><a href="../course/overseas_intro.html" class="footer-link">海外遊學團</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">聯絡我們</h3>
+          <ul class="space-y-2">
+            <li class="text-gray-400">電話：(03) 1234-5678</li>
+            <li class="text-gray-400">地址：桃園市中壢區中正路100號</li>
+            <li><a href="https://lin.ee/LSkFblL" class="footer-link">LINE官方帳號</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+        點石教育 © 2025 ｜ Designed by Coco
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu functionality
+    document.querySelector('button').addEventListener('click', function() {
+      // This would normally toggle a mobile menu
+      alert('Mobile menu would open here');
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'937f497745263309',t:'MTc0NTkzNDgyMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

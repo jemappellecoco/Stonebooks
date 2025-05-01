@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STAR Reading 閱讀測驗介紹｜Stonebooks Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
+    
+    :root {
+      --primary: #e63946;
+      --primary-light: #f8d7da;
+      --secondary: #457b9d;
+      --light: #f1faee;
+      --dark: #1d3557;
+      --accent: #ffd166;
+    }
+    
+    body {
+      font-family: 'Noto Sans TC', "Helvetica Neue", sans-serif;
+      background-color: #f8f9fa;
+      color: var(--dark);
+      line-height: 1.8;
+    }
+    
+    h1, h2, h3 {
+      color: var(--primary);
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+    
+    .header-bg {
+      background: linear-gradient(135deg, var(--primary) 0%, #ff8a80 100%);
+      color: white;
+    }
+    
+    .cta-button {
+      background: linear-gradient(135deg, var(--primary) 0%, #ff8a80 100%);
+      color: white;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(230, 57, 70, 0.4);
+    }
+    
+    .section-card {
+      border-radius: 16px;
+      background-color: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+    
+    .section-card:hover {
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+    }
+    
+    .card-header {
+      background: linear-gradient(135deg, #f8d7da 0%, #fff5f5 100%);
+      padding: 1.5rem;
+      border-bottom: 1px solid #f1f1f1;
+    }
+    
+    .feature-icon {
+      background: linear-gradient(135deg, var(--primary-light) 0%, white 100%);
+      color: var(--primary);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    
+    .feature-card {
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .faq-item {
+      border-bottom: 1px solid #f0f0f0;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-item:hover {
+      background-color: #fafafa;
+    }
+    
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    
+    .highlight-text {
+      background: linear-gradient(120deg, rgba(255, 209, 102, 0.4) 0%, rgba(255, 209, 102, 0) 100%);
+      padding: 0 4px;
+    }
+    
+    .star-bg {
+      position: relative;
+    }
+    
+    .star-bg::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f8d7da' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+      z-index: -1;
+    }
+    
+    .wave-divider {
+      position: relative;
+      height: 70px;
+      margin-top: -70px;
+    }
+    
+    .wave-divider svg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+    }
+    
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .badge {
+      background-color: var(--accent);
+      color: var(--dark);
+      font-weight: bold;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      display: inline-block;
+    }
+    
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+    
+    .scroll-reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="header-bg py-16 md:py-24 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 relative z-10">
+      <div class="text-center">
+        <span class="badge mb-4 animate__animated animate__fadeIn">專業英語閱讀評測</span>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 animate__animated animate__fadeInUp">🌟 STAR Reading 測驗</h1>
+        <p class="text-xl md:text-2xl max-w-2xl mx-auto text-white/90 animate__animated animate__fadeInUp animate__delay-1s">
+          全面掌握孩子的英文閱讀實力，從此不再盲目選書！
+        </p>
+      </div>
+    </div>
+    
+    <!-- Decorative elements -->
+    <div class="absolute top-10 left-10 opacity-20 text-6xl animate__animated animate__fadeIn animate__delay-1s">📚</div>
+    <div class="absolute bottom-10 right-10 opacity-20 text-6xl animate__animated animate__fadeIn animate__delay-1s">📝</div>
+    <div class="absolute top-1/2 left-1/4 opacity-10 text-7xl animate__animated animate__fadeIn animate__delay-2s">🔍</div>
+    
+    <!-- Wave divider -->
+    <div class="wave-divider">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#f8f9fa" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+    </div>
+  </header>
+
+  <div class="max-w-5xl mx-auto px-4 py-12 md:py-16">
+    <!-- Introduction Section -->
+    <section class="section-card mb-12 scroll-reveal">
+      <div class="card-header">
+        <h2 class="text-2xl font-bold">什麼是 STAR Reading？</h2>
+      </div>
+      <div class="p-6 md:p-8">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="w-full md:w-3/5">
+            <p class="mb-4"><strong>STAR Reading</strong> 是一套獲得全美私校高度採信的 <strong class="highlight-text">英文閱讀能力測評系統</strong>，能夠在短短 20 分鐘內，評估出孩子的閱讀等級（藍思值/AR 值），並提供精準的書籍推薦範圍（ZPD），讓孩子讀得剛剛好、不挫折、不浪費時間！</p>
+            
+            <div class="bg-gradient-to-r from-red-50 to-white p-4 rounded-lg border-l-4 border-red-400 mt-6">
+              <p class="font-medium">📌 透過科學化的測評，讓每一本書都成為孩子進步的最佳跳板！</p>
+            </div>
+          </div>
+          <div class="w-full md:w-2/5">
+            <div class="relative">
+              <div class="absolute -top-4 -left-4 w-full h-full bg-primary-light rounded-lg"></div>
+              <div class="relative bg-white p-6 rounded-lg shadow-lg">
+                <div class="text-center">
+                  <div class="text-5xl mb-4 floating">📊</div>
+                  <h3 class="font-bold text-lg mb-2">精準測評</h3>
+                  <p class="text-sm">20分鐘內完成<br>科學化閱讀能力評估</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How We Use STAR Section -->
+    <section class="section-card mb-12 scroll-reveal">
+      <div class="card-header">
+        <h2 class="text-2xl font-bold">⭐ 我們怎麼運用 STAR？</h2>
+      </div>
+      <div class="p-6 md:p-8">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="w-full md:w-1/2 mb-6 md:mb-0">
+            <img src="../image/英語閱讀系統.png" alt="英語閱讀系統介紹圖" class="w-full rounded-lg shadow-lg" />
+          </div>
+          <div class="w-full md:w-1/2">
+            <div class="space-y-6">
+              <div class="flex items-center gap-4 bg-gradient-to-r from-red-50 to-white p-4 rounded-lg">
+                <div class="text-3xl">1️⃣</div>
+                <div>
+                  <h3 class="font-bold">測出閱讀等級 AR 值</h3>
+                  <p>進行 STAR 閱讀測驗，取得藍思值與 ZPD</p>
+                </div>
+              </div>
+              
+              <div class="flex items-center gap-4 bg-gradient-to-r from-red-50 to-white p-4 rounded-lg">
+                <div class="text-3xl">2️⃣</div>
+                <div>
+                  <h3 class="font-bold">進入 myON 圖書館看書</h3>
+                  <p>系統自動推薦適合的書單</p>
+                </div>
+              </div>
+              
+              <div class="flex items-center gap-4 bg-gradient-to-r from-red-50 to-white p-4 rounded-lg">
+                <div class="text-3xl">3️⃣</div>
+                <div>
+                  <h3 class="font-bold">搭配 AR 測驗系統做題目練習</h3>
+                  <p>閱讀後點選 Take AR Quiz 即可做測驗</p>
+                </div>
+              </div>
+              
+              <div class="mt-6 p-4 bg-red-100 rounded-lg border-l-4 border-red-400">
+                <p class="font-medium text-red-700">📌 <strong>STAR + myON + AR</strong> 三位一體學習流程，讓閱讀、理解與測驗無縫銜接。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Long-term Tracking Section -->
+    <section class="section-card mb-12 scroll-reveal">
+      <div class="card-header">
+        <h2 class="text-2xl font-bold">📆 長期追蹤｜一年訂閱制</h2>
+      </div>
+      <div class="p-6 md:p-8">
+        <div class="flex items-start gap-6">
+          <div class="feature-icon floating">📈</div>
+          <div>
+            <p class="mb-4">✅ 提供 <strong class="highlight-text">一年制訂閱方案</strong>，每 2–3 個月進行一次 STAR 測驗，<strong class="highlight-text">持續追蹤孩子的閱讀進步曲線</strong>。</p>
+            <p>📈 可產出完整報告，協助老師與家長依照進度適時調整選書與課程安排。</p>
+            
+            <div class="mt-6 bg-gradient-to-r from-blue-50 to-white p-4 rounded-lg">
+              <h3 class="font-bold text-blue-700 mb-2">進步曲線可視化</h3>
+              <div class="h-40 bg-white rounded-lg p-4 flex items-end">
+                <div class="w-1/6 h-20 bg-red-200 rounded-t-lg mx-1 relative">
+                  <span class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs">1月</span>
+                </div>
+                <div class="w-1/6 h-24 bg-red-300 rounded-t-lg mx-1 relative">
+                  <span class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs">3月</span>
+                </div>
+                <div class="w-1/6 h-28 bg-red-400 rounded-t-lg mx-1 relative">
+                  <span class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs">5月</span>
+                </div>
+                <div class="w-1/6 h-32 bg-red-500 rounded-t-lg mx-1 relative">
+                  <span class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs">7月</span>
+                </div>
+                <div class="w-1/6 h-36 bg-red-600 rounded-t-lg mx-1 relative">
+                  <span class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs">9月</span>
+                </div>
+                <div class="w-1/6 h-40 bg-red-700 rounded-t-lg mx-1 relative">
+                  <span class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs">11月</span>
+                </div>
+              </div>
+              <p class="text-center text-sm mt-2 text-gray-500">閱讀能力進步示意圖</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Package Section -->
+    <section class="section-card mb-12 bg-gradient-to-br from-red-50 to-white scroll-reveal">
+      <div class="card-header bg-gradient-to-r from-red-100 to-red-50">
+        <h2 class="text-2xl font-bold">📘 三合一系統組｜個人帳號・一年使用權・獨立追蹤進度</h2>
+      </div>
+      <div class="p-6 md:p-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+          <div class="w-full md:w-3/5">
+            <div class="flex items-center mb-6">
+              <div class="text-4xl mr-4">📦</div>
+              <div>
+                <h3 class="font-bold text-xl">組合內容</h3>
+                <p class="text-lg">STAR + myON + AR</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="text-4xl mr-4">💰</div>
+              <div>
+                <h3 class="font-bold text-xl">團購價</h3>
+                <p class="text-lg"><strong class="text-2xl text-red-600">NT$2600</strong>（點石學生另享 300 元折扣）</p>
+              </div>
+            </div>
+            
+            <div class="mt-8 bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+              <p class="font-medium">💡 一次購買，全年使用，持續追蹤孩子的閱讀進步！</p>
+            </div>
+          </div>
+          
+          <div class="w-full md:w-2/5 text-center">
+            <a href="https://forms.gle/5Hpi84zrLD49t3SAA" class="cta-button px-8 py-4 rounded-lg font-bold text-lg inline-block w-full md:w-auto animate__animated animate__pulse animate__infinite animate__slow" target="_blank">
+              📩 點我立即報名
+            </a>
+            <p class="mt-4 text-sm text-gray-600">名額有限，報名從速！</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reading Class Section -->
+    <section class="section-card mb-12 scroll-reveal">
+      <div class="card-header">
+        <h2 class="text-2xl font-bold">📚 可搭配閱讀班課程｜提升理解力與表達力</h2>
+      </div>
+      <div class="p-6 md:p-8">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="w-full md:w-3/5">
+            <div class="flex items-start">
+              <div class="feature-icon mr-4">💡</div>
+              <div>
+                <p class="mb-4">STAR Reading 也可與我們的【英文閱讀班】同步進行，透過老師帶領精讀、詞彙延伸與文本討論，讓孩子不只是會讀，更能 <strong class="highlight-text">理解並表達觀點</strong>！</p>
+                <a href="../2025_april/20250412_trial_class.html" class="text-blue-600 hover:underline font-medium inline-flex items-center group" target="_blank">
+                  <span>【閱讀班課程介紹】請參考這裡</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="w-full md:w-2/5">
+            <div class="bg-gradient-to-r from-blue-50 to-white p-6 rounded-lg">
+              <div class="text-center mb-4">
+                <span class="text-4xl">👩‍🏫</span>
+              </div>
+              <h3 class="font-bold text-center mb-2">閱讀班優勢</h3>
+              <ul class="space-y-2">
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✓</span>
+                  <span>專業教師引導閱讀理解</span>
+                </li>
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✓</span>
+                  <span>小班制互動討論</span>
+                </li>
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✓</span>
+                  <span>詞彙延伸與應用</span>
+                </li>
+                <li class="flex items-center">
+                  <span class="text-green-500 mr-2">✓</span>
+                  <span>培養批判性思考能力</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose STAR Section -->
+    <section class="section-card mb-12 scroll-reveal">
+      <div class="card-header">
+        <h2 class="text-2xl font-bold">✨ 為什麼選擇 STAR 測驗？</h2>
+      </div>
+      <div class="p-6 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="feature-card bg-gradient-to-br from-red-50 to-white p-6 rounded-lg shadow-sm">
+            <div class="flex items-center mb-4">
+              <div class="text-red-500 text-3xl mr-4">🔁</div>
+              <h3 class="font-bold text-xl">自適應題目設計</h3>
+            </div>
+            <p>題目難度即時調整，根據孩子的回答動態變化，精準測出閱讀能力，不浪費時間在過簡單或過難的題目上。</p>
+          </div>
+          
+          <div class="feature-card bg-gradient-to-br from-red-50 to-white p-6 rounded-lg shadow-sm">
+            <div class="flex items-center mb-4">
+              <div class="text-red-500 text-3xl mr-4">📊</div>
+              <h3 class="font-bold text-xl">全方位數據報告</h3>
+            </div>
+            <p>Scaled Score、PR、GE、IRL 等多項指標一次掌握，全面了解孩子的閱讀能力在同齡人中的表現。</p>
+          </div>
+          
+          <div class="feature-card bg-gradient-to-br from-red-50 to-white p-6 rounded-lg shadow-sm">
+            <div class="flex items-center mb-4">
+              <div class="text-red-500 text-3xl mr-4">🔍</div>
+              <h3 class="font-bold text-xl">診斷強弱項目</h3>
+            </div>
+            <p>涵蓋文學、資訊文、語言結構等能力的細緻分析，幫助找出需要加強的閱讀技能。</p>
+          </div>
+          
+          <div class="feature-card bg-gradient-to-br from-red-50 to-white p-6 rounded-lg shadow-sm">
+            <div class="flex items-center mb-4">
+              <div class="text-red-500 text-3xl mr-4">📚</div>
+              <h3 class="font-bold text-xl">建議書單 ZPD</h3>
+            </div>
+            <p>精準推薦閱讀難度範圍，讓選書不再盲目，每本書都能成為孩子進步的最佳跳板。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Use Data Section -->
+    <section class="section-card mb-12 scroll-reveal">
+      <div class="card-header">
+        <h2 class="text-2xl font-bold">🧠 教師與家長怎麼使用這些資料？</h2>
+      </div>
+      <div class="p-6 md:p-8">
+        <div class="space-y-6">
+          <div class="flex items-start p-4 bg-gradient-to-r from-blue-50 to-white rounded-lg">
+            <div class="feature-icon mr-6">📄</div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">學生診斷報告</h3>
+              <p>分析個人閱讀強弱與分級，掌握孩子的閱讀能力全貌。報告包含詳細的閱讀技能分析，讓家長和老師清楚了解孩子在哪些方面表現優異，哪些方面需要加強。</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start p-4 bg-gradient-to-r from-blue-50 to-white rounded-lg">
+            <div class="feature-icon mr-6">📌</div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">指導性報告（個人/班級）</h3>
+              <p>提供學習目標與技能指引，讓教學更有方向。系統會根據測驗結果，自動生成下一階段的學習目標和建議，幫助老師制定更有效的教學計劃。</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start p-4 bg-gradient-to-r from-blue-50 to-white rounded-lg">
+            <div class="feature-icon mr-6">🔁</div>
+            <div>
+              <h3 class="font-bold text-xl mb-2">定期追蹤測驗</h3>
+              <p>每 2–3 個月檢核一次閱讀進度，確保持續進步。透過定期測驗，可以清楚看到孩子的進步軌跡，及時調整學習策略，確保閱讀能力穩定成長。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-card mb-12 scroll-reveal">
+      <div class="card-header">
+        <h2 class="text-2xl font-bold">🧩 常見問題 FAQ</h2>
+      </div>
+      <div class="p-6 md:p-8">
+        <div class="space-y-6">
+          <div class="faq-item p-4 rounded-lg">
+            <h3 class="font-bold text-lg text-red-600">Q1：這三個系統是做什麼用的？</h3>
+            <p class="pl-6 mt-2">A：STAR Reading 是閱讀能力測驗，myON 是依閱讀程度推薦的電子書庫，AR 是閱讀理解小測驗，三者合併能協助孩子有效提升英文閱讀力。</p>
+          </div>
+          
+          <div class="faq-item p-4 rounded-lg">
+            <h3 class="font-bold text-lg text-red-600">Q2：可以兄弟姊妹共用嗎？</h3>
+            <p class="pl-6 mt-2">A：不行，這是個人帳號，系統會根據每個孩子的測驗結果推薦書籍與追蹤進度，無法共用。</p>
+          </div>
+          
+          <div class="faq-item p-4 rounded-lg">
+            <h3 class="font-bold text-lg text-red-600">Q3：適合什麼年齡的孩子使用？</h3>
+            <p class="pl-6 mt-2">A：適合小學到國中階段，只要孩子已經開始接觸英文閱讀，就能透過測驗找到最適合的閱讀材料。</p>
+          </div>
+          
+          <div class="faq-item p-4 rounded-lg">
+            <h3 class="font-bold text-lg text-red-600">Q4：如何進行測驗？</h3>
+            <p class="pl-6 mt-2">A：我們會提供線上測驗帳號，孩子只需要在家中電腦或平板上進行約20分鐘的測驗即可。測驗結束後，系統會立即生成報告。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="text-center my-16 scroll-reveal">
+      <div class="bg-gradient-to-r from-red-50 to-white p-8 rounded-2xl shadow-lg">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6">準備好提升孩子的英文閱讀力了嗎？</h2>
+        <a href="https://forms.gle/5Hpi84zrLD49t3SAA" class="cta-button px-8 py-4 rounded-lg font-bold text-lg inline-block animate__animated animate__pulse animate__infinite animate__slow" target="_blank">
+          📩 立即報名 STAR Reading 測驗
+        </a>
+        <p class="mt-6 text-gray-600">有任何問題，歡迎聯繫我們！</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-16 text-center text-gray-500 text-sm border-t border-gray-200 pt-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <p class="font-bold text-lg text-red-600">Stonebooks Studio</p>
+            <p>專業英語閱讀教育</p>
+          </div>
+          <div>
+            <p>© 2023 Stonebooks Studio. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Scroll reveal animation
+    document.addEventListener('DOMContentLoaded', function() {
+      const revealElements = document.querySelectorAll('.scroll-reveal');
+      
+      function checkReveal() {
+        revealElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          
+          if (elementTop < windowHeight - 100) {
+            element.classList.add('active');
+          }
+        });
+      }
+      
+      window.addEventListener('scroll', checkReveal);
+      checkReveal(); // Check on page load
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'937f82ded5f53317',t:'MTc0NTkzNzE3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

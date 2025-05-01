@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全民英檢一次過｜初級聽讀密集班</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #c94f4f;
+      --primary-light: #f9e6e6;
+      --secondary: #2a7ae2;
+      --dark: #333333;
+      --light: #fffdfa;
+      --accent: #ffc107;
+    }
+    
+    body {
+      font-family: 'Noto Sans TC', "Helvetica Neue", sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.8;
+    }
+    
+    .header-bg {
+      background-color: var(--primary-light);
+      background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c94f4f' fill-opacity='0.1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    
+    h1, h2, h3 {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    
+    .section {
+      border-radius: 12px;
+      background-color: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    
+    .icon-circle {
+      background-color: var(--primary-light);
+      color: var(--primary);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th {
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-weight: 600;
+      padding: 1rem;
+      text-align: left;
+    }
+    
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    tr:last-child td {
+      border-bottom: none;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+    
+    .highlight-row {
+      background-color: var(--primary-light) !important;
+      font-weight: 500;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: #b83e3e;
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .feature-badge {
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border-radius: 20px;
+      padding: 0.25rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      display: inline-block;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .course-image {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      font-size: 0.875rem;
+    }
+    
+    .breadcrumb a {
+      color: var(--dark);
+      opacity: 0.7;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+    
+    .breadcrumb a:hover {
+      opacity: 1;
+    }
+    
+    .breadcrumb-separator {
+      margin: 0 0.5rem;
+      opacity: 0.5;
+    }
+    
+    .footer {
+      background-color: var(--dark);
+      color: white;
+    }
+    
+    .footer-link {
+      color: rgba(255,255,255,0.7);
+      transition: color 0.2s ease;
+    }
+    
+    .footer-link:hover {
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      .icon-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="bg-white shadow-sm py-4 px-6 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <a href="../index.html" class="text-2xl font-bold text-primary">Stonebooks</a>
+      <nav class="hidden md:flex space-x-6">
+        <a href="../index.html" class="hover:text-primary transition-colors">首頁</a>
+        <a href="../vision.html" class="hover:text-primary transition-colors">關於我們</a>
+        <a href="../course/courses.html" class="text-primary font-medium">課程與營隊</a>
+        <a href="../gallery.html" class="hover:text-primary transition-colors">活動成果</a>
+        <a href="../policy/FQA.html" class="hover:text-primary transition-colors">家長專區</a>
+      </nav>
+      <div class="md:hidden">
+        <button class="text-2xl">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="header-bg py-8 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="breadcrumb mb-4">
+        <a href="../index.html">首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../course/courses.html">課程與營隊</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>全民英檢密集班</span>
+      </div>
+      
+      <div class="bg-white rounded-xl p-8 shadow-lg">
+        <div class="flex flex-col md:flex-row items-start md:items-center mb-6">
+          <div class="bg-primary text-white text-lg font-bold px-4 py-2 rounded-lg mb-4 md:mb-0 md:mr-4">
+            熱門課程
+          </div>
+          <h1 class="text-3xl md:text-4xl font-bold">📘 全民英檢一次過｜初級聽讀密集班（15堂）</h1>
+        </div>
+        
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="feature-badge">初級英檢</span>
+          <span class="feature-badge">聽力訓練</span>
+          <span class="feature-badge">閱讀理解</span>
+          <span class="feature-badge">15堂課</span>
+          <span class="feature-badge">國小五年級以上</span>
+        </div>
+        
+        <div class="flex flex-wrap gap-4 mb-6">
+          <a href="#course-content" class="btn-primary px-6 py-2 rounded-full font-medium">課程內容</a>
+          <a href="#course-schedule" class="btn-outline px-6 py-2 rounded-full font-medium">課程規劃</a>
+          <a href="https://lin.ee/LSkFblL" class="bg-secondary text-white px-6 py-2 rounded-full font-medium hover:bg-opacity-90 transition">立即報名</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="py-12 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2">
+          <section id="course-content" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 flex items-center">
+              <span class="mr-2">📋</span> 課程介紹
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div class="section p-6">
+                <div class="flex items-center mb-4">
+                  <div class="icon-circle">
+                    <span>🎯</span>
+                  </div>
+                  <h3 class="text-xl font-bold">學習目標</h3>
+                </div>
+                <ul class="space-y-2 pl-4">
+                  <li class="flex items-start">
+                    <span class="mr-2 text-primary">•</span>
+                    強化初級英檢聽力和閱讀能力需求
+                  </li>
+                  <li class="flex items-start">
+                    <span class="mr-2 text-primary">•</span>
+                    訓練不需字字聽懂也能解題之技巧
+                  </li>
+                  <li class="flex items-start">
+                    <span class="mr-2 text-primary">•</span>
+                    必考題型整理，輕鬆回答刁鑽難題
+                  </li>
+                </ul>
+              </div>
+              
+              <div class="section p-6">
+                <div class="flex items-center mb-4">
+                  <div class="icon-circle">
+                    <span>👥</span>
+                  </div>
+                  <h3 class="text-xl font-bold">適合對象</h3>
+                </div>
+                <p>國小五年級以上，準備報考英檢初級的學生。</p>
+                <div class="mt-4 p-3 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+                  <p class="text-sm font-medium">建議英文程度：</p>
+                  <p class="text-sm">已學過基本句型與常用單字，能理解簡單英文指令。</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="section p-6 mb-8">
+              <div class="flex items-center mb-4">
+                <div class="icon-circle">
+                  <span>📜</span>
+                </div>
+                <h3 class="text-xl font-bold">證照優勢</h3>
+              </div>
+              <p class="mb-4">GEPT 可作為申請暑期遊學、學分班、交換學程、升學履歷的重要依據，有效減輕托福、雅思等測驗壓力與經濟負擔。</p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+                <div class="bg-primary-light p-4 rounded-lg text-center">
+                  <div class="text-3xl mb-2">🎓</div>
+                  <p class="font-medium">升學加分</p>
+                </div>
+                <div class="bg-primary-light p-4 rounded-lg text-center">
+                  <div class="text-3xl mb-2">✈️</div>
+                  <p class="font-medium">遊學申請</p>
+                </div>
+                <div class="bg-primary-light p-4 rounded-lg text-center">
+                  <div class="text-3xl mb-2">📝</div>
+                  <p class="font-medium">能力證明</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="section p-6">
+                <div class="flex items-center mb-4">
+                  <div class="icon-circle">
+                    <span>🎧</span>
+                  </div>
+                  <h3 class="text-xl font-bold">聽力課程</h3>
+                </div>
+                <p>透過初級英檢常見的聽力題型與技巧訓練，結合單字與句型應用，幫助學生熟悉題型與答題節奏。</p>
+                <div class="mt-4 space-y-2">
+                  <div class="flex items-center">
+                    <span class="text-primary mr-2">✓</span>
+                    <span>看圖辨義訓練</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="text-primary mr-2">✓</span>
+                    <span>問答句型練習</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="text-primary mr-2">✓</span>
+                    <span>情境對話理解</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="section p-6">
+                <div class="flex items-center mb-4">
+                  <div class="icon-circle">
+                    <span>📖</span>
+                  </div>
+                  <h3 class="text-xl font-bold">閱讀課程</h3>
+                </div>
+                <p>搭配 11 種核心閱讀題型設計，提升閱讀理解力與應考信心，同時拓展主題視野與知識廣度。</p>
+                <div class="mt-4 space-y-2">
+                  <div class="flex items-center">
+                    <span class="text-primary mr-2">✓</span>
+                    <span>多元主題文章</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="text-primary mr-2">✓</span>
+                    <span>實用文體練習</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="text-primary mr-2">✓</span>
+                    <span>閱讀策略指導</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <section id="course-schedule" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 flex items-center">
+              <span class="mr-2">📅</span> 課程規劃
+            </h2>
+            
+            <div class="section p-6 overflow-x-auto">
+              <table class="w-full">
+                <thead>
+                  <tr>
+                    <th width="15%">堂數</th>
+                    <th width="40%">聽力</th>
+                    <th width="45%">閱讀</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>第1堂</td>
+                    <td>看圖辨義</td>
+                    <td>航空旅遊</td>
+                  </tr>
+                  <tr>
+                    <td>第2堂</td>
+                    <td>Wh問句</td>
+                    <td>學習的未來</td>
+                  </tr>
+                  <tr>
+                    <td>第3堂</td>
+                    <td>Yes-No問句</td>
+                    <td>古代歷史</td>
+                  </tr>
+                  <tr>
+                    <td>第4堂</td>
+                    <td>陳述句</td>
+                    <td>健康</td>
+                  </tr>
+                  <tr>
+                    <td>第5堂</td>
+                    <td>大意題／活動題</td>
+                    <td>環境</td>
+                  </tr>
+                  <tr>
+                    <td>第6堂</td>
+                    <td>位置題／職業題</td>
+                    <td>科技</td>
+                  </tr>
+                  <tr>
+                    <td>第7堂</td>
+                    <td>理由／方法／推論題</td>
+                    <td>廣告</td>
+                  </tr>
+                  <tr>
+                    <td>第8堂</td>
+                    <td>時間／狀況／圖表整合題</td>
+                    <td>公告類文章</td>
+                  </tr>
+                  <tr>
+                    <td>第9堂</td>
+                    <td>廣告／公告</td>
+                    <td>指示說明文章</td>
+                  </tr>
+                  <tr>
+                    <td>第10堂</td>
+                    <td>語音留言／電話留言</td>
+                    <td>信件／電子郵件</td>
+                  </tr>
+                  <tr class="highlight-row">
+                    <td>第11-15堂</td>
+                    <td colspan="2">英檢模擬聽力與閱讀整合練習</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          
+          <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 flex items-center">
+              <span class="mr-2">📚</span> 教材使用
+            </h2>
+            
+            <div class="section p-6">
+              <div class="flex flex-col md:flex-row items-start gap-6">
+                <div class="course-image md:w-1/3">
+                  <img src="../image/GEPT.jpg" alt="GEPT教材" class="w-full h-auto rounded-lg" />
+                </div>
+                <div class="md:w-2/3">
+                  <h3 class="text-xl font-bold mb-4">📘 GEPT專用教材</h3>
+                  <p class="mb-4">本課程使用專為全民英檢設計的教材，內容涵蓋：</p>
+                  <ul class="space-y-2">
+                    <li class="flex items-start">
+                      <span class="mr-2 text-primary">•</span>
+                      聽力與閱讀題型分析與解題技巧
+                    </li>
+                    <li class="flex items-start">
+                      <span class="mr-2 text-primary">•</span>
+                      初級英檢常用單字與句型整理
+                    </li>
+                    <li class="flex items-start">
+                      <span class="mr-2 text-primary">•</span>
+                      模擬試題與歷年試題精選
+                    </li>
+                    <li class="flex items-start">
+                      <span class="mr-2 text-primary">•</span>
+                      自學練習與複習資料
+                    </li>
+                  </ul>
+                  <div class="mt-6 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                    <p class="font-medium">教材費用已包含在課程費用中，學生無需額外購買。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        
+        <div class="lg:col-span-1">
+          <div class="sticky top-24">
+            <div class="section p-6 mb-6">
+              <h3 class="text-xl font-bold mb-4">課程資訊</h3>
+              <div class="space-y-4">
+                <div>
+                  <p class="text-sm text-gray-500">課程時長</p>
+                  <p class="font-medium">15堂課 (每堂90分鐘)</p>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">適合年齡</p>
+                  <p class="font-medium">國小五年級以上</p>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">班級人數</p>
+                  <p class="font-medium">小班制 (6-8人)</p>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">上課地點</p>
+                  <p class="font-medium">Stonebooks Studio 教室</p>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">課程費用</p>
+                  <p class="font-bold text-primary text-xl">NT$ 12,000</p>
+                </div>
+              </div>
+              <div class="mt-6 space-y-3">
+                <a href="https://lin.ee/LSkFblL" class="btn-primary w-full py-3 rounded-lg font-medium text-center block">立即報名</a>
+                <a href="../policy/FQA.html" class="btn-outline w-full py-3 rounded-lg font-medium text-center block">常見問題</a>
+              </div>
+            </div>
+            
+            <div class="section p-6">
+              <h3 class="text-xl font-bold mb-4">課程特色</h3>
+              <div class="space-y-3">
+                <div class="flex items-start">
+                  <div class="text-primary mr-3 text-xl">✓</div>
+                  <p>小班制教學，老師能充分關注每位學生</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="text-primary mr-3 text-xl">✓</div>
+                  <p>針對初級英檢命題趨勢設計課程</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="text-primary mr-3 text-xl">✓</div>
+                  <p>提供模擬測驗，掌握實際考試節奏</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="text-primary mr-3 text-xl">✓</div>
+                  <p>專業師資，豐富英檢輔導經驗</p>
+                </div>
+                <div class="flex items-start">
+                  <div class="text-primary mr-3 text-xl">✓</div>
+                  <p>課後提供學習進度與建議</p>
+                </div>
+              </div>
+              
+              <div class="mt-6 p-4 bg-yellow-50 rounded-lg">
+                <p class="font-medium flex items-center">
+                  <span class="text-yellow-500 mr-2">💡</span>
+                  貼心提醒
+                </p>
+                <p class="text-sm mt-1">報名前可先預約免費程度評估，確保選擇適合的課程級別。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 bg-primary-light rounded-xl p-8">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="mb-6 md:mb-0">
+            <h3 class="text-2xl font-bold mb-2">準備好挑戰全民英檢了嗎？</h3>
+            <p class="text-lg">立即報名，讓我們一起為證照做好準備！</p>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <a href="https://lin.ee/LSkFblL" class="btn-primary px-8 py-3 rounded-full font-medium">立即報名</a>
+            <a href="../course/courses.html" class="btn-outline px-8 py-3 rounded-full font-medium">查看其他課程</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer py-12 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Stonebooks Studio</h3>
+          <p class="text-gray-400">讓孩子愛上學習的起點</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">關於我們</h3>
+          <ul class="space-y-2">
+            <li><a href="../vision.html" class="footer-link">教學理念</a></li>
+            <li><a href="../teachers.html" class="footer-link">師資介紹</a></li>
+            <li><a href="../environment.html" class="footer-link">教室環境</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">課程與營隊</h3>
+          <ul class="space-y-2">
+            <li><a href="../course/courses.html" class="footer-link">課程總覽</a></li>
+            <li><a href="../summer_camp/index.html" class="footer-link">營隊專區</a></li>
+            <li><a href="../course/overseas_intro.html" class="footer-link">海外遊學團</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">聯絡我們</h3>
+          <ul class="space-y-2">
+            <li class="text-gray-400">電話：(02) 1234-5678</li>
+            <li class="text-gray-400">地址：台北市信義區松仁路100號</li>
+            <li><a href="https://lin.ee/LSkFblL" class="footer-link">LINE官方帳號</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+        Stonebooks Studio © 2025 ｜ Designed by Coco
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu functionality
+    document.querySelector('button').addEventListener('click', function() {
+      // This would normally toggle a mobile menu
+      alert('Mobile menu would open here');
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'937f3b03702c3303',t:'MTc0NTkzNDIyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

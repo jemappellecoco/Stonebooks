@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>課程與營隊總覽｜Stonebooks Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3a6ea5;
+      --secondary: #c0d6df;
+      --accent: #ff6b6b;
+      --light: #f0f4f8;
+      --dark: #2c3e50;
+    }
+    
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--dark);
+      background-color: #f9f9f9;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%233a6ea5' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    
+    .page-header {
+      background: linear-gradient(135deg, var(--primary), #5a8dd6);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+    }
+    
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+    
+    .card-title {
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--dark);
+    }
+    
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      font-size: 0.875rem;
+    }
+    
+    .breadcrumb a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    .breadcrumb a:hover {
+      color: white;
+    }
+    
+    .breadcrumb-separator {
+      margin: 0 0.5rem;
+      color: rgba(255,255,255,0.6);
+    }
+    
+    .footer {
+      background-color: var(--dark);
+      color: white;
+    }
+    
+    .footer-link {
+      color: rgba(255,255,255,0.7);
+      transition: color 0.2s ease;
+    }
+    
+    .footer-link:hover {
+      color: white;
+    }
+    
+    @media (max-width: 640px) {
+      .card-title {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <header class="bg-white shadow-md py-4 px-6 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="../index.html" class="text-2xl font-bold text-primary">Stonebooks</a>
+      <nav class="hidden md:flex space-x-6">
+        <a href="../index.html" class="hover:text-primary transition-colors">首頁</a>
+        <a href="../vision.html" class="hover:text-primary transition-colors">關於我們</a>
+        <a href="#" class="text-primary font-medium">課程與營隊</a>
+        <a href="../gallery.html" class="hover:text-primary transition-colors">活動成果</a>
+        <a href="../policy/FQA.html" class="hover:text-primary transition-colors">家長專區</a>
+      </nav>
+      <div class="md:hidden">
+        <button class="text-2xl">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-header py-12 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="breadcrumb mb-4">
+        <a href="../index.html">首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>課程與營隊</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 flex items-center">
+        <span class="mr-3 text-4xl md:text-5xl">📘</span> 課程與營隊總覽
+      </h1>
+      <p class="text-xl opacity-90 max-w-3xl">
+        探索Stonebooks Studio為孩子精心設計的多元課程與營隊，開啟知識與成長的旅程。
+      </p>
+    </div>
+  </section>
+
+  <main class="flex-grow py-16 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <a href="../summer_camp/index.html" class="card-link group">
+          <div class="card p-8">
+            <div class="card-icon">☀️</div>
+            <div class="card-title group-hover:text-primary transition-colors">國內營隊</div>
+            <p class="text-gray-600">主題式夏令營，結合語言、藝術與探索，限時招生。</p>
+            <div class="mt-6 flex justify-end">
+              <span class="text-primary font-medium group-hover:translate-x-1 transition-transform inline-block">了解更多 →</span>
+            </div>
+          </div>
+        </a>
+        
+        <a href="../trip/domestic.html" class="card-link group">
+          <div class="card p-8">
+            <div class="card-icon">🏞️</div>
+            <div class="card-title group-hover:text-primary transition-colors">國內小小旅人</div>
+            <p class="text-gray-600">不只玩，更帶孩子認識土地、文化與團隊合作。</p>
+            <div class="mt-6 flex justify-end">
+              <span class="text-primary font-medium group-hover:translate-x-1 transition-transform inline-block">了解更多 →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="../course/overseas_intro.html" class="card-link group">
+          <div class="card p-8">
+            <div class="card-icon">✈️</div>
+            <div class="card-title group-hover:text-primary transition-colors">海外遊學 / 營隊</div>
+            <p class="text-gray-600">與世界連結，踏出舒適圈，開啟國際視野第一步！</p>
+            <div class="mt-6 flex justify-end">
+              <span class="text-primary font-medium group-hover:translate-x-1 transition-transform inline-block">了解更多 →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="../course/normal_class.html" class="card-link group">
+          <div class="card p-8">
+            <div class="card-icon">📚</div>
+            <div class="card-title group-hover:text-primary transition-colors">平日課程</div>
+            <p class="text-gray-600">從國小到高中，分齡設計英文與數理常態課程。</p>
+            <div class="mt-6 flex justify-end">
+              <span class="text-primary font-medium group-hover:translate-x-1 transition-transform inline-block">了解更多 →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="../course/1to1.html" class="card-link group">
+          <div class="card p-8">
+            <div class="card-icon">👥</div>
+            <div class="card-title group-hover:text-primary transition-colors">一對一 / 小班制</div>
+            <p class="text-gray-600">專屬師生配對，個人化學習節奏與主題安排。</p>
+            <div class="mt-6 flex justify-end">
+              <span class="text-primary font-medium group-hover:translate-x-1 transition-transform inline-block">了解更多 →</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="../course/theme_workshop.html" class="card-link group">
+          <div class="card p-8">
+            <div class="card-icon">🎨</div>
+            <div class="card-title group-hover:text-primary transition-colors">主題工作坊</div>
+            <p class="text-gray-600">假日限定！STEAM、寫作、藝術等主題短期課程。</p>
+            <div class="mt-6 flex justify-end">
+              <span class="text-primary font-medium group-hover:translate-x-1 transition-transform inline-block">了解更多 →</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      
+      <div class="mt-16 bg-blue-50 rounded-xl p-8 border border-blue-100">
+        <div class="flex flex-col md:flex-row items-start md:items-center">
+          <div class="text-4xl mr-6 mb-4 md:mb-0">🔍</div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">找不到適合的課程？</h3>
+            <p class="text-gray-600 mb-4">我們提供客製化課程規劃，依照孩子的需求與興趣量身打造最適合的學習方案。</p>
+            <a href="https://lin.ee/LSkFblL" class="inline-block bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition">聯絡我們</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="bg-primary text-white py-12 px-6">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">讓孩子的學習旅程從這裡開始</h2>
+      <p class="text-xl mb-8 opacity-90">加入Stonebooks Studio，開啟無限可能！</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://lin.ee/LSkFblL" class="bg-white text-primary px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition">立即諮詢</a>
+        <a href="../policy/FQA.html" class="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:bg-opacity-10 transition">常見問題</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer py-12 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Stonebooks Studio</h3>
+          <p class="text-gray-400">讓孩子愛上學習的起點</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">關於我們</h3>
+          <ul class="space-y-2">
+            <li><a href="../vision.html" class="footer-link">教學理念</a></li>
+            <li><a href="../teachers.html" class="footer-link">師資介紹</a></li>
+            <li><a href="../environment.html" class="footer-link">教室環境</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">課程與營隊</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="footer-link">課程總覽</a></li>
+            <li><a href="../summer_camp/index.html" class="footer-link">營隊專區</a></li>
+            <li><a href="../course/overseas_intro.html" class="footer-link">海外遊學團</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">聯絡我們</h3>
+          <ul class="space-y-2">
+            <li class="text-gray-400">電話：(02) 1234-5678</li>
+            <li class="text-gray-400">地址：台北市信義區松仁路100號</li>
+            <li><a href="https://lin.ee/LSkFblL" class="footer-link">LINE官方帳號</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+        Stonebooks Studio © 2025 ｜ Designed by Coco
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu functionality
+    document.querySelector('button').addEventListener('click', function() {
+      // This would normally toggle a mobile menu
+      alert('Mobile menu would open here');
+    });
+    
+    // Add hover effects for cards
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-8px)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+      });
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'937f3032424c3311',t:'MTc0NTkzMzc4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
