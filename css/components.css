@@ -269,7 +269,43 @@ header {
     font-size: 0.95rem;
     color: #555;
   }
-  
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "Noto Sans TC", sans-serif;
+    margin: 2rem 0;
+    table-layout: fixed;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+    word-wrap: break-word;
+    background-color: #fafafa;
+  }
+
+  .schedule-table th {
+    background-color: #f0f0f0;
+    font-weight: 600;
+  }
+
+  .schedule-table thead th {
+    background-color: #e0e7ff;
+    color: #1e3a8a;
+  }
+
+  .schedule-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #111827;
+  }
   @media screen and (max-width: 600px) {
     .card-link {
       width: 100%;
