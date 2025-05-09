@@ -292,7 +292,20 @@
   <div class="highlight" data-aos="fade-up">
     <p>🎉 <strong>7 天 6 夜的全方位舞蹈之旅，讓你用舞蹈跨越語言，用 KPOP 連結世界！</strong></p>
     <p>📢 名額有限，立即報名，與來自各地的舞者一起舞動首爾！</p>
-    <a href="https://forms.gle/aGij8tJxSeDDd4d6A" target="_blank" class="register-button">📩 立即報名</a>
+    <a id="registerBtn" href="#" target="_blank" class="register-button">📩 立即報名</a>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const ref = urlParams.get('ref');
+      const formBase = "https://docs.google.com/forms/d/e/1FAIpQLScKmsYomLm5hOP9GnckAXM6fZ6DUOAHINwRfTgPOYW6QcquQg/viewform";  // 👈 改成你的 Google 表單完整網址（不是 forms.gle 短網址）
+      const entryId = "entry.1411879202";
+    
+      const registerBtn = document.getElementById("registerBtn");
+      registerBtn.href = ref
+        ? `${formBase}?${entryId}=${encodeURIComponent(ref)}`
+        : formBase;
+    </script>
+    
   </div>
   
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
