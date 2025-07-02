@@ -1,0 +1,756 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>國三起跑暑期會考複習班</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f8f5f2;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #5e3928 0%, #8b5d3b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(94, 57, 40, 0.15);
+        }
+        .teacher-card {
+            transition: all 0.3s ease;
+        }
+        .teacher-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(94, 57, 40, 0.15);
+        }
+        .highlight {
+            position: relative;
+            display: inline-block;
+        }
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(226, 160, 63, 0.4);
+            z-index: -1;
+        }
+        .schedule-cell {
+            min-height: 100px;
+            height: 100%;
+        }
+        .schedule-cell.has-class {
+            background-color: #fff;
+            border: 1px solid #f3d19e;
+            transition: all 0.2s ease;
+        }
+        .schedule-cell.has-class:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(94, 57, 40, 0.1);
+        }
+        
+        /* Responsive table styles */
+        @media (max-width: 768px) {
+            .schedule-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+        
+        .price-table th, .price-table td {
+            padding: 0.75rem;
+            text-align: center;
+        }
+        
+        .price-table th {
+            background-color: #f8f0e3;
+        }
+        
+        .price-table tr:nth-child(even) {
+            background-color: #fff;
+        }
+        
+        .price-table tr:nth-child(odd) {
+            background-color: #fefaf4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <div class="inline-block p-2 px-4 bg-amber-100 rounded-full mb-4">
+                <span class="text-amber-800 font-medium">2024 暑期課程</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">國三起跑｜暑期會考複習班</h1>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto">從暑假打好基礎開始，為會考做最完整的準備</p>
+        </div>
+
+        <!-- Main Banner -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-16">
+            <div class="p-8 md:p-12">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-amber-800">
+                            <span class="highlight">課程介紹</span>
+                        </h2>
+                        <p class="text-gray-700 mb-6">這次的暑期會考複習班，不只是把舊知識「再講一次」而已。我們針對國一、國二內容重新整理出會考必考核心，帶著孩子：</p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-start">
+                                <div class="bg-amber-100 rounded-full p-1 mr-3 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-800" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-800">梳理觀念</p>
+                                    <p class="text-gray-600 text-sm">解開以前聽懂但不熟的地方</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-amber-100 rounded-full p-1 mr-3 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-800" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-800">練基本題</p>
+                                    <p class="text-gray-600 text-sm">題目變化再多，抓對邏輯就能穩穩答對</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-amber-100 rounded-full p-1 mr-3 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-800" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-800">建立題感</p>
+                                    <p class="text-gray-600 text-sm">從聽、看、寫全面提升解題速度</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-700">每週安排兩科主課 + 題本/作業輔導，節奏扎實但不壓力，幫助孩子暑假期間穩定累積。同時搭配老師課堂練習＋課後訂正，讓孩子真正吸收而不是「聽過就忘」。</p>
+                    </div>
+                    
+                    <div class="md:w-1/2">
+                        <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
+                            <svg class="w-12 h-12 text-amber-800 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            <h3 class="text-xl font-bold text-amber-800 mb-4">暑期總複習的真正意義</h3>
+                            <p class="text-gray-700 mb-4">這不只是把舊東西「再看一次」，更是幫助孩子：</p>
+                            
+                            <ul class="space-y-3">
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-amber-600 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-gray-700"><span class="font-medium">重整觀念</span>｜重新梳理曾學過卻不熟的內容</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-amber-600 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-gray-700"><span class="font-medium">補足盲點</span>｜分析錯題，找到真正卡關的地方</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-amber-600 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-gray-700"><span class="font-medium">建立信心</span>｜從題目中累積小成就，轉化為學習動力</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-amber-600 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-gray-700"><span class="font-medium">調整習慣</span>｜建立預習+複習節奏，開學直接進入國三狀態</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Schedule -->
+        <div class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center text-amber-800">
+                <span class="highlight">課程時間表</span>
+            </h2>
+            <p class="text-center text-gray-700 mb-10 max-w-3xl mx-auto">我們精心安排的暑期課程表，讓學習進度穩定且有效率。每週固定時段，幫助孩子建立學習節奏。</p>
+            
+            <div class="bg-white rounded-xl shadow-lg p-4 md:p-6 overflow-hidden">
+                <div class="schedule-table overflow-x-auto">
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="bg-amber-50">
+                                <th class="p-3 text-left text-amber-800 font-bold border-b-2 border-amber-200">週次</th>
+                                <th class="p-3 text-center text-amber-800 font-bold border-b-2 border-amber-200">一 (Mon)</th>
+                                <th class="p-3 text-center text-amber-800 font-bold border-b-2 border-amber-200">二 (Tue))</th>
+                                <th class="p-3 text-center text-amber-800 font-bold border-b-2 border-amber-200">三 (Wed)</th>
+                                <th class="p-3 text-center text-amber-800 font-bold border-b-2 border-amber-200">四 (Thu)</th>
+                                <th class="p-3 text-center text-amber-800 font-bold border-b-2 border-amber-200">五 (Fri)</th>
+                                <th class="p-3 text-center text-amber-800 font-bold border-b-2 border-amber-200">六 (Sat)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Week 1 -->
+                            <tr>
+                                <td class="p-2 align-top border-b border-amber-100 bg-amber-50/50">
+                                    <div class="font-medium text-amber-800">第一週</div>
+                                    <div class="text-xs text-gray-500">7/14-7/20</div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="text-center text-sm text-gray-500">7/14</div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="text-center text-sm text-gray-500">7/15</div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="text-center text-sm text-gray-500">7/16</div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="text-center text-sm text-gray-500">7/17</div>
+                                </td>
+                                
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">7/19</div>
+                                        <div class="text-center font-medium text-amber-800">17:00-19:00</div>
+                                        <div class="text-center text-gray-700 mt-1">Joanne</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="text-center text-sm text-gray-500">7/20</div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Week 2 -->
+                            <tr>
+                                <td class="p-2 align-top border-b border-amber-100 bg-amber-50/50">
+                                    <div class="font-medium text-amber-800">第二週</div>
+                                    <div class="text-xs text-gray-500">7/21-7/27</div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">7/21</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">數學</div>
+                                        <div class="text-center text-sm text-gray-600">立謹</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">7/22</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">理化</div>
+                                        <div class="text-center text-sm text-gray-600">立謹</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">7/23</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">作業+題本(輔導)</div>
+                                        <div class="text-center text-sm text-gray-600">Hailey</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">7/24</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">作業+題本(輔導)</div>
+                                        <div class="text-center text-sm text-gray-600">Hailey</div>
+                                    </div>
+                                </td>
+                                
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="text-center text-sm text-gray-500">7/26</div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">7/27</div>
+                                        <div class="text-center font-medium text-amber-800">10:30-12:30</div>
+                                        <div class="text-center text-gray-700 mt-1">生物</div>
+                                        <div class="text-center text-sm text-gray-600">Coco</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Week 3 -->
+                            <tr>
+                                <td class="p-2 align-top border-b border-amber-100 bg-amber-50/50">
+                                    <div class="font-medium text-amber-800">第三週</div>
+                                    <div class="text-xs text-gray-500">7/28-8/3</div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">7/28</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">數學</div>
+                                        <div class="text-center text-sm text-gray-600">立謹</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">7/29</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">理化</div>
+                                        <div class="text-center text-sm text-gray-600">立謹</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">7/30</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">作業+題本(輔導)</div>
+                                        <div class="text-center text-sm text-gray-600">Hailey</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">7/31</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">作業+題本(輔導)</div>
+                                        <div class="text-center text-sm text-gray-600">Hailey</div>
+                                    </div>
+                                </td>
+                                
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/2</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">英文 B5</div>
+                                        <div class="text-center text-sm text-gray-600">Sean</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/3</div>
+                                        <div class="text-center font-medium text-amber-800">10:30-12:30</div>
+                                        <div class="text-center text-gray-700 mt-1">生物</div>
+                                        <div class="text-center text-sm text-gray-600">Coco</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Week 4 -->
+                            <tr>
+                                <td class="p-2 align-top border-b border-amber-100 bg-amber-50/50">
+                                    <div class="font-medium text-amber-800">第四週</div>
+                                    <div class="text-xs text-gray-500">8/4-8/10</div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/4</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">數學</div>
+                                        <div class="text-center text-sm text-gray-600">立謹</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/5</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">理化</div>
+                                        <div class="text-center text-sm text-gray-600">立謹</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/6</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">作業+題本(輔導)</div>
+                                        <div class="text-center text-sm text-gray-600">Hailey</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/7</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">作業+題本(輔導)</div>
+                                        <div class="text-center text-sm text-gray-600">Hailey</div>
+                                    </div>
+                                </td>
+                                
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/9</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">英文 B5</div>
+                                        <div class="text-center text-sm text-gray-600">Sean</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/10</div>
+                                        <div class="text-center font-medium text-amber-800">10:30-12:30</div>
+                                        <div class="text-center text-gray-700 mt-1">生物</div>
+                                        <div class="text-center text-sm text-gray-600">Coco</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Week 5 -->
+                            <tr>
+                                <td class="p-2 align-top border-b border-amber-100 bg-amber-50/50">
+                                    <div class="font-medium text-amber-800">第五週</div>
+                                    <div class="text-xs text-gray-500">8/11-8/17</div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/11</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">數學</div>
+                                        <div class="text-center text-sm text-gray-600">立謹</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/12</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">理化</div>
+                                        <div class="text-center text-sm text-gray-600">立謹</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/13</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">作業+題本(輔導)</div>
+                                        <div class="text-center text-sm text-gray-600">Hailey</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/14</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">作業+題本(輔導)</div>
+                                        <div class="text-center text-sm text-gray-600">Hailey</div>
+                                    </div>
+                                </td>
+                               
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/16</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">英文</div>
+                                        <div class="text-center text-sm text-gray-600">Sean</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/17</div>
+                                        <div class="text-center font-medium text-amber-800">10:30-12:30</div>
+                                        <div class="text-center text-gray-700 mt-1">生物</div>
+                                        <div class="text-center text-sm text-gray-600">Coco</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <!-- Week 6 -->
+                            <tr>
+                                <td class="p-2 align-top border-b border-amber-100 bg-amber-50/50">
+                                    <div class="font-medium text-amber-800">第六週</div>
+                                    <div class="text-xs text-gray-500">8/18-8/24</div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/18</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">數學</div>
+                                        <div class="text-center text-sm text-gray-600">立謹</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/19</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">理化</div>
+                                        <div class="text-center text-sm text-gray-600">立謹</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/20</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">作業+題本(輔導)</div>
+                                        <div class="text-center text-sm text-gray-600">若瑜</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/21</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">作業+題本(輔導)</div>
+                                        <div class="text-center text-sm text-gray-600">若瑜</div>
+                                    </div>
+                                </td>
+                                     <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/23</div>
+                                        <div class="text-center font-medium text-amber-800">17:30-19:30</div>
+                                        <div class="text-center text-gray-700 mt-1">英文</div>
+                                        <div class="text-center text-sm text-gray-600">Sean</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 align-top border-b border-amber-100">
+                                    <div class="schedule-cell has-class rounded-lg p-3">
+                                        <div class="text-center text-sm text-gray-500">8/24</div>
+                                        <div class="text-center font-medium text-amber-800">10:30-12:30</div>
+                                        <div class="text-center text-gray-700 mt-1">生物</div>
+                                        <div class="text-center text-sm text-gray-600">Coco</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                
+            </div>
+        </div>
+
+        <!-- Course Pricing -->
+        <div class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center text-amber-800">
+                <span class="highlight">課程費用</span>
+            </h2>
+            <p class="text-center text-gray-700 mb-10 max-w-3xl mx-auto">我們提供多種彈性的課程組合，讓您可以根據孩子的需求選擇最適合的方案。</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Course Content and Pricing -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-amber-800 py-3 px-6">
+                        <h3 class="text-xl font-bold text-white"> 暑期課程上課內容與價格</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="overflow-x-auto">
+                            <table class="w-full price-table border-collapse">
+                                <thead>
+                                    <tr>
+                                        <th class="border border-amber-200 text-amber-800">科目</th>
+                                        <th class="border border-amber-200 text-amber-800">總時數</th>
+                                        <th class="border border-amber-200 text-amber-800">課程內容</th>
+                                        <th class="border border-amber-200 text-amber-800">暑期單科價格</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border border-amber-100 font-medium">英文</td>
+                                        <td class="border border-amber-100">10 小時</td>
+                                        <td class="border border-amber-100">第五冊預習 <br>複習一二冊+閱讀練習</td>
+                                        <td class="border border-amber-100 font-medium">5500 元</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-amber-100 font-medium">數學</td>
+                                        <td class="border border-amber-100">10 小時</td>
+                                        <td class="border border-amber-100">第 1–3冊總複習(含題本)</td>
+                                        <td class="border border-amber-100 font-medium">5500 元</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-amber-100 font-medium">理化</td>
+                                        <td class="border border-amber-100">10 小時</td>
+                                        <td class="border border-amber-100">第三冊總複習</td>
+                                        <td class="border border-amber-100 font-medium">5500 元</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-amber-100 font-medium">生物</td>
+                                        <td class="border border-amber-100">10 小時</td>
+                                        <td class="border border-amber-100">第一冊總複習</td>
+                                        <td class="border border-amber-100 font-medium">5500 元</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-amber-100 font-medium">輔導課</td>
+                                        <td class="border border-amber-100">20 小時</td>
+                                        <td class="border border-amber-100">題本輔導</td>
+                                        <td class="border border-amber-100 font-medium">4000 元</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Package Pricing -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-amber-800 py-3 px-6">
+                        <h3 class="text-xl font-bold text-white">🎯 一次報名多科｜價格優惠</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-amber-800 font-medium mb-4">含加購輔導課優惠</p>
+                        <div class="overflow-x-auto">
+                            <table class="w-full price-table border-collapse">
+                                <thead>
+                                    <tr>
+                                        <th class="border border-amber-200 text-amber-800">報名類型</th>
+                                        <th class="border border-amber-200 text-amber-800">暑期費用</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="border border-amber-100 font-medium">單科報名</td>
+                                        <td class="border border-amber-100 font-medium">5500 元</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-amber-100 font-medium">任選 2 科</td>
+                                        <td class="border border-amber-100 font-medium">10500 元</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-amber-100 font-medium">任選 3 科</td>
+                                        <td class="border border-amber-100 font-medium">15000 元</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-amber-100 font-medium">任選 4 科</td>
+                                        <td class="border border-amber-100 font-medium">19500 元</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border border-amber-100 font-medium">加購輔導課</td>
+                                        <td class="border border-amber-100 font-medium">+3000 元</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="mt-6 bg-amber-50 p-4 rounded-lg border border-amber-100">
+                            <div class="flex items-start">
+                                <svg class="w-5 h-5 text-amber-600 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                                <p class="text-sm text-gray-700">報名多科可享優惠價格，輔導課可協助孩子完成作業並解決課堂疑問，建議一同報名以達到最佳學習效果。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why Summer Review -->
+        <div class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center text-amber-800">
+                <span class="highlight">為什麼暑假一定要複習？</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="card bg-white p-6 rounded-xl shadow-md border border-amber-100">
+                    <div class="bg-amber-100 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-amber-800 mb-3">開學馬上考</h3>
+                    <p class="text-gray-700">學校為了銜接進度，九年級開學馬上測驗！沒複習的孩子容易亂了腳步、失去信心。</p>
+                </div>
+                
+                <div class="card bg-white p-6 rounded-xl shadow-md border border-amber-100">
+                    <div class="bg-amber-100 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-amber-800 mb-3">會考從一二冊出題</h3>
+                    <p class="text-gray-700">很多學生誤以為會考只看三年級，但實際上一二冊內容占比高、出題靈活！現在開始複習，孩子未來才不會手忙腳亂。</p>
+                </div>
+                
+                <div class="card bg-white p-6 rounded-xl shadow-md border border-amber-100">
+                    <div class="bg-amber-100 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-amber-800 mb-3">暑假是成績超車的黃金期</h3>
+                    <p class="text-gray-700">當別人放空滑手機、補眠打混，我們已經穩穩把國一國二該懂的補上，把原本的「不熟」變成「穩穩會」，真正踏出會考準備的第一步。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Teachers -->
+        <div class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center text-amber-800">
+                <span class="highlight">師資介紹</span>
+            </h2>
+            <p class="text-center text-gray-700 mb-10 max-w-3xl mx-auto">我們的老師不只是會教，更會陪伴孩子從學習卡點走出來。每位老師都有理工背景的碩博士學歷＋多年的升學輔導經驗，懂會考、懂孩子，也懂怎麼幫助孩子真正「學得會」。</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="teacher-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="bg-amber-800 h-3"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-amber-100 rounded-full w-16 h-16 flex items-center justify-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-amber-800">Coco 老師</h3>
+                                <p class="text-gray-600">台大醫學工程所碩士</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-gray-700">擅長理化、生物教學，將抽象概念轉化為生活例子</p>
+                            <p class="text-gray-700">熟悉會考命題方向與學生常見盲點，耐心細膩，幫助學生真正理解而非死背</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="teacher-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="bg-amber-800 h-3"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-amber-100 rounded-full w-16 h-16 flex items-center justify-center mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-amber-800">立瑾 老師</h3>
+                                <p class="text-gray-600">台大海洋研究所碩士生</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-gray-700">風格親切、解說清楚，擅長邏輯引導與觀念統整</p>
+                            <p class="text-gray-700">深受學生喜愛，能夠帶動學習節奏、強化答題能力</p>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-gradient-to-r from-amber-800 to-amber-700 rounded-2xl shadow-lg overflow-hidden">
+            <div class="p-8 md:p-12">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-2/3 mb-8 md:mb-0">
+                        <h2 class="text-2xl md:text-3xl font-bold mb-4 text-white">開學就能銜接學校進度，進入國三不慌張，面對模考更有信心！</h2>
+                        <p class="text-amber-100 mb-6">課程由國一～國二重點出發，結合題型邏輯分析、解題策略訓練，幫助孩子從觀念到技巧一次補強，銜接國三不緊張、會考起跑領先人一步！</p>
+                    </div>
+                    <div class="md:w-1/3 md:text-right">
+                        <button class="bg-white text-amber-800 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-amber-50 transition duration-300">
+                            立即報名
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'958b424803e54a67',t:'MTc1MTQyOTA2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
