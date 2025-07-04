@@ -1,825 +1,1090 @@
 
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B.idol 2025 Summer 手冊</title>
+    <title>Stonebooks Studio - 留遊學代辦與補習中心</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#c94f4f',
+                        secondary: '#f8e5e5',
+                        dark: '#333333',
+                    }
+                },
+                fontFamily: {
+                    sans: ['Noto Sans TC', 'sans-serif'],
+                }
+            }
+        }
+    </script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            background-color: #0a0a0a;
-            color: #f1f1f1;
+            background-color: #fffaf8;
         }
-        .section-card {
-            transition: all 0.3s ease;
-            background-color: #1a1a1a;
-            border: 1px solid #333;
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .section-card:hover {
+        
+        .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.15);
+            box-shadow: 0 10px 20px rgba(201, 79, 79, 0.2);
         }
-        .tab-button {
-            transition: all 0.2s ease;
-            background-color: #1a1a1a;
-            color: #f1f1f1;
-            border: 1px solid #333;
-        }
-        .tab-button.active {
-            background-color: #e60000;
-            color: white;
-            border-color: #e60000;
-        }
+        
         .tab-content {
             display: none;
         }
+        
         .tab-content.active {
             display: block;
             animation: fadeIn 0.5s ease;
         }
+        
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        .highlight {
-            background: linear-gradient(120deg, rgba(230, 0, 0, 0.2) 0%, rgba(230, 0, 0, 0.2) 100%);
-            background-repeat: no-repeat;
-            background-size: 100% 40%;
-            background-position: 0 90%;
+        
+        .carousel {
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
-        table thead th {
-            background-color: #1a1a1a;
-            color: #e60000;
+        
+        .carousel::-webkit-scrollbar {
+            display: none;
         }
-        table tbody tr:nth-child(odd) {
-            background-color: #1a1a1a;
+        
+        .bounce {
+            animation: bounce 2s infinite;
         }
-        table tbody tr:nth-child(even) {
-            background-color: #0a0a0a;
-        }
-        .faq-item {
-            border-color: #333;
-        }
-        .faq-question {
-            background-color: #1a1a1a;
-        }
-        .faq-question:hover {
-            background-color: #2a2a2a;
-        }
-        .faq-answer {
-            background-color: #0a0a0a;
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="min-h-screen">
-        <!-- Header -->
-        <header class="bg-gradient-to-r from-red-900 to-black text-white py-12 px-4 sm:px-6 lg:px-8 text-center">
-            <div class="max-w-4xl mx-auto">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                    <span class="inline-block animate-bounce mr-2">🌟</span> 
-                    B.idol in Seoul
-                </h1>
-                <p class="text-xl md:text-2xl font-medium mb-6">2025 夏季韓國偶像體驗營 參與手冊</p>
-                <div class="flex justify-center space-x-2 mb-6">
-                    <span class="bg-red-800 bg-opacity-70 px-3 py-1 rounded-full text-sm font-medium">K-POP</span>
-                    <span class="bg-red-800 bg-opacity-70 px-3 py-1 rounded-full text-sm font-medium">舞蹈</span>
-                    <span class="bg-red-800 bg-opacity-70 px-3 py-1 rounded-full text-sm font-medium">首爾</span>
-                    <span class="bg-red-800 bg-opacity-70 px-3 py-1 rounded-full text-sm font-medium">2025夏季</span>
-                </div>
-                <p class="text-lg opacity-90 max-w-2xl mx-auto">
-                    感謝您參與 B.IDOL 夏季首爾營！這是一場集結全球年輕舞者的教育與交流活動，我們的師資與工作人員將全力支持每一位參加者，盡情揮灑汗水、綻放笑容吧！
-                </p>
+    <!-- 導航欄 -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M21,5c0-1.1-0.9-2-2-2H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5z M12,6.5c0.83,0,1.5,0.67,1.5,1.5
+                    s-0.67,1.5-1.5,1.5s-1.5-0.67-1.5-1.5S11.17,6.5,12,6.5z M19,19H5v-1.5c0-1.99,4-3,7-3s7,1.01,7,3V19z"/>
+                </svg>
+                <span class="text-xl font-bold text-primary">Stonebooks Studio</span>
             </div>
-        </header>
-
-        <!-- Navigation Tabs -->
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="flex flex-wrap justify-center mb-8 gap-2">
-                <button class="tab-button active px-4 py-2 rounded-full font-medium" data-tab="info">
-                    📅 活動資訊
-                </button>
-                <button class="tab-button px-4 py-2 rounded-full font-medium" data-tab="facilities">
-                    🏢 設施使用
-                </button>
-                <button class="tab-button px-4 py-2 rounded-full font-medium" data-tab="schedule">
-                    🕒 活動時間表
-                </button>
-                <button class="tab-button px-4 py-2 rounded-full font-medium" data-tab="rules">
-                    📝 活動規定
-                </button>
-                <button class="tab-button px-4 py-2 rounded-full font-medium" data-tab="audition">
-                    🎬 試鏡流程
-                </button>
-            </div>
-
-            <!-- Tab Content -->
-            <div class="tab-content active" id="info">
-                <div class="section-card rounded-2xl shadow-lg p-8 mb-8">
-                    <h2 class="text-2xl font-bold mb-6 text-red-500">活動基本資訊</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-red-900 bg-opacity-30 flex items-center justify-center">
-                                <span class="text-xl">📅</span>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">日期</h3>
-                                <p class="mt-1 text-gray-300">2025 年 7 月 24 日上午 11 點 ～ 2025 年 8 月 4 日下午 2 點</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-red-900 bg-opacity-30 flex items-center justify-center">
-                                <span class="text-xl">📍</span>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">地點</h3>
-                                <p class="mt-1 text-gray-300">Hi Seoul Youth Hostel（首爾永登浦區永新路 200 號）</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-red-900 bg-opacity-30 flex items-center justify-center">
-                                <span class="text-xl">📱</span>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">聯絡方式</h3>
-                                <p class="mt-1 text-gray-300">活動前 1 週開設 WhatsApp 群組</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-red-900 bg-opacity-30 flex items-center justify-center">
-                                <span class="text-xl">📞</span>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">緊急聯絡人</h3>
-                                <p class="mt-1 text-gray-300">Alex Lee（+82-10-3205-5954）</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-gradient-to-r from-red-900 to-black bg-opacity-50 rounded-2xl p-6 border border-red-900">
-                    <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 rounded-full bg-red-900 bg-opacity-30 flex items-center justify-center mr-4">
-                            <span class="text-2xl">✈️</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-red-400">接機資訊</h3>
-                    </div>
-                    <p class="text-gray-300 mb-4">
-                        我們將在仁川國際機場第一航廈與第二航廈安排接機人員，請提前告知您的航班資訊。
-                    </p>
-                    <p class="text-gray-300">
-                        接機人員將手持「B.idol 2025」標誌牌，請在出關後尋找。如有任何問題，請撥打緊急聯絡電話。
-                    </p>
-                </div>
-            </div>
-
-            <div class="tab-content" id="facilities">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- 住宿資訊 -->
-                    <div class="section-card rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🛏</span>
-                            <h3 class="text-xl font-bold text-red-500">住宿資訊</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>三人房（如需與朋友同住請提前告知）</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>房內設施：獨立衛浴、冷暖空調、電視、冰箱、電熱壺、茶杯組、拖鞋、吹風機、毛巾、洗髮精、沐浴乳</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>免費 Wi-Fi</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- 餐食資訊 -->
-                    <div class="section-card rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🍽</span>
-                            <h3 class="text-xl font-bold text-red-500">餐食資訊</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>早餐與午餐在一樓餐廳提供</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>一樓另設有咖啡烘焙坊（另行付費）</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- 公用廚房 -->
-                    <div class="section-card rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">👨‍🍳</span>
-                            <h3 class="text-xl font-bold text-red-500">公用廚房</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>位置：三樓</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>設備：5 個電磁爐、5 個洗手槽、1 台微波爐、2 台大型冰箱、1 台電子鍋</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>營運時間：07:00～22:00</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>歡迎自備食材體驗韓國自煮生活</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- 課程教室 -->
-                    <div class="section-card rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🏢</span>
-                            <h3 class="text-xl font-bold text-red-500">課程教室</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>地點：地下一樓</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>面積：75.4 平方公尺</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>開放時間：09:00～13:00</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- 休憩與上網空間 -->
-                    <div class="section-card rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">💻</span>
-                            <h3 class="text-xl font-bold text-red-500">休憩與上網空間</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>三樓休息室（07:00～24:00）：大螢幕電視</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>一樓網路區（07:00～24:00）：提供電腦（₩500 / 每 30 分鐘）</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- 洗衣房 -->
-                    <div class="section-card rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🧺</span>
-                            <h3 class="text-xl font-bold text-red-500">洗衣房</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>地點：三樓</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>營運時間：07:00～22:00</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>設備：洗衣機 4 台、烘鞋機（需向櫃檯借鑰匙）</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>費用：₩2,000 / 次（₩1,000 紙鈔或 ₩500 硬幣）</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>洗衣粉可於自動販賣機購買</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- 其他補充 -->
-                    <div class="section-card rounded-2xl shadow-lg p-6 md:col-span-2">
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-3">🧼</span>
-                            <h3 class="text-xl font-bold text-red-500">其他補充</h3>
-                        </div>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>每人每日提供一條毛巾</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>提供洗髮精與香皂（建議自備習慣用品）</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>現場有飲水機，請自備水壺</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-content" id="schedule">
-                <div class="section-card rounded-2xl shadow-lg p-8">
-                    <h2 class="text-2xl font-bold mb-6 text-red-500">活動時間表</h2>
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-700">
-                            <thead>
-                                <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-red-400 uppercase tracking-wider">時間</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-red-400 uppercase tracking-wider">活動內容</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-red-400 uppercase tracking-wider">地點</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-800">
-                                <tr class="bg-red-900 bg-opacity-20">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-red-400" colspan="3">第一天 (7/24)</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">11:00 - 13:00</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">報到與入住</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">一樓大廳</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">14:00 - 15:30</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">開幕式與課程介紹</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">地下一樓教室</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">16:00 - 18:00</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">分組與初步練習</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">地下一樓教室</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">18:30 - 20:00</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">歡迎晚餐</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">一樓餐廳</td>
-                                </tr>
-                                
-                                <tr class="bg-red-900 bg-opacity-20">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-red-400" colspan="3">第二天 (7/25) - 第十天 (8/3)</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">07:30 - 08:30</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">早餐</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">一樓餐廳</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">09:00 - 12:00</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">舞蹈訓練</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">地下一樓教室</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">12:30 - 13:30</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">午餐</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">一樓餐廳</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">14:00 - 17:00</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">表演訓練/韓語課程</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">地下一樓教室</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">17:30 - 19:00</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">自由活動/晚餐</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">自選</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">19:30 - 21:30</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">自主練習時間</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">地下一樓教室</td>
-                                </tr>
-                                
-                                <tr class="bg-red-900 bg-opacity-20">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-red-400" colspan="3">最後一天 (8/4)</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">07:30 - 08:30</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">早餐</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">一樓餐廳</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">09:00 - 11:00</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">成果發表會</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">地下一樓教室</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">11:30 - 12:30</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">結業式與證書頒發</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">地下一樓教室</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">12:30 - 14:00</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">午餐與道別</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">一樓餐廳</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="mt-6 bg-red-900 bg-opacity-20 p-4 rounded-lg">
-                        <p class="text-sm text-gray-300">
-                            <span class="font-bold text-red-400">備註：</span> 活動時間表可能會根據實際情況進行調整，請留意每日公告。
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-content" id="rules">
-                <div class="section-card rounded-2xl shadow-lg p-8">
-                    <h2 class="text-2xl font-bold mb-6 text-red-500">活動規定</h2>
-                    
-                    <div class="space-y-6">
-                        <div class="bg-red-900 bg-opacity-20 p-5 rounded-xl">
-                            <h3 class="text-lg font-semibold text-red-400 mb-3">🕒 出席與時間管理</h3>
-                            <ul class="space-y-2 text-gray-300">
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>所有課程均需準時參加，如有特殊情況請提前向工作人員請假</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>每日晚上 22:00 後請保持安靜，尊重他人休息時間</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>外出活動請於晚上 21:00 前返回宿舍</span>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="bg-red-900 bg-opacity-20 p-5 rounded-xl">
-                            <h3 class="text-lg font-semibold text-red-400 mb-3">🧹 環境維護</h3>
-                            <ul class="space-y-2 text-gray-300">
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>請保持房間與公共區域整潔</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>使用公共廚房後請清理乾淨</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>禁止在房間內烹飪食物</span>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="bg-red-900 bg-opacity-20 p-5 rounded-xl">
-                            <h3 class="text-lg font-semibold text-red-400 mb-3">🤝 團隊合作</h3>
-                            <ul class="space-y-2 text-gray-300">
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>尊重所有參與者與工作人員</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>積極參與小組活動與練習</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>遇到困難時主動尋求協助</span>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="bg-red-900 bg-opacity-20 p-5 rounded-xl">
-                            <h3 class="text-lg font-semibold text-red-400 mb-3">📱 社群媒體使用</h3>
-                            <ul class="space-y-2 text-gray-300">
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>歡迎分享活動照片與影片，請使用標籤 #Bidol2025</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>未經同意，請勿發布其他參與者的照片或影片</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>請勿在社群媒體上發布負面或不當內容</span>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="bg-red-900 bg-opacity-20 p-5 rounded-xl">
-                            <h3 class="text-lg font-semibold text-red-400 mb-3">⚠️ 安全事項</h3>
-                            <ul class="space-y-2 text-gray-300">
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>請隨時保管好個人貴重物品</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>外出時請結伴同行，注意人身安全</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>如有身體不適，請立即通知工作人員</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-red-500 mr-2">•</span>
-                                    <span>嚴禁攜帶或使用酒精、煙草及其他違禁品</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-content" id="audition">
-                <div class="section-card rounded-2xl shadow-lg p-8">
-                    <h2 class="text-2xl font-bold mb-6 text-red-500">試鏡流程</h2>
-                    
-                    <div class="mb-8">
-                        <p class="text-gray-300 mb-4">
-                            本次營隊將安排與韓國娛樂公司的試鏡機會，這是一個難得的展示自我的機會！以下是試鏡流程與準備事項：
-                        </p>
-                    </div>
-                    
-                    <div class="space-y-8">
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-800 text-white">
-                                    <span class="font-bold">1</span>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">試鏡時間</h3>
-                                <p class="mt-1 text-gray-300">
-                                    試鏡將於 8 月 2 日下午 2:00 - 6:00 進行，每位參與者有 3 分鐘的展示時間。
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-800 text-white">
-                                    <span class="font-bold">2</span>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">準備內容</h3>
-                                <p class="mt-1 text-gray-300">
-                                    請準備一段 1-2 分鐘的舞蹈表演，可以是營隊中學習的舞蹈或自選曲目。如有其他才藝（唱歌、樂器等），也可以在剩餘時間展示。
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-800 text-white">
-                                    <span class="font-bold">3</span>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">音樂準備</h3>
-                                <p class="mt-1 text-gray-300">
-                                    請提前準備好表演音樂的 MP3 檔案，並於 8 月 1 日前交給工作人員。檔案請以「姓名_曲目名稱」格式命名。
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-800 text-white">
-                                    <span class="font-bold">4</span>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">服裝建議</h3>
-                                <p class="mt-1 text-gray-300">
-                                    請穿著合適的表演服裝，展現個人風格。建議選擇舒適且便於活動的服裝，妝容自然得體。
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-800 text-white">
-                                    <span class="font-bold">5</span>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium text-red-400">評審陣容</h3>
-                                <p class="mt-1 text-gray-300">
-                                    評審包括來自 JYP、SM、HYBE 等知名娛樂公司的代表，他們將根據表演技巧、舞台魅力、潛力等方面進行評估。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-8 bg-red-900 bg-opacity-20 p-6 rounded-xl">
-                        <h3 class="text-lg font-semibold text-red-400 mb-3">💡 試鏡小提示</h3>
-                        <ul class="space-y-2 text-gray-300">
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>保持自信，展現真實的自我</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>充分利用空間，展示舞台表現力</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>與評審保持適當的眼神交流</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>試鏡前做好充分的熱身準備</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-red-500 mr-2">•</span>
-                                <span>記得在表演結束後有禮貌地感謝評審</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- FAQ Section -->
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <h2 class="text-2xl font-bold mb-8 text-center text-red-500">常見問題</h2>
             
-            <div class="space-y-4">
-                <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
-                        <span class="font-medium text-gray-200">需要攜帶哪些物品？</span>
-                        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer px-6 py-4 hidden">
-                        <p class="text-gray-300">
-                            建議攜帶：舒適的舞蹈服裝、運動鞋、個人盥洗用品、毛巾、水壺、防曬用品、基本藥品、轉接插頭（韓國為雙圓孔插座）、少量現金及信用卡。
-                        </p>
-                    </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="text-dark hover:text-primary transition-colors font-medium">首頁</a>
+                <a href="#study-abroad" class="text-dark hover:text-primary transition-colors font-medium">留遊學</a>
+                <a href="#travel" class="text-dark hover:text-primary transition-colors font-medium">旅遊</a>
+                <a href="#courses" class="text-dark hover:text-primary transition-colors font-medium">課程</a>
+                <a href="#about" class="text-dark hover:text-primary transition-colors font-medium">關於我們</a>
+                <a href="#contact" class="text-dark hover:text-primary transition-colors font-medium">聯絡我們</a>
+            </div>
+            
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-dark hover:text-primary">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 行動裝置選單 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#" class="text-dark hover:text-primary py-2 transition-colors font-medium">首頁</a>
+                <a href="#study-abroad" class="text-dark hover:text-primary py-2 transition-colors font-medium">留遊學</a>
+                <a href="#travel" class="text-dark hover:text-primary py-2 transition-colors font-medium">旅遊</a>
+                <a href="#courses" class="text-dark hover:text-primary py-2 transition-colors font-medium">課程</a>
+                <a href="#about" class="text-dark hover:text-primary py-2 transition-colors font-medium">關於我們</a>
+                <a href="#contact" class="text-dark hover:text-primary py-2 transition-colors font-medium">聯絡我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄區塊 -->
+    <section class="bg-gradient-to-br from-primary to-rose-600 text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">開啟全球學習之旅</h1>
+                <p class="text-lg md:text-xl mb-8">Stonebooks Studio 提供專業留遊學代辦、英語教學與國內外旅遊服務，為您打造完美的學習與探索體驗。</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#study-abroad" class="bg-white text-primary font-bold py-3 px-6 rounded-full hover:bg-gray-100 transition-colors text-center">
+                        留遊學方案
+                    </a>
+                    <a href="#courses" class="bg-transparent border-2 border-white text-white font-bold py-3 px-6 rounded-full hover:bg-white hover:text-primary transition-colors text-center">
+                        課程資訊
+                    </a>
                 </div>
-                
-                <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
-                        <span class="font-medium text-gray-200">有提供無線網路嗎？</span>
-                        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer px-6 py-4 hidden">
-                        <p class="text-gray-300">
-                            是的，宿舍區域提供免費 Wi-Fi。如需在外出時使用網路，建議租借韓國當地的隨身 Wi-Fi 或購買當地 SIM 卡。
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
-                        <span class="font-medium text-gray-200">如何處理語言障礙？</span>
-                        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer px-6 py-4 hidden">
-                        <p class="text-gray-300">
-                            我們的工作人員能夠使用中文、英文和韓文溝通。此外，營隊中也會安排基礎韓語課程，幫助您學習日常用語。建議下載翻譯應用程式如 Papago 或 Google 翻譯以備不時之需。
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
-                        <span class="font-medium text-gray-200">有自由活動時間嗎？</span>
-                        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer px-6 py-4 hidden">
-                        <p class="text-gray-300">
-                            是的，每天晚餐後有自由活動時間，週末也會安排半天的自由活動。您可以探索首爾市區或參加我們提供的選擇性活動（如參觀娛樂公司、K-POP 商店等）。
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="faq-item border border-gray-800 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center">
-                        <span class="font-medium text-gray-200">如果我沒有舞蹈基礎可以參加嗎？</span>
-                        <svg class="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="faq-answer px-6 py-4 hidden">
-                        <p class="text-gray-300">
-                            當然可以！我們的課程設計適合各種程度的學員，從初學者到有經驗的舞者都能獲得成長。教練會根據不同學員的程度提供適當的指導。
-                        </p>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80">
+                    <div class="absolute inset-0 bg-white rounded-full opacity-20 animate-pulse"></div>
+                    <svg class="absolute inset-0 w-full h-full text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold">
+                        <i class="fas fa-globe-americas"></i>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="container mx-auto px-4 mt-8 flex justify-center">
+            <a href="#services" class="text-white bounce">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <div class="bg-black py-12 px-4 sm:px-6 lg:px-8 border-t border-red-900">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-2xl font-bold mb-6 text-red-500">有任何問題嗎？</h2>
-                <p class="mb-8 text-gray-300">如有任何疑問，請隨時聯繫我們的團隊</p>
-                
+    <!-- 服務特色區塊 -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">我們的服務</h2>
+            
+            <!-- 服務分類標籤 -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8">
+                <button class="service-tab bg-primary text-white px-4 py-2 rounded-full active" data-tab="all">全部服務</button>
+                <button class="service-tab bg-gray-200 text-gray-700 px-4 py-2 rounded-full" data-tab="study-abroad">留遊學</button>
+                <button class="service-tab bg-gray-200 text-gray-700 px-4 py-2 rounded-full" data-tab="travel">旅遊</button>
+                <button class="service-tab bg-gray-200 text-gray-700 px-4 py-2 rounded-full" data-tab="english">英文課程</button>
+                <button class="service-tab bg-gray-200 text-gray-700 px-4 py-2 rounded-full" data-tab="tutoring">家教服務</button>
+            </div>
+            
+            <!-- 全部服務 -->
+            <div id="all" class="tab-content active">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-secondary rounded-xl p-6 text-center">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-graduation-cap text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">留遊學代辦</h3>
+                        <p class="text-gray-700">提供全球頂尖學校申請、簽證辦理、住宿安排等一站式服務。</p>
+                    </div>
+                    <div class="bg-secondary rounded-xl p-6 text-center">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-plane text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">國內外旅遊</h3>
+                        <p class="text-gray-700">規劃豐富多元的國內外旅遊行程，結合學習與探索的獨特體驗。</p>
+                    </div>
+                    <div class="bg-secondary rounded-xl p-6 text-center">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-language text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">英文課程</h3>
+                        <p class="text-gray-700">專業英語教學，從基礎到進階，針對不同需求提供客製化課程。</p>
+                    </div>
+                    <div class="bg-secondary rounded-xl p-6 text-center">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chalkboard-teacher text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">家教服務</h3>
+                        <p class="text-gray-700">一對一或小班制家教，針對各科目提供客製化教學與輔導。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 留遊學服務 -->
+            <div id="study-abroad" class="tab-content">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-red-900 bg-opacity-20 p-6 rounded-lg border border-red-800">
-                        <div class="text-3xl mb-4">📧</div>
-                        <h3 class="text-lg font-medium mb-2 text-red-400">電子郵件</h3>
-                        <p class="text-gray-300">info@bidol2025.com</p>
+                    <div class="bg-secondary rounded-xl p-6">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                            <i class="fas fa-file-signature text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">申請輔導</h3>
+                        <p class="text-gray-700">提供全球知名大學與語言學校申請輔導，包括文件準備、個人陳述指導等。</p>
                     </div>
-                    
-                    <div class="bg-red-900 bg-opacity-20 p-6 rounded-lg border border-red-800">
-                        <div class="text-3xl mb-4">📱</div>
-                        <h3 class="text-lg font-medium mb-2 text-red-400">電話</h3>
-                        <p class="text-gray-300">+82-10-3205-5954</p>
+                    <div class="bg-secondary rounded-xl p-6">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                            <i class="fas fa-passport text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">簽證辦理</h3>
+                        <p class="text-gray-700">專業簽證申請服務，協助您順利取得學生簽證、工作假期簽證等。</p>
                     </div>
-                    
-                    <div class="bg-red-900 bg-opacity-20 p-6 rounded-lg border border-red-800">
-                        <div class="text-3xl mb-4">💬</div>
-                        <h3 class="text-lg font-medium mb-2 text-red-400">社群媒體</h3>
-                        <p class="text-gray-300">@B.idol_official</p>
+                    <div class="bg-secondary rounded-xl p-6">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                            <i class="fas fa-home text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">住宿安排</h3>
+                        <p class="text-gray-700">提供寄宿家庭、學生宿舍、租屋等多元住宿選擇與安排服務。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 旅遊服務 -->
+            <div id="travel" class="tab-content">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-secondary rounded-xl p-6">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                            <i class="fas fa-globe-asia text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">國際遊學團</h3>
+                        <p class="text-gray-700">結合語言學習與文化體驗的國際遊學團，讓您在旅行中成長。</p>
+                    </div>
+                    <div class="bg-secondary rounded-xl p-6">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                            <i class="fas fa-mountain text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">國內主題旅遊</h3>
+                        <p class="text-gray-700">探索台灣之美，提供文化、生態、歷史等多元主題旅遊體驗。</p>
+                    </div>
+                    <div class="bg-secondary rounded-xl p-6">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                            <i class="fas fa-campground text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">寒暑假營隊</h3>
+                        <p class="text-gray-700">豐富多彩的寒暑假營隊活動，結合學習與娛樂，讓孩子度過充實假期。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 英文課程 -->
+            <div id="english" class="tab-content">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-secondary rounded-xl p-6">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                            <i class="fas fa-child text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">兒童英語</h3>
+                        <p class="text-gray-700">生動有趣的兒童英語課程，培養孩子的語言興趣與基礎能力。</p>
+                    </div>
+                    <div class="bg-secondary rounded-xl p-6">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                            <i class="fas fa-user-graduate text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">考試準備</h3>
+                        <p class="text-gray-700">針對托福、雅思、多益等國際英語考試的專業備考課程。</p>
+                    </div>
+                    <div class="bg-secondary rounded-xl p-6">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                            <i class="fas fa-briefcase text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">商業英語</h3>
+                        <p class="text-gray-700">專為職場人士設計的商業英語課程，提升職場競爭力。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 家教服務 -->
+            <div id="tutoring" class="tab-content">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-secondary rounded-xl p-6">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                            <i class="fas fa-user text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">一對一家教</h3>
+                        <p class="text-gray-700">量身定制的一對一家教服務，針對個人學習需求提供精準輔導。</p>
+                    </div>
+                    <div class="bg-secondary rounded-xl p-6">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                            <i class="fas fa-users text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">小班制教學</h3>
+                        <p class="text-gray-700">3-5人小班制教學，兼顧個人關注與同儕學習的優勢。</p>
+                    </div>
+                    <div class="bg-secondary rounded-xl p-6">
+                        <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                            <i class="fas fa-book-open text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">學科輔導</h3>
+                        <p class="text-gray-700">提供國英數等各學科的專業輔導，幫助學生提升學業成績。</p>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Footer -->
-        <footer class="bg-black py-8 px-4 sm:px-6 lg:px-8 text-center border-t border-gray-800">
-            <div class="max-w-4xl mx-auto">
-                <p class="text-gray-500 mb-4">© 2025 B.idol. All Rights Reserved.</p>
-                <div class="flex justify-center space-x-4">
-                    <a href="#" class="text-red-500 hover:text-red-400">
-                        <span>Instagram</span>
-                    </a>
-                    <a href="#" class="text-red-500 hover:text-red-400">
-                        <span>Facebook</span>
-                    </a>
-                    <a href="#" class="text-red-500 hover:text-red-400">
-                        <span>Twitter</span>
-                    </a>
+    <!-- 留遊學區塊 -->
+    <section id="study-abroad" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">熱門留遊學方案</h2>
+                <div class="flex space-x-2">
+                    <button id="prev-program" class="bg-white border border-gray-300 rounded-full w-10 h-10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="next-program" class="bg-white border border-gray-300 rounded-full w-10 h-10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
-        </footer>
-    </div>
+            
+            <div class="relative">
+                <div id="programs-carousel" class="carousel flex overflow-x-auto gap-6 pb-6 -mx-4 px-4">
+                    <!-- 留遊學方案卡片 1 -->
+                    <div class="card bg-white rounded-xl shadow-md min-w-[280px] md:min-w-[320px] flex-shrink-0">
+                        <div class="h-48 bg-primary rounded-t-xl flex items-center justify-center text-white">
+                            <i class="fas fa-university text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="bg-secondary text-primary text-xs font-bold px-3 py-1 rounded-full">美國</span>
+                            <h3 class="text-xl font-bold mt-3 mb-2">美國大學申請方案</h3>
+                            <p class="text-gray-600 mb-4">全方位協助申請美國頂尖大學，包含文件準備、面試輔導等服務。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">NT$ 60,000 起</span>
+                                <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition-colors">
+                                    了解更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 留遊學方案卡片 2 -->
+                    <div class="card bg-white rounded-xl shadow-md min-w-[280px] md:min-w-[320px] flex-shrink-0">
+                        <div class="h-48 bg-primary rounded-t-xl flex items-center justify-center text-white">
+                            <i class="fas fa-landmark text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="bg-secondary text-primary text-xs font-bold px-3 py-1 rounded-full">英國</span>
+                            <h3 class="text-xl font-bold mt-3 mb-2">英國語言學校方案</h3>
+                            <p class="text-gray-600 mb-4">在英國倫敦、劍橋等地學習道地英語，體驗英式文化生活。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">NT$ 45,000 起</span>
+                                <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition-colors">
+                                    了解更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 留遊學方案卡片 3 -->
+                    <div class="card bg-white rounded-xl shadow-md min-w-[280px] md:min-w-[320px] flex-shrink-0">
+                        <div class="h-48 bg-primary rounded-t-xl flex items-center justify-center text-white">
+                            <i class="fas fa-umbrella-beach text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="bg-secondary text-primary text-xs font-bold px-3 py-1 rounded-full">澳洲</span>
+                            <h3 class="text-xl font-bold mt-3 mb-2">澳洲打工度假方案</h3>
+                            <p class="text-gray-600 mb-4">協助申請澳洲打工度假簽證，提供工作媒合與生活安排服務。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">NT$ 38,000 起</span>
+                                <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition-colors">
+                                    了解更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 留遊學方案卡片 4 -->
+                    <div class="card bg-white rounded-xl shadow-md min-w-[280px] md:min-w-[320px] flex-shrink-0">
+                        <div class="h-48 bg-primary rounded-t-xl flex items-center justify-center text-white">
+                            <i class="fas fa-torii-gate text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="bg-secondary text-primary text-xs font-bold px-3 py-1 rounded-full">日本</span>
+                            <h3 class="text-xl font-bold mt-3 mb-2">日本語言學校方案</h3>
+                            <p class="text-gray-600 mb-4">專業日語學習課程，體驗日本文化，為留學或就業做準備。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">NT$ 42,000 起</span>
+                                <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition-colors">
+                                    了解更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#" class="inline-block border-2 border-primary text-primary font-bold py-3 px-8 rounded-full hover:bg-primary hover:text-white transition-colors">
+                    查看所有方案
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 旅遊區塊 -->
+    <section id="travel" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8">精選旅遊行程</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- 旅遊行程卡片 1 -->
+                <div class="card bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md">
+                    <div class="h-48 bg-blue-100 relative">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full">
+                            國際遊學
+                        </div>
+                        <div class="w-full h-full flex items-center justify-center">
+                            <i class="fas fa-globe-americas text-blue-600 text-5xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">美國西岸名校參訪團</h3>
+                        <p class="text-gray-600 mb-4">參訪史丹佛、柏克萊等名校，體驗美國校園文化與教育環境。</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>2023/07/15-07/28 (14天)</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-user-friends mr-2"></i>
+                            <span>適合高中生及大學生</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">NT$ 128,000</span>
+                            <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition-colors">
+                                立即報名
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 旅遊行程卡片 2 -->
+                <div class="card bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md">
+                    <div class="h-48 bg-amber-100 relative">
+                        <div class="absolute top-4 left-4 bg-amber-600 text-white text-sm font-bold px-3 py-1 rounded-full">
+                            寒假營隊
+                        </div>
+                        <div class="w-full h-full flex items-center justify-center">
+                            <i class="fas fa-snowflake text-amber-600 text-5xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">英語冬令營</h3>
+                        <p class="text-gray-600 mb-4">全英語環境的寒假營隊，結合語言學習與戶外活動的豐富體驗。</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>2024/01/22-01/26 (5天4夜)</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-user-friends mr-2"></i>
+                            <span>適合國小3-6年級學生</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">NT$ 25,000</span>
+                            <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition-colors">
+                                立即報名
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 旅遊行程卡片 3 -->
+                <div class="card bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md">
+                    <div class="h-48 bg-green-100 relative">
+                        <div class="absolute top-4 left-4 bg-green-600 text-white text-sm font-bold px-3 py-1 rounded-full">
+                            國內旅遊
+                        </div>
+                        <div class="w-full h-full flex items-center justify-center">
+                            <i class="fas fa-mountain text-green-600 text-5xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">台灣生態探索之旅</h3>
+                        <p class="text-gray-600 mb-4">探索台灣自然生態與人文風情，寓教於樂的深度旅遊體驗。</p>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>每月出發，3天2夜</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-user-friends mr-2"></i>
+                            <span>適合所有年齡層</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">NT$ 8,800</span>
+                            <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition-colors">
+                                立即報名
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#" class="inline-block border-2 border-primary text-primary font-bold py-3 px-8 rounded-full hover:bg-primary hover:text-white transition-colors">
+                    查看所有行程
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 課程區塊 -->
+    <section id="courses" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">熱門課程</h2>
+                <div class="flex space-x-2">
+                    <button id="prev-course" class="bg-white border border-gray-300 rounded-full w-10 h-10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="next-course" class="bg-white border border-gray-300 rounded-full w-10 h-10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div id="courses-carousel" class="carousel flex overflow-x-auto gap-6 pb-6 -mx-4 px-4">
+                    <!-- 課程卡片 1 -->
+                    <div class="card bg-white rounded-xl shadow-md min-w-[280px] md:min-w-[320px] flex-shrink-0">
+                        <div class="h-48 bg-primary rounded-t-xl flex items-center justify-center text-white">
+                            <i class="fas fa-comments text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="bg-secondary text-primary text-xs font-bold px-3 py-1 rounded-full">英文會話</span>
+                            <h3 class="text-xl font-bold mt-3 mb-2">生活英語會話班</h3>
+                            <p class="text-gray-600 mb-4">培養日常英語對話能力，提升聽說流暢度，建立自信溝通。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">NT$ 8,800 / 12堂</span>
+                                <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition-colors">
+                                    了解更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 課程卡片 2 -->
+                    <div class="card bg-white rounded-xl shadow-md min-w-[280px] md:min-w-[320px] flex-shrink-0">
+                        <div class="h-48 bg-primary rounded-t-xl flex items-center justify-center text-white">
+                            <i class="fas fa-file-alt text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="bg-secondary text-primary text-xs font-bold px-3 py-1 rounded-full">考試準備</span>
+                            <h3 class="text-xl font-bold mt-3 mb-2">托福/雅思衝刺班</h3>
+                            <p class="text-gray-600 mb-4">針對性備考策略，掌握考試技巧，快速提升分數。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">NT$ 15,000 / 16堂</span>
+                                <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition-colors">
+                                    了解更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 課程卡片 3 -->
+                    <div class="card bg-white rounded-xl shadow-md min-w-[280px] md:min-w-[320px] flex-shrink-0">
+                        <div class="h-48 bg-primary rounded-t-xl flex items-center justify-center text-white">
+                            <i class="fas fa-child text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="bg-secondary text-primary text-xs font-bold px-3 py-1 rounded-full">兒童英語</span>
+                            <h3 class="text-xl font-bold mt-3 mb-2">兒童英語啟蒙班</h3>
+                            <p class="text-gray-600 mb-4">寓教於樂的教學方式，培養孩子對英語的興趣與基礎能力。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">NT$ 7,500 / 10堂</span>
+                                <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition-colors">
+                                    了解更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 課程卡片 4 -->
+                    <div class="card bg-white rounded-xl shadow-md min-w-[280px] md:min-w-[320px] flex-shrink-0">
+                        <div class="h-48 bg-primary rounded-t-xl flex items-center justify-center text-white">
+                            <i class="fas fa-calculator text-5xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="bg-secondary text-primary text-xs font-bold px-3 py-1 rounded-full">數學</span>
+                            <h3 class="text-xl font-bold mt-3 mb-2">國中數學精進班</h3>
+                            <p class="text-gray-600 mb-4">紮實的數學基礎訓練，掌握解題技巧，提升學科成績。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">NT$ 9,600 / 12堂</span>
+                                <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition-colors">
+                                    了解更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#" class="inline-block border-2 border-primary text-primary font-bold py-3 px-8 rounded-full hover:bg-primary hover:text-white transition-colors">
+                    查看所有課程
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 成功案例 -->
+    <section class="py-16 bg-secondary">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">學員成功案例</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 成功案例 1 -->
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">王小明</h3>
+                            <p class="text-gray-600">成功申請美國UCLA</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">「感謝Stonebooks的專業輔導，讓我順利申請到UCLA的商學院。從選校、文件準備到面試，每一步都得到了細心的指導。」</p>
+                    <div class="flex items-center text-amber-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- 成功案例 2 -->
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">林小華</h3>
+                            <p class="text-gray-600">托福成績從83提升至105</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">「參加Stonebooks的托福衝刺班後，我的托福成績從83分提升到105分，順利達到理想學校的錄取標準。老師的教學方法非常有效！」</p>
+                    <div class="flex items-center text-amber-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- 成功案例 3 -->
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold mr-4">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg">陳小芳</h3>
+                            <p class="text-gray-600">國小英語能力大幅提升</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">「孩子參加Stonebooks的兒童英語課程後，不僅對英語產生濃厚興趣，聽說能力也有顯著提升。老師生動有趣的教學方式讓孩子非常喜歡。」</p>
+                    <div class="flex items-center text-amber-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 關於我們 -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="relative w-full max-w-md mx-auto">
+                        <div class="w-64 h-64 bg-primary rounded-full mx-auto flex items-center justify-center">
+                            <svg class="w-40 h-40 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z"/>
+                                <path d="M10 7H8v6h2zm6 0h-2v6h2z"/>
+                            </svg>
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-rose-300 rounded-full z-[-1]"></div>
+                        <div class="absolute -top-4 -left-4 w-24 h-24 bg-rose-200 rounded-full z-[-1]"></div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-8">
+                    <h2 class="text-3xl font-bold mb-6">關於 Stonebooks Studio</h2>
+                    <p class="text-gray-700 mb-4">Stonebooks Studio 成立於2010年，是一家專業的留遊學代辦與教育機構。我們致力於為學生提供優質的教育資源與國際交流機會，幫助他們實現學習目標與人生夢想。</p>
+                    <p class="text-gray-700 mb-6">我們的團隊由具有豐富國際教育經驗的顧問與專業教師組成，能夠提供全方位的留學規劃、語言培訓、學科輔導與旅遊服務。</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center">
+                            <div class="bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center mr-3">
+                                <i class="fas fa-user-graduate text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">3,000+</h4>
+                                <p class="text-sm text-gray-600">成功案例</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center mr-3">
+                                <i class="fas fa-globe text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">20+</h4>
+                                <p class="text-sm text-gray-600">合作國家</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center mr-3">
+                                <i class="fas fa-school text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">200+</h4>
+                                <p class="text-sm text-gray-600">合作學校</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡我們 -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">聯絡我們</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <form class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">電子郵件</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">電話</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div class="mb-4">
+                            <label for="service" class="block text-gray-700 font-medium mb-2">諮詢項目</label>
+                            <select id="service" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                <option value="">請選擇</option>
+                                <option value="study-abroad">留遊學諮詢</option>
+                                <option value="travel">旅遊行程</option>
+                                <option value="english">英文課程</option>
+                                <option value="tutoring">家教服務</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">訊息</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white font-bold py-3 px-6 rounded-lg hover:bg-rose-600 transition-colors">
+                            送出諮詢
+                        </button>
+                        <p class="text-center text-sm text-gray-500 mt-4">此為展示用表單，實際功能需後端支援</p>
+                    </form>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-white p-6 rounded-xl shadow-sm h-full">
+                        <h3 class="text-xl font-bold mb-6">聯絡資訊</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold">地址</h4>
+                                    <p class="text-gray-600">台北市大安區忠孝東路四段 123 號 5 樓</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold">電話</h4>
+                                    <p class="text-gray-600">(02) 2345-6789</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold">電子郵件</h4>
+                                    <p class="text-gray-600">info@stonebooks.studio</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="far fa-clock"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold">營業時間</h4>
+                                    <p class="text-gray-600">週一至週五 10:00-21:00<br>週六 10:00-18:00<br>週日公休</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-4">社群媒體</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-rose-600 transition-colors">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-rose-600 transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-rose-600 transition-colors">
+                                    <i class="fab fa-line"></i>
+                                </a>
+                                <a href="#" class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-rose-600 transition-colors">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常見問題 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">常見問題</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-4">
+                    <!-- FAQ 項目 1 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-btn w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors">
+                            <span class="font-bold text-left">申請留學需要準備哪些文件？</span>
+                            <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden p-4 border-t border-gray-200">
+                            <p class="text-gray-700">一般來說，留學申請需要準備的文件包括：成績單、語言成績證明（如托福、雅思）、推薦信、個人陳述、財力證明等。具體要求會因國家和學校而異，我們的顧問會根據您的目標提供詳細的文件清單和準備指導。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 項目 2 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-btn w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors">
+                            <span class="font-bold text-left">如何選擇適合的英文課程？</span>
+                            <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden p-4 border-t border-gray-200">
+                            <p class="text-gray-700">選擇英文課程時，應考慮自己的英語程度、學習目標（如日常溝通、考試準備、商業英語等）、可投入的時間等因素。我們提供免費的程度測試和課程諮詢，幫助您找到最適合的課程。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 項目 3 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-btn w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors">
+                            <span class="font-bold text-left">寒暑假營隊適合哪些年齡層的孩子？</span>
+                            <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden p-4 border-t border-gray-200">
+                            <p class="text-gray-700">我們的寒暑假營隊根據不同主題和內容設計，有適合國小、國中和高中不同年齡層的孩子參加。每個營隊都會標明適合的年齡範圍，並根據參與者的年齡特點設計相應的活動和課程內容。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 項目 4 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-btn w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors">
+                            <span class="font-bold text-left">家教服務如何收費？</span>
+                            <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden p-4 border-t border-gray-200">
+                            <p class="text-gray-700">家教服務的收費標準取決於課程內容、教師資歷、上課時數等因素。一對一家教和小班制教學的收費也有所不同。我們會根據您的需求提供詳細的收費方案，並提供靈活的課程包和優惠方案。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 項目 5 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-btn w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors">
+                            <span class="font-bold text-left">如何評估留學的預算？</span>
+                            <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-content hidden p-4 border-t border-gray-200">
+                            <p class="text-gray-700">留學預算需考慮學費、生活費、住宿費、交通費、保險費等多方面因素，且各國家和城市的花費差異較大。我們的顧問會根據您的目標國家和學校，提供詳細的預算評估和財務規劃建議，幫助您做好充分準備。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M21,5c0-1.1-0.9-2-2-2H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5z M12,6.5c0.83,0,1.5,0.67,1.5,1.5
+                            s-0.67,1.5-1.5,1.5s-1.5-0.67-1.5-1.5S11.17,6.5,12,6.5z M19,19H5v-1.5c0-1.99,4-3,7-3s7,1.01,7,3V19z"/>
+                        </svg>
+                        <span class="text-xl font-bold text-primary">Stonebooks Studio</span>
+                    </div>
+                    <p class="text-gray-400 max-w-xs">專業留遊學代辦與教育機構，為您打造全球學習之旅，實現人生夢想。</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fab fa-line"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">快速連結</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">首頁</a></li>
+                            <li><a href="#study-abroad" class="text-gray-400 hover:text-primary transition-colors">留遊學</a></li>
+                            <li><a href="#travel" class="text-gray-400 hover:text-primary transition-colors">旅遊</a></li>
+                            <li><a href="#courses" class="text-gray-400 hover:text-primary transition-colors">課程</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-primary transition-colors">關於我們</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-primary transition-colors">聯絡我們</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">服務項目</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">留遊學代辦</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">國內外旅遊</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">英文課程</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">家教服務</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">寒暑假營隊</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">幫助</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">常見問題</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">留學指南</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">報名流程</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">隱私政策</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2023 Stonebooks Studio. 版權所有。</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        // Tab functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const tabContents = document.querySelectorAll('.tab-content');
-            
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const tabId = button.getAttribute('data-tab');
-                    
-                    // Remove active class from all buttons and contents
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    tabContents.forEach(content => content.classList.remove('active'));
-                    
-                    // Add active class to current button and content
-                    button.classList.add('active');
-                    document.getElementById(tabId).classList.add('active');
+        // 行動裝置選單
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 課程輪播
+        const coursesCarousel = document.getElementById('courses-carousel');
+        const prevCourseBtn = document.getElementById('prev-course');
+        const nextCourseBtn = document.getElementById('next-course');
+        
+        prevCourseBtn.addEventListener('click', () => {
+            coursesCarousel.scrollBy({ left: -340, behavior: 'smooth' });
+        });
+        
+        nextCourseBtn.addEventListener('click', () => {
+            coursesCarousel.scrollBy({ left: 340, behavior: 'smooth' });
+        });
+        
+        // 留遊學方案輪播
+        const programsCarousel = document.getElementById('programs-carousel');
+        const prevProgramBtn = document.getElementById('prev-program');
+        const nextProgramBtn = document.getElementById('next-program');
+        
+        prevProgramBtn.addEventListener('click', () => {
+            programsCarousel.scrollBy({ left: -340, behavior: 'smooth' });
+        });
+        
+        nextProgramBtn.addEventListener('click', () => {
+            programsCarousel.scrollBy({ left: 340, behavior: 'smooth' });
+        });
+        
+        // 服務分類標籤
+        const serviceTabs = document.querySelectorAll('.service-tab');
+        const serviceContents = document.querySelectorAll('.tab-content');
+        
+        serviceTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 移除所有標籤的活躍狀態
+                serviceTabs.forEach(t => {
+                    t.classList.remove('bg-primary', 'text-white');
+                    t.classList.add('bg-gray-200', 'text-gray-700');
                 });
+                
+                // 設置當前標籤為活躍
+                tab.classList.remove('bg-gray-200', 'text-gray-700');
+                tab.classList.add('bg-primary', 'text-white');
+                
+                // 隱藏所有內容
+                serviceContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // 顯示對應內容
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
             });
-            
-            // FAQ functionality
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', () => {
-                    const answer = question.nextElementSibling;
-                    const isOpen = answer.classList.contains('hidden');
-                    
-                    // Close all answers
-                    document.querySelectorAll('.faq-answer').forEach(ans => {
-                        ans.classList.add('hidden');
+        });
+        
+        // FAQ 折疊功能
+        const faqBtns = document.querySelectorAll('.faq-btn');
+        
+        faqBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+                
+                // 切換內容顯示/隱藏
+                content.classList.toggle('hidden');
+                
+                // 旋轉箭頭圖標
+                if (content.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+        
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
                     });
                     
-                    // Toggle current answer
-                    if (isOpen) {
-                        answer.classList.remove('hidden');
+                    // 如果是行動裝置選單，點擊後關閉選單
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
                     }
-                });
+                }
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'937f11cfa28d3303',t:'MTc0NTkzMjU0MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9592cc9aa03f8f1f',t:'MTc1MTUwODEzMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
